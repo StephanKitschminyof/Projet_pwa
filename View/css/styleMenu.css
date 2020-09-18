@@ -1,0 +1,98 @@
+body{
+    color:white;
+    background-color: #2F3136;
+}
+
+#searchbox {
+    position: absolute;
+    top: 10%;
+    left: 25%;
+    display: flex;
+    height: 2em;
+    width: 50%;
+}
+
+input:focus::-webkit-input-placeholder {
+    color: transparent;
+}
+
+input:focus:-moz-placeholder {
+    color: transparent;
+}
+
+input:focus::-moz-placeholder {
+    color: transparent;
+}
+
+#searchbox input {
+    outline: none;
+}
+
+#searchbox input[type= "text"] {
+    background: transparent;
+    margin: 0;
+    padding: 0;
+    padding-left: 10px;
+    border-width: 0px;
+    font-family: "Arial Narrow", Arial, sans-serif;
+    font-size: 12px;
+    font-style: italic;
+    width: 90%;
+    height: 100%;
+    color: #828282;
+    display: inline-table;
+    vertical-align: baseline;
+    background-color: white;
+    border-radius: 20px 0px 0px 20px;
+    border-bottom: 2px solid transparent;
+    box-shadow: 0 2px 15px 0 rgb(255, 255, 255);
+}
+
+
+#button-recherche {
+    height: 2.15em;
+}
+
+#button-submit:hover {
+    background: url(../img/search-button-hover.png) no-repeat;
+}
+
+#button-submit::-moz-focus-inner {
+    border: 0;
+}
+
+/*
+* POUR LE SPINNER WHEEL
+*/
+
+
+#box{
+    position: absolute;
+    top: 20%;
+    left: 35%;
+    width: 400px;
+    height: 400px;
+  /*border-radius: 100%;
+    border: 1px solid teal;*/
+}
+
+#dot{
+    position: absolute;
+    border-radius: 100%;
+    width: 50%;
+    height: 50%;
+    left: 25%;
+    top: 25%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-color: lightslategrey;
+}
+
+#box img{
+    width: 20%;
+    height: 20%;
+    margin-left: -5%;
+    margin-top: -5%;
+    position: absolute;
+    border-radius: 100%;
+}
