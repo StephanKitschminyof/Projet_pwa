@@ -2,7 +2,7 @@
 session_start();
 include ("../../Model/script_bdd.php");
 function recupinfo(){
-    $idetu = 1;//id de l'étu
+    $idetu = $_SESSION['idEtudiant'];//id de l'étu
     $nombloc = $_GET['nombloc'];//nom du bloc recuperé de la page précédante
     $idcomp = $_GET['idcomp'];
 
