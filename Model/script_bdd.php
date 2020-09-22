@@ -31,13 +31,14 @@ function chercherBloc($nombloc)
 	return $reponse;
 }
 
-//Rechercher une promo
-function chercherPromo($nom)
+//Rechercher une promo par nom
+function chercherPromoParNom($nom)
 {
 	global $bdd;
 	$reponse = $bdd->query('SELECT * FROM promo WHERE nom = \'' . $nom . '\'');
 	return $reponse;
 }
+
 
 //Recherche d'une promo d'un étudiant
 function chercherPromoEtudiant($idpromo)
@@ -76,6 +77,14 @@ function chercherEtudiantParPrenom($prenom)
 {
 	global $bdd;
 	$reponse = $bdd->query('SELECT * FROM etudiant WHERE prenom = \'' . $prenom . '\'');
+	return $reponse;
+}
+
+//Rechercher un étudiant par son id uniquement
+function chercherEtudiantParId($idetu)
+{
+	global $bdd;
+	$reponse = $bdd->query('SELECT * FROM etudiant WHERE idetudiant = \'' . $idetu . '\'');
 	return $reponse;
 }
 
