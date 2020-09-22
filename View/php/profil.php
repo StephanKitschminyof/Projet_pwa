@@ -47,7 +47,7 @@ include ("../../Controler/profilControler.php");
 					</a>
 				</li>
 				<li class="liste-li">
-					<a href="#" class="liste-a">
+					<a href="menu.php" class="liste-a">
 						<div class="icone-menu"><img src="../img/menu/icone_accueil.png" alt="icone accueil"></div>
 					</a>
 				</li>
@@ -57,7 +57,7 @@ include ("../../Controler/profilControler.php");
 					</a>
 				</li>
 				<li class="liste-li">
-					<a href="#" class="liste-a">
+					<a href="pageConfig.php" class="liste-a">
 						<div class="icone-menu"><img src="../img/menu/icone_param.jpg" alt="icone réglage"></div>
 					</a>
 				</li>

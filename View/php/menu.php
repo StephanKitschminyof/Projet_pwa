@@ -120,12 +120,12 @@
 					</a>
 				</li>
 				<li class="liste-li">
-					<a href="#" class="liste-a">
+					<a href="profil.php" class="liste-a">
 						<div class="icone-menu"><img src="../img/menu/icone_profil.png" alt="icone profil"></div>
 					</a>
 				</li>
 				<li class="liste-li">
-					<a href="#" class="liste-a">
+					<a href="pageConfig.php" class="liste-a">
 						<div class="icone-menu"><img src="../img/menu/icone_param.jpg" alt="icone réglage"></div>
 					</a>
 				</li>
