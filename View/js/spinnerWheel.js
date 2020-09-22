@@ -12,7 +12,7 @@ diam = parseInt( window.getComputedStyle(circle).getPropertyValue('width') ),
 radius = diam/2,
 imgW = imgs[0].getBoundingClientRect().width,
 // get the dimensions of the inner circle we want the images to align to
-radius2 = radius - imgW + 50 //GERER L ECARTEMENT
+radius2 = radius - imgW + 100 //GERER L ECARTEMENT
 
 var i,
 alpha = Math.PI / 2, //GERER LA ROTATION
@@ -21,8 +21,8 @@ corner = 2 * Math.PI / total; //GERER DEMIE CERCLE peut être utile pour gérer 
 
 for ( i = 0 ; i < total; i++ ){
 
-imgs[i].style.left = parseInt( ( radius - imgW / 2 ) + ( radius2 * Math.cos( alpha ) ) ) + 20 + 'px' //ICI j'atoute +20 pour centrer
-imgs[i].style.top =  parseInt( ( radius - imgW / 2 ) - ( radius2 * Math.sin( alpha ) ) ) + 20 + 'px'
+imgs[i].style.left = parseInt( ( radius - imgW / 2 ) + ( radius2 * Math.cos( alpha ) ) ) + 30 + 'px' //ICI j'atoute +20 pour centrer
+imgs[i].style.top =  parseInt( ( radius - imgW / 2 ) - ( radius2 * Math.sin( alpha ) ) ) + 30 + 'px'
 
 alpha = alpha - corner;
 }
