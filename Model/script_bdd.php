@@ -39,8 +39,9 @@ function chercherPromoParNom($nom)
 	return $reponse;
 }
 
-//Rechercher une promo par id
-function chercherPromoParId($idpromo)
+
+//Recherche d'une promo d'un étudiant
+function chercherPromoEtudiant($idpromo)
 {
 	global $bdd;
 	$reponse = $bdd->query('SELECT * FROM promo WHERE idpromo = \'' . $idpromo . '\'');
@@ -333,3 +334,15 @@ function updateValide($idcomp, $idetu, $nombloc)
 	header("Location: ./pageCompetence.php?idcomp=". $idcomp ."&nombloc=". $nombloc);
 }
 
+//Récupérer les titres d'un étudiant TODO
+
+//Récupérer le titre actif d'un étudiant
+function chercherTitreActif($idEtudiant){
+	global $bdd;
+
+	$reponse = $bdd->query('SELECT nomtitre, img FROM titre 
+						INNER JOIN etudianttitre ON etudianttitre.idtitre = titre.idtitre 
+						WHERE etudianttitre.idetudiant = '.$idEtudiant.' 
+						AND etudianttitre.estSelectionne = 0');
+	return $reponse;
+}

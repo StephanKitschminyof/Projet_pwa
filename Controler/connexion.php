@@ -2,6 +2,8 @@
 session_start();
 include '../Model/script_bdd.php';
 
+echo "test";
+
 $erreur = false;
 
 //Test si l'identifiant a bien était rentré
@@ -22,6 +24,7 @@ else{
 if($erreur == true){echo "ah";}
 //Si les champs sont bien récupérer test dans la bdd
 if($erreur == false){
+    echo "ok";
     $reponse = chercherCompte($identifiant, $mdp);
     if($reponse){
         $result = $reponse->fetch();
@@ -41,7 +44,7 @@ if($erreur == false){
             }
             else{
                 //Erreur on laisse sur la page de connexion
-                
+                echo "probleme pour trouver étudiant";
             }
         }
         //Recherche enseignant
@@ -55,7 +58,11 @@ if($erreur == false){
             }
             else{
                 //Erreur on laisse sur la page de connexion
+                echo "probleme trouver enseignant";
             }
         }
+    }
+    else{
+        echo "pas trouvé l'etudiant";
     }
 }
