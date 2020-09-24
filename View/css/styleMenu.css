@@ -52,9 +52,6 @@ input:focus::-moz-placeholder {
     height: 5.2em;
 }
 
-#button-submit:hover {
-    background: url(../img/search-button-hover.png) no-repeat;
-}
 
 #button-submit::-moz-focus-inner {
     border: 0;
