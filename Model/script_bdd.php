@@ -175,6 +175,72 @@ function chercherCompetence($idcomp)
 	return $resultat;
 }
 
+//chercher tous les blocs
+function chercherBlocs()
+{
+	global $bdd;
+	$resultat = $bdd->query('SELECT * FROM bloc');
+	
+	return $resultat;
+}
+
+//chercher les competances qui doivent êtres validé
+function chercherCompetanceNotif($idcomp)
+{
+	global $bdd;
+
+	$resultat = $bdd->query('SELECT * FROM competanceetu WHERE idcompetance=\''.$idcomp.'\' AND date=\'NULL\' AND valide=1');
+	
+	return $resultat;
+}
+
+//chercher etudiants qui doivent valider la competence idcomp
+function chercherEtudiantParCompetence($idcomp)
+{
+	global $bdd;
+
+	$res = $bdd->query('SELECT * FROM competanceetu WHERE idcompetance=\''.$idcomp.'\' AND date=\'NULL\' AND valide=1');
+	
+	$r = $bdd->query('SELECT * FROM competanceetu WHERE idcompetance=\''.$idcomp.'\' AND date=\'NULL\' AND valide=1')->fetch();
+	$compstr = "(";
+	if($r == false){
+		$compstr = $compstr .  "'null',";
+
+	}
+	while($d = $res->fetch()){
+		$compstr = $compstr . $d['idetu'] . ",";
+	}
+	$compstr = substr($compstr,0,-1) . ")";			
+				
+	$resultat = $bdd->query('SELECT * FROM etudiant WHERE idetudiant IN ' . $compstr);
+				
+	return $resultat;
+}
+
+function chercherEtudiantComp($idcomp){
+	global $bdd;
+
+	$res = $bdd->query('SELECT idetu FROM competanceetu WHERE idcompetance=\''.$idcomp.'\' AND (valide=0 OR date!=\'NULL\')' );
+	
+	$compstr = "(";
+	$r = $bdd->query('SELECT idetu FROM competanceetu WHERE idcompetance=\''.$idcomp.'\' AND (valide=0 OR date!=\'NULL\')' )->fetch();
+	$compstr = "(";
+	if($r == false){
+		$compstr = $compstr .  "'null',";
+
+	}
+	while($d = $res->fetch()){
+		$compstr = $compstr . $d['idetu'] . ",";
+	}
+	$compstr = substr($compstr,0,-1) . ")";	
+
+	
+	
+	$resultat = $bdd->query('SELECT * FROM etudiant WHERE idetudiant IN ' . $compstr);
+	
+	return $resultat;
+}
+
 /*
 * PARTIE AJOUTER (INSERT)
 */
@@ -331,5 +397,30 @@ function updateValide($idcomp, $idetu, $nombloc)
 	));
 
 	header("Location: ./pageCompetence.php?idcomp=". $idcomp ."&nombloc=". $nombloc);
+}
+
+//maj de la date de validation
+function updateDateValide($date,$idcomp,$idetu){
+	global $bdd;
+
+	$req = $bdd->prepare('UPDATE competanceetu SET date=:date WHERE idcompetance=:idcomp AND idetu=:idetu');
+	$req->execute(array(
+		'date' => $date,
+		'idcomp' => $idcomp,
+		'idetu' => $idetu
+	));
+
+}
+
+//maj de la date de validation
+function updateXpEtu($idetu,$xp){
+	global $bdd;
+
+	$req = $bdd->prepare('UPDATE etudiant SET exp=:xp WHERE idetudiant=:idetu');
+	$req->execute(array(
+		'xp' => $xp,
+		'idetu' => $idetu
+	));
+
 }
 

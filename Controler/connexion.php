@@ -52,6 +52,8 @@ if($erreur == false){
                 $_SESSION['idEnseignant'] = $result['idenseignant'];
                 $_SESSION['nom'] = $result['nom'];
                 $_SESSION['prenom'] = $result['prenom'];
+
+                header('Location: ../View/php/pageAccueilE.php');
             }
             else{
                 //Erreur on laisse sur la page de connexion
