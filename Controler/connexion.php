@@ -2,8 +2,6 @@
 session_start();
 include '../Model/script_bdd.php';
 
-echo "test";
-
 $erreur = false;
 
 //Test si l'identifiant a bien était rentré
@@ -21,10 +19,11 @@ if(isset($_POST['mdp']) and !empty($_POST['mdp'])){
 else{
     $erreur = true;
 }
-if($erreur == true){echo "ah";}
+
+
+
 //Si les champs sont bien récupérer test dans la bdd
 if($erreur == false){
-    echo "ok";
     $reponse = chercherCompte($identifiant, $mdp);
     if($reponse){
         $result = $reponse->fetch();
@@ -39,7 +38,7 @@ if($erreur == false){
                 $_SESSION['idEtudiant'] = $result['idetudiant'];
                 $_SESSION['nom'] = $result['nom'];
                 $_SESSION['prenom'] = $result['prenom'];
-                echo "test";
+                $_SESSION["couleurProfil"] = $result['couleurProfil'];
                 header('Location: ../View/php/menu.php');
             }
             else{
