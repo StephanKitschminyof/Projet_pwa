@@ -6,8 +6,7 @@ include ("../../Controler/profilControler.php");
 <html>
     <head>
         <meta charset="utf-8">
-        <title>Profil Etudiant</title>
-        <link rel="stylesheet" href="View/css/bootstrap.min.css">
+        <title>Profil Etudiant</title>	
         <link rel="stylesheet" type="text/css" href="../css/styleProfil.css">
         <link rel="stylesheet" type="text/css" href="../css/style.css" />
         
@@ -22,14 +21,15 @@ include ("../../Controler/profilControler.php");
             <div id="profil-content-centre">
                 <?php 
                 $impProfilLink = "../img/profil/". $_SESSION['prenom'] . "-" . $_SESSION["nom"] . ".jpg";
-                echo ("<img src=".$impProfilLink." alt=\"image profil\">");?>
+                echo ("<img id=\"imgProfil\" src=".$impProfilLink." alt=\"image profil\">");?>
                 <p>NIV : <?php echo niv();?></p>
                 <p><?php echo xp();?> Xp</p>
             </div>
             <div id="titre-container">
-                <p id="titre"><?php echo titre($_SESSION["idEtudiant"])?></p>
+				<a href="selectTitle.php"><p id="titre"><?php echo titre($_SESSION["idEtudiant"])?></p></a>
             </div>
         </div>
+
 
 
 
@@ -65,5 +65,14 @@ include ("../../Controler/profilControler.php");
 		</div>
 	</footer>
 
+
+	<script type="text/javascript" src="../js/colorSelector.js"></script>
+	<script>
+		var color = <?php echo json_encode($_SESSION["couleurProfil"]);?>;
+		setColorProfil(color);
+	</script>
+
+
+	
     </body>
 </html>

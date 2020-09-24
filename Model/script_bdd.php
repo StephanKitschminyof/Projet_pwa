@@ -256,16 +256,17 @@ function chercherPromo(){
 */
 
 //Ajouter un etudiant
-function ajouterEtudiant($nom, $prenom, $exp, $idpromo, $compte)
+function ajouterEtudiant($nom, $prenom, $exp, $idpromo, $compte, $color)
 {
 	global $bdd;
-	$req = $bdd->prepare('INSERT INTO etudiant(nom, prenom, exp, idpromo, compte) VALUES(:nom, :prenom, :exp, :idpromo, :compte)');
+	$req = $bdd->prepare('INSERT INTO etudiant(nom, prenom, exp, idpromo, compte, couleurProfil) VALUES(:nom, :prenom, :exp, :idpromo, :compte, :couleurProfil)');
 	$req->execute(array(
 		'nom' => $nom,
 		'prenom' => $prenom,
 		'exp' => $exp,
 		'idpromo' => $idpromo,
-		'compte' => $compte
+		'compte' => $compte,
+		'couleurProfil' => $color
 	));
 }
 //Ajouter un enseignant
@@ -408,6 +409,20 @@ function updateValide($idcomp, $idetu, $nombloc)
 
 	header("Location: ./pageCompetence.php?idcomp=". $idcomp ."&nombloc=". $nombloc);
 }
+
+//maj de la couleurProfil d'un étudiant 
+function updateCouleurProfil($idetudiant, $color)
+{
+	global $bdd;
+
+	$req = $bdd->prepare('UPDATE etudiant SET couleurProfil = :couleurProfil WHERE idetudiant = :idetudiant');
+	$req->execute(array(
+		'idetudiant' => $idetudiant,
+		'couleurProfil' => $color
+	));
+}
+
+//Récupérer les titres d'un étudiant TODO
 
 //Récupérer le titre actif d'un étudiant
 function chercherTitreActif($idEtudiant){

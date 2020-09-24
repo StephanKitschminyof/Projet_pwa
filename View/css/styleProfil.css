@@ -38,7 +38,7 @@ header p{
 
 #profil-content-centre img {
     border-radius: 100%;
-    border: 6px solid yellow;
+    border: 6px solid;
     width: 400px;
     height: 400px;
 }
@@ -58,4 +58,23 @@ header p{
 
 #titre{
 
+}
+
+#paletteColor {
+    position: absolute;
+    left: 50%; top: 25%;
+    transform: translate(-50%, -50%);
+}
+
+#paletteColor button{
+    width: 8em;
+    height: 8em;
+    border-radius: 50%;
+}
+
+
+#paletteColor input{
+    width: 8em;
+    height: 8em;
+    border-radius: 50%;
 }
