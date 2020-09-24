@@ -6,7 +6,7 @@ include '../Model/script_bdd.php';
 //var_dump($_POST);
 
 if(isset($_POST['promos']) and !empty($_POST['promos'])){
-    header("Location: ../View/php/");//redirection vers la liste des promos dans php
+    header("Location: ../View/php/pagePromoE.php");//redirection vers la liste des promos dans php
 
 }elseif(isset($_POST['blocs']) and !empty($_POST['blocs'])){
     header("Location: ../View/php/pageBlocE.php");//redirection vers la liste des blocs

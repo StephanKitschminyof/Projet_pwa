@@ -241,6 +241,15 @@ function chercherEtudiantComp($idcomp){
 	return $resultat;
 }
 
+//rechercher toutes les promos
+function chercherPromo(){
+	global $bdd;
+	
+	$resultat = $bdd->query('SELECT * FROM promo');
+
+	return $resultat;
+}
+
 /*
 * PARTIE AJOUTER (INSERT)
 */
