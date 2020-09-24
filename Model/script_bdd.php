@@ -250,6 +250,16 @@ function chercherPromo(){
 	return $resultat;
 }
 
+//rechercher toutes les promos
+function chercherPromoEleve($idpromo){
+	global $bdd;
+	
+	$resultat = $bdd->query('SELECT * FROM etudiant WHERE idpromo='.$idpromo);
+
+	return $resultat;
+}
+
+
 /*
 * PARTIE AJOUTER (INSERT)
 */
