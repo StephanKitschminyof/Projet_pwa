@@ -53,3 +53,13 @@ function titre($idEtudiant){
         return "noob tu n'as pas de titre";
     }
 }
+
+function listeTitres($idEtudiant)
+{
+    return chercherTitres($idEtudiant);
+}
+
+function listeTitresLock($idEtudiant)
+{
+    
+}

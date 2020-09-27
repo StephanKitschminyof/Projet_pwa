@@ -86,3 +86,18 @@ header p{
     width: 12em;
     height: 8em;
 }
+
+#listeTitresDispo{
+    position: absolute;
+    top: 10%; left: 50%;
+    display: flex;
+    flex-direction: column;
+    transform: translate(-50%,0);
+}
+
+#listeTitresDispo input{
+    margin-bottom: 0.5em;
+    font-size: 4em;
+    padding: 5px;
+    border-radius: 25px;
+}

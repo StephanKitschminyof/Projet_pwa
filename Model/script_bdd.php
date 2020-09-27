@@ -423,6 +423,14 @@ function updateCouleurProfil($idetudiant, $color)
 }
 
 //Récupérer les titres d'un étudiant TODO
+function chercherTitres($idEtudiant){
+	global $bdd;
+
+	$reponse = $bdd->query('SELECT * FROM titre
+						INNER JOIN etudianttitre ON etudianttitre.idtitre = titre.idtitre
+						WHERE etudianttitre.idetudiant = '.$idEtudiant);
+	return $reponse;
+}
 
 //Récupérer le titre actif d'un étudiant
 function chercherTitreActif($idEtudiant){
@@ -431,9 +439,10 @@ function chercherTitreActif($idEtudiant){
 	$reponse = $bdd->query('SELECT nomtitre, img FROM titre 
 						INNER JOIN etudianttitre ON etudianttitre.idtitre = titre.idtitre 
 						WHERE etudianttitre.idetudiant = '.$idEtudiant.' 
-						AND etudianttitre.estSelectionne = 0');
+						AND etudianttitre.estSelectionne = TRUE');
 	return $reponse;
 }
+
 
 //maj de la date de validation
 function updateDateValide($date,$idcomp,$idetu){
@@ -457,5 +466,25 @@ function updateXpEtu($idetu,$xp){
 		'xp' => $xp,
 		'idetu' => $idetu
 	));
+}
 
+//Rendre un nouveau titre actif
+function updateTitreActif($idetudiant, $idtitre){
+	global $bdd;
+
+	$req = $bdd->prepare('UPDATE etudianttitre SET estSelectionne = TRUE WHERE idetudiant=:idetudiant AND idtitre=:idtitre');
+	$req->execute(array(
+		'idetudiant' => $idetudiant,
+		'idtitre' => $idtitre
+	));
+}
+
+//Enlever le fait que le titre soit actif
+function updateTitreDesactif($idetudiant){
+	global $bdd;
+
+	$req = $bdd->prepare('UPDATE etudianttitre SET estSelectionne = FALSE WHERE idetudiant=:idetudiant AND estSelectionne = TRUE');
+	$req->execute(array(
+		'idetudiant' => $idetudiant
+	));
 }

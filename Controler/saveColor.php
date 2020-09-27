@@ -11,4 +11,4 @@ if(isset($_POST['color']) and !empty($_POST['color'])){
 //Sauvegarder le nouveau title TODO
 
 
-header("Location: ../View/php/selectTitle.php");
+header("Location: ../View/php/selectColor.php");
