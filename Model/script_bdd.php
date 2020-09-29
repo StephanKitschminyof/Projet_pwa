@@ -123,7 +123,7 @@ function chercherEnseignantParPrenom($prenom)
 function chercherBlocEtudiant($idEtudiant)
 {
 	global $bdd;
-	$reponse = $bdd->query('SELECT bloc.idbloc, bloc.nombloc FROM etudiantbloc INNER JOIN etudiant ON etudiantbloc.idEtudiant = etudiant.idetudiant INNER JOIN bloc ON etudiantbloc.idBloc = bloc.idbloc WHERE etudiant.idetudiant = 1');
+	$reponse = $bdd->query('SELECT bloc.idbloc, bloc.nombloc FROM etudiantbloc INNER JOIN etudiant ON etudiantbloc.idEtudiant = etudiant.idetudiant INNER JOIN bloc ON etudiantbloc.idBloc = bloc.idbloc WHERE etudiant.idetudiant = '.$idEtudiant);
 	return $reponse;
 }
 
@@ -257,6 +257,14 @@ function chercherPromoEleve($idpromo){
 	$resultat = $bdd->query('SELECT * FROM etudiant WHERE idpromo='.$idpromo);
 
 	return $resultat;
+}
+
+//Chercher les blocs d'un étudiant TODO
+function chercherBlocEtu($idEtudiant)
+{
+	global $bdd;
+	$reponse = $bdd->query('SELECT DISTINCT bloc.idbloc, bloc.nombloc FROM competanceetu INNER JOIN competances ON competanceetu.idcompetance = competances.idcompetances INNER JOIN etudiant ON competanceetu.idetu = etudiant.idetudiant INNER JOIN bloc ON bloc.idbloc = competances.idbloc WHERE competanceetu.idetu = '.$idEtudiant);
+	return $reponse;
 }
 
 

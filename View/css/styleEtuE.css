@@ -1,0 +1,42 @@
+html{
+    height: 100%;
+    width: 100%;
+}
+
+body{
+    background-color: #2F3136;
+    min-height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+h1{
+    color: #CACACA;
+    height: 15vw;
+    font-size: 10vw;
+    margin-left: 5vw;
+}
+
+p{
+    color: #CACACA;
+    height: 55vw;
+    font-size: 5vw;
+    margin-left: 5vw;
+    margin-right: 5vw;
+
+}
+
+button,input{
+    color: #CACACA;
+    background-color: #36393F;
+    border-radius: 30px;
+    height: 15vw;
+    width: 33%;
+    border:1px solid #CACACA;
+    margin-bottom: 10vw;
+    margin-left: 11vw;
+    margin-bottom: 12vw;
+    font-size: 5vw;
+
+}
+
