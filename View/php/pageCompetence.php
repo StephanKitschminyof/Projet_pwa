@@ -28,6 +28,7 @@ if ($_POST) {
 	<meta charset="UTF-8">
 	<title><?php echo "Competances :" . $tab_info['infocomp']['nomcomp']; ?> </title>
 	<link rel="stylesheet" type="text/css" href="../css/style.css" />
+	<link rel = "manifest" href = "../manifest.json">
 </head>
 <body>
 

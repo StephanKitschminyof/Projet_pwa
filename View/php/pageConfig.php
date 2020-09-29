@@ -12,6 +12,7 @@ $tab_info = recupinfo();
 	<title><?php echo "Configuration"; ?> </title>
     <link rel="stylesheet" type="text/css" href="../css/style.css" />
     <link rel="stylesheet" type="text/css" href="../css/styleConfig.css" />
+	<link rel = "manifest" href = "../manifest.json">
 </head>
 <body>
 	<?php 

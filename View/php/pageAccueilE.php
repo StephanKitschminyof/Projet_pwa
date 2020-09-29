@@ -6,7 +6,7 @@
         <title>Accueil enseignant</title>
         <link rel="stylesheet" type="text/css" href="../css/styleAccueilE.css">
         <link rel="stylesheet" type="text/css" href="../css/styleBottomMenu.css">
-
+        <link rel = "manifest" href = "../manifest.json">
     </head>
 
     <body>

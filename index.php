@@ -7,7 +7,7 @@
         <title>Page de connexion</title>
         <link rel="stylesheet" href="View/css/bootstrap.min.css">
         <link rel="stylesheet" href="View/css/styleConnexion.css">
-        
+        <link rel = "manifest" href = "./manifest.json">
     </head>
     <body>
         <h1>NOM DE L'APP</h1>
