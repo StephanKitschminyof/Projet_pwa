@@ -113,13 +113,10 @@
                     var dif = firstMove.targetTouches[0].clientX - lastMove.targetTouches[0].clientX;
                     if( dif < 0 && Math.abs(dif)>(w/3)){
                         console.log("droite");
-                        spinnerSuiv();
+                        spinnerPrec();
                     }else if( dif > 0 && Math.abs(dif)>(w/3)){
                         console.log("gauche");
-                        spinnerPrec();
-                    }else{
-                        console.log("osef");
-                    }
+                        spinnerSuiv();
                 });
             
             </script>
