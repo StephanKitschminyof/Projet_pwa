@@ -2,17 +2,20 @@
 session_start();
 include '../Model/script_bdd.php';
 
-if(isset($_POST['idtitre']) and !empty($_POST['nomtitre'])){
+if(isset($_POST['nomtitre']) and !empty($_POST['nomtitre'])){
 
     //Trouver l'id du titre
-    $idtitre = chercherIdTitre($_POST["nomtitre"]);
+    $reponse = chercherIdTitre($_POST["nomtitre"]);
 
-    //Changer la variable globale
-    $_SESSION["idTitre"] =$idtitre;
+    if($idtitre = $reponse->fetch()){
+        //Changer la variable globale
+        $_SESSION["idTitre"] = $idtitre["idtitre"];
 
-    //Changer le titre de l'étudiant par le nouveau
-    updateTitre($_SESSION["idEtudiant"], $_SESSION["idTitre"]);
+        //Changer le titre de l'étudiant par le nouveau
+        updateTitre($_SESSION["idEtudiant"], $_SESSION["idTitre"]);
+    }
+    
 }
 
-header("Location: ../View/php/selectTitle.php");
+header("Location: ../View/php/profil.php");
 

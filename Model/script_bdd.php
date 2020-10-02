@@ -217,7 +217,7 @@ function chercherEtudiantParCompetence($idcomp)
 //Chercher l'id d'un titre a partir de son nom
 function chercherIdTitre($nomTitre){
 	global $bdd;
-	$res = $bdd->query('SELECT idtitre FROM titre WHERE nomtitre ='.$nomTitre);
+	$res = $bdd->query('SELECT idtitre FROM titre WHERE nomtitre = \'' .$nomTitre.'\'');
 	return $res;
 }
 
@@ -437,14 +437,13 @@ function chercherTitreUnlock($idBloc, $pourcentage){
 function chercherTitre($idTitre){
 	global $bdd;
 
-	$reponse = $bdd->query('SELECT * FROM titre WHERE idtitre = ' . $idTitre);
+	$reponse = $bdd->query('SELECT * FROM titre WHERE idtitre = \'' .$idTitre.'\'');
 	return $reponse;
 }
 
 function updateTitre($idEtudiant, $idtitre){
 	global $bdd;
-	var_dump($idEtudiant);
-	var_dump($idtitre);
+	
 	$req = $bdd->prepare('UPDATE etudiant SET idtitre=:idtitre WHERE idetudiant=:idetudiant');
 	$req->execute(array(
 		'idtitre' => $idtitre,
