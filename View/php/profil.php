@@ -21,7 +21,7 @@ include ("../../Controler/profilControler.php");
             <div id="profil-content-centre">
                 <?php 
                 $impProfilLink = "../img/profil/". $_SESSION['prenom'] . "-" . $_SESSION["nom"] . ".jpg";
-                echo ("<img id=\"imgProfil\" src=".$impProfilLink." alt=\"image profil\">");?>
+                echo ("<a href='pageConfig.php'><img id=\"imgProfil\" src=".$impProfilLink." alt=\"image profil\"></a>");?>
                 <p>NIV : <?php echo niv();?></p>
                 <p><?php echo xp();?> Xp</p>
             </div>

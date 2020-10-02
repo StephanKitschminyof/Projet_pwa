@@ -236,6 +236,14 @@ function chercherBlocEtu($idEtudiant)
 	return $reponse;
 }
 
+//chercher le mot de passe d'un etu
+function chercherMdp($idetu){
+	global $bdd;
+
+	$resultat = $bdd->query('SELECT compte.idcompte,compte.password FROM compte INNER JOIN etudiant ON etudiant.compte = compte.idcompte WHERE etudiant.idetudiant='.$idetu);
+
+	return $resultat;
+}
 
 /*
 * PARTIE AJOUTER (INSERT)
@@ -444,4 +452,16 @@ function updateXpEtu($idetu,$xp){
 		'idetu' => $idetu
 	));
 
+}
+
+
+//maj du mdp d'un etu
+function updateMdp($idcompte, $mdp){
+	global $bdd;
+
+	$req = $bdd->prepare('UPDATE compte SET password=:pass WHERE idcompte=:idcompte');
+	$req->execute(array(
+		'pass' => $mdp,
+		'idcompte' => $idcompte
+	));
 }

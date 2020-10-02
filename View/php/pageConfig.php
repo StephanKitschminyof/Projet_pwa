@@ -4,6 +4,23 @@ include ("../../Controler/pageConfigControler.php");
 
 $tab_info = recupinfo();
 
+if ($_POST) {
+    if (isset($_POST['mdpa']) && isset($_POST['nmdp']) && isset($_POST['cmdp'])){
+        $mdp = chercherMdp($_SESSION['idEtudiant'])->fetch();
+        if($mdp['password'] == $_POST['mdpa']){
+            if($_POST['nmdp'] == $_POST['cmdp']){
+                updateMdp($mdp['idcompte'], $_POST['nmdp']);
+                
+            }else{
+                //gestion des erreurs -> nvx mot de passe =/= confirmation 
+            }
+        }else{
+            //gestion des erreurs -> ancien mot de passe =/= mdp base
+		}
+    }
+}
+
+
 
 ?>
 <html>
@@ -49,13 +66,13 @@ $tab_info = recupinfo();
     <div  class="form">
     <form method="post">
         <label for="mdpa">Mot de passe actuel</label>
-        <input class="champ" type="text" id="mdpa" />
+        <input class="champ" type="text" id="mdpa" name="mdpa" />
 
         <label for="nmdp">Nouveau mot de passe</label>
-        <input class="champ" type="text" id="nmdp" />
+        <input class="champ" type="text" id="nmdp" name="nmdp"/>
 
         <label for="cmdp">Confirmation du nouveau mot de passe</label>
-        <input class="champ" type="text" id="cmdp" />
+        <input class="champ" type="text" id="cmdp" name="cmdp"/>
 
         <input type="submit" name="valider" value="Valider" />
 
