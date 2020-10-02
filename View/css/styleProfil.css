@@ -57,7 +57,6 @@ header p{
 }
 
 #titre-container #Color{
-    background-color: red;
     border-radius: 50%;
     height: 1.5em;
     width: 1.5em;
@@ -73,26 +72,30 @@ header p{
     transform: translate(-50%, 0%);
     padding: 0.5em 0.8em;
 }
-/*
-#titre-container #linkColor{
-    background-color: red;
-    padding: 0.5em 1em;
-    border-radius: 50%;
-    position: relative;
-    top:50%; left:50%;
-    transform: translate(-50%, -50%);
-}*/
+
+#choix{
+    position: absolute;
+    top: 20%; left: 50%;
+    transform: translate(-50%,-50%);
+    text-align: center;
+    font-size: 5em;
+}
 
 #paletteColor {
     position: absolute;
-    left: 50%; top: 25%;
+    left: 50%; top: 60%;
     transform: translate(-50%, -50%);
 }
+
+
 
 #paletteColor button{
     width: 8em;
     height: 8em;
     border-radius: 50%;
+    position: relative;
+    top: 80%; left: 25%;
+    transform: translate(-50%, -50%);
 }
 
 
@@ -104,7 +107,7 @@ header p{
 
 #colorPick{
     position: absolute;
-    left: 50%; top: 45%;
+    left: 50%; top: 80%;
     transform: translate(-50%, -50%);
     width: 12em;
     height: 8em;

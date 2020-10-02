@@ -16,7 +16,10 @@ include ("../../Controler/profilControler.php");?>
             <p id="profil-header-right"><?php echo nomPromo(); ?></p>
         </header>
 
+        <h1 id="choix">Changer votre couleur</h1>
         <div id=paletteColor>
+            
+            
             <?php 
                 //Création de la matrice représentant la palette de couleur 
                 $matriceColor = array();
@@ -54,7 +57,6 @@ include ("../../Controler/profilControler.php");?>
         </div>
 
 
-        
         <?php if($lvl>=100){ ?>
             <input type="color" id="colorPick" name="colorPick" value="#e66465">
         <?php } else{ ?>
@@ -66,7 +68,7 @@ include ("../../Controler/profilControler.php");?>
     <script type="text/javascript" src="../js/colorSelector.js"></script>
     <script>
 		var color = <?php echo json_encode($_SESSION["couleurProfil"]);?>;
-		setColorSelectTitle(color);
+		setColorSelectColor(color);
 	</script>
     </body>
 </html>
