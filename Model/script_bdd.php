@@ -245,6 +245,15 @@ function chercherMdp($idetu){
 	return $resultat;
 }
 
+//chercher une date pour une comp d'un etu
+function chercherDate($idetu,$idcomp){
+	global $bdd;
+
+	$resultat = $bdd->query('SELECT date FROM competanceetu WHERE idetu='.$idetu.' AND idcompetance='.$idcomp);
+
+	return $resultat;
+}
+
 /*
 * PARTIE AJOUTER (INSERT)
 */

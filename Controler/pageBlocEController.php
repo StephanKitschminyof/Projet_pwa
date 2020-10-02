@@ -44,6 +44,8 @@ function liste_bloc(){
 
 
     echo "</ul>";
+
+    echo '<form method="post"><input type="submit" class="ajout" value="+" name="ajout" /></form>';
 }
 
 

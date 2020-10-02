@@ -12,6 +12,7 @@ function recupinfo(){
 
     $dejaConnue = in_array($infocomp,$listeCompetenceEtu);
    
+
     return $tab_info =  array(
         "idetu" => $idetu,
         "nombloc" => $nombloc,
