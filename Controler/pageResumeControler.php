@@ -7,6 +7,12 @@ include ("../../Model/script_bdd.php");
         return $blocs;
     }
 
+    function recuppromo(){
+        $etudiant = chercherEtudiantParIdcompte($_SESSION['idEtudiant'])->fetch();
+        $promo = chercherPromoEtudiant($etudiant['idpromo'])->fetch();
+        return $promo;
+    }
+
     function createaccordion($blocs){
         // Zone de l'accordion
         echo "<div class=\"wrap_body\">";
@@ -26,16 +32,15 @@ include ("../../Model/script_bdd.php");
             $competence = chercherCompetencesBlocEtu($value1['idbloc'],$_SESSION['idEtudiant'])->fetchAll();
             // Pour chaque compétence du bloc : création d'une div de compétence dans le .collapse
             foreach ($competence as &$value2) {
-                echo "<div class=\"bloc_resume_competence debloque\"><p class=\"nom_competence\">".$value2['nomcomp']."</p><p class=\"date_acqu\">";
-                if($value2['valide'] == 1 && $value2['date']=="NULL")
+                $prog = chercherCompetenceEtu($value2['idcompetances'],$_SESSION['idEtudiant'])->fetch();
+                if($prog['valide'] == 1 && $prog['date']=="NULL")
                 {
-                    echo "—"; // Si la compétence n'est pas encore validée
+                    echo "<div class=\"bloc_resume_competence\"><p class=\"nom_competence\">".$value2['nomcomp']."</p><p class=\"date_acqu\">—</p></div>"; // Si la compétence n'est pas encore validée
                 }
                 else
                 {
-                    echo "".$value2['date'].""; // Si la compétence est validée
+                    echo "<div class=\"bloc_resume_competence debloque\"><p class=\"nom_competence\">".$value2['nomcomp']."</p><p class=\"date_acqu\">".$prog['date']."</p></div>"; // Si la compétence est validée
                 }
-                echo "</p></div>";
             }
             echo "</div>";    
         }

@@ -115,7 +115,7 @@ img{
 .bloc_resume_competence{
     display: flex;
     position: relative;
-    width: 90%;
+    width: 100%;
     align-content: center;
     flex-direction: row;
     border-left: #a3a3a3 solid 2px;
@@ -129,12 +129,11 @@ img{
     display: block;
     position: relative;
     margin-right: auto;
-    margin-left: auto;
+    margin-left: 5em;
 }
 
 .date_acqu{
     display: block;
     position: relative;
     margin-right: 0;
-    margin-left: auto;
 }

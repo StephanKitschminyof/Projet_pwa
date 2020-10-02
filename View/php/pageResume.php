@@ -2,6 +2,7 @@
 <?php
     include ("../../Controler/pageResumeControler.php");
     $blocs = recupinfo();
+    $prom = recuppromo();
 ?>
 <html>
 <head>
@@ -20,7 +21,7 @@
             <div class="header_bloc or">
                 <?php 
                     echo "<p class=\"nom_etu\">".$_SESSION['nom']." ".$_SESSION['prenom']."</p>";
-                    echo "<p class=\"section\">M12</p>";
+                    echo "<p class=\"section\">".$prom['nom']."</p>";
                 ?>
             </div>
         </div>
