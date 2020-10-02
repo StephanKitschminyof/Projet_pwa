@@ -20,7 +20,9 @@ $tab_titresLock = listeTitresLock($_SESSION["idEtudiant"]);
             <p id="profil-header-right"><?php echo nomPromo(); ?></p>
         </header>
 
-       <div id="listeTitresDispo">
+        
+        <div id="listeTitresDispo">
+            <h1>Choisisez votre couleur :</h1>
             <?php
                 while($donnees = $tab_titres->fetch())
                 {
@@ -32,6 +34,9 @@ $tab_titresLock = listeTitresLock($_SESSION["idEtudiant"]);
             ?>
        </div>
 
+        <div>
+            <a id="boutonNext" href="selectColor.php">Modifier votre couleur</a>
+        </div>
         <?php include("./bottom_menu.php");?>
 
     <script type="text/javascript" src="../js/colorSelector.js"></script>

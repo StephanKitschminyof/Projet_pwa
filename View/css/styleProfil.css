@@ -44,7 +44,7 @@ header p{
 }
 
 #titre-container {
-    text-align: center;
+    display: flex;
     position: absolute;
     top: 70%; left: 50%;
     transform: translate(-50%, -50%);
@@ -54,6 +54,22 @@ header p{
     border: 1px solid;
     background-color: #4A4C50;
     border-radius: 25px;
+    text-align: center;
+}
+
+#titre-container #Color{
+    background-color: yellow;
+    border-radius: 50%;
+    height: 1.3em;
+    width: 1.3em;
+    position: relative;
+    top: 25%; left: 10%;
+}
+
+#titre-container a{
+    text-decoration: none;
+    position: relative;
+    top: 30%; left: 25%;
 }
 
 #titre{
@@ -95,9 +111,30 @@ header p{
     transform: translate(-50%,0);
 }
 
+#listeTitresDispo h1{
+    font-size: 3em;
+}
+
+
 #listeTitresDispo input{
     margin-bottom: 0.5em;
     font-size: 4em;
     padding: 5px;
     border-radius: 25px;
+}
+
+
+#boutonNext {
+    position: absolute;
+    top: 70%; left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 5em;
+    width: 75%;
+    padding: 0.5em 0;
+    border: 1px solid;
+    background-color: #4A4C50;
+    border-radius: 25px;
+    text-align: center;
+    text-decoration: none; 
+    color: white;
 }

@@ -26,6 +26,7 @@ include ("../../Controler/profilControler.php");
                 <p><?php echo xp();?> Xp</p>
             </div>
             <div id="titre-container">
+                <div id="Color"></div>
 				<a href="selectTitle.php"><p id="titre"><?php echo titre($_SESSION["idEtudiant"])?></p></a>
             </div>
         </div>
