@@ -46,11 +46,10 @@ header p{
 #titre-container {
     display: flex;
     position: absolute;
-    top: 70%; left: 50%;
+    top: 80%; left: 50%;
     transform: translate(-50%, -50%);
     font-size: 5em;
     width: 75%;
-    padding: 0.5em 0;
     border: 1px solid;
     background-color: #4A4C50;
     border-radius: 25px;
@@ -58,23 +57,31 @@ header p{
 }
 
 #titre-container #Color{
-    background-color: yellow;
+    background-color: red;
     border-radius: 50%;
-    height: 1.3em;
-    width: 1.3em;
+    height: 1.5em;
+    width: 1.5em;
     position: relative;
-    top: 25%; left: 10%;
+    top: 50%; left: 10%;
+    transform: translate(0%, 25%);
 }
 
-#titre-container a{
+#titre-container #linkTitle{
     text-decoration: none;
     position: relative;
-    top: 30%; left: 25%;
+    top: 50%; left: 50%;
+    transform: translate(-50%, 0%);
+    padding: 0.5em 0.8em;
 }
-
-#titre{
-
-}
+/*
+#titre-container #linkColor{
+    background-color: red;
+    padding: 0.5em 1em;
+    border-radius: 50%;
+    position: relative;
+    top:50%; left:50%;
+    transform: translate(-50%, -50%);
+}*/
 
 #paletteColor {
     position: absolute;
