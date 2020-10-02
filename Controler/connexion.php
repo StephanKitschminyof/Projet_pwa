@@ -35,10 +35,13 @@ if($erreur == false){
             $reponse = chercherEtudiantParIdcompte($idCompte);
             if($reponse){ //Si un étudiant est trouvé alors on le connecte
                 $result = $reponse->fetch();
+
+                //Récupération de toute les valeurs de l'étudiant pour limiter l'accès a la bdd
                 $_SESSION['idEtudiant'] = $result['idetudiant'];
                 $_SESSION['nom'] = $result['nom'];
                 $_SESSION['prenom'] = $result['prenom'];
                 $_SESSION["couleurProfil"] = $result['couleurProfil'];
+                $_SESSION["idTitre"] = $result['idtitre'];
                 header('Location: ../View/php/menu.php');
             }
             else{

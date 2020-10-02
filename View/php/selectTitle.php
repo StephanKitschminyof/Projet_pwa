@@ -1,8 +1,8 @@
 <?php session_start(); 
 include ("../../Controler/profilControler.php");
 
+//récupérations des titres a afficher
 $tab_titres = listeTitres($_SESSION["idEtudiant"]);
-$tab_titresLock = listeTitresLock($_SESSION["idEtudiant"]);
 ?>
 
 <!DOCTYPE html>
@@ -20,23 +20,19 @@ $tab_titresLock = listeTitresLock($_SESSION["idEtudiant"]);
             <p id="profil-header-right"><?php echo nomPromo(); ?></p>
         </header>
 
-        
+        <h1 id="choix">Choisissez votre titre :</h1>
         <div id="listeTitresDispo">
-            <h1>Choisisez votre couleur :</h1>
             <?php
-                while($donnees = $tab_titres->fetch())
+                for($i = 0; $i < count($tab_titres); $i++)
                 {
                     echo "<form action=\"../../Controler/saveTitre.php\" method=\"post\">";
-                        echo "<input name=\"idtitre\" type=\"hidden\" value=\"".$donnees["idtitre"]."\">";
-                        echo "<input type=\"submit\" value=\"".$donnees["nomtitre"]."\" >"; 
+                        echo "<input name=\"nomtitre\" type=\"hidden\" value=\"".$tab_titres[$i]."\">";
+                        echo "<input type=\"submit\" value=\"".$tab_titres[$i]."\" >"; 
                     echo "</form>";
                 }
             ?>
        </div>
 
-        <div>
-            <a id="boutonNext" href="selectColor.php">Modifier votre couleur</a>
-        </div>
         <?php include("./bottom_menu.php");?>
 
     <script type="text/javascript" src="../js/colorSelector.js"></script>

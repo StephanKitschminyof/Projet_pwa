@@ -115,7 +115,7 @@ header p{
 
 #listeTitresDispo{
     position: absolute;
-    top: 10%; left: 50%;
+    top: 30%; left: 50%;
     display: flex;
     flex-direction: column;
     transform: translate(-50%,0);

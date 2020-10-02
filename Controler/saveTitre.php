@@ -2,17 +2,17 @@
 session_start();
 include '../Model/script_bdd.php';
 
-//Sauvegarder le nouveau titre
-if(isset($_POST['idtitre']) and !empty($_POST['idtitre'])){
-    //Désactiver l'ancien titre
-    updateTitreDesactif($_SESSION["idEtudiant"]);
+if(isset($_POST['idtitre']) and !empty($_POST['nomtitre'])){
 
-    //Rendre actif le nouveau titre
-    updateTitreActif($_SESSION["idEtudiant"], $_POST["idtitre"]);
+    //Trouver l'id du titre
+    $idtitre = chercherIdTitre($_POST["nomtitre"]);
+
+    //Changer la variable globale
+    $_SESSION["idTitre"] =$idtitre;
+
+    //Changer le titre de l'étudiant par le nouveau
+    updateTitre($_SESSION["idEtudiant"], $_SESSION["idTitre"]);
 }
-
-
-
 
 header("Location: ../View/php/selectTitle.php");
 

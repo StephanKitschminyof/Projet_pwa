@@ -129,10 +129,6 @@ function chercherBlocEtudiant($idEtudiant)
 }
 
 
-//Chercher les compétences d'un bloc d'un étudiant TODO
-
-
-
 //Chercher competences d'un bloc
 function chercherCompetencesBloc($idbloc)
 {
@@ -216,6 +212,13 @@ function chercherEtudiantParCompetence($idcomp)
 	$resultat = $bdd->query('SELECT * FROM etudiant WHERE idetudiant IN ' . $compstr);
 				
 	return $resultat;
+}
+
+//Chercher l'id d'un titre a partir de son nom
+function chercherIdTitre($nomTitre){
+	global $bdd;
+	$res = $bdd->query('SELECT idtitre FROM titre WHERE nomtitre ='.$nomTitre);
+	return $res;
 }
 
 function chercherEtudiantComp($idcomp){
@@ -423,26 +426,31 @@ function updateCouleurProfil($idetudiant, $color)
 }
 
 //Récupérer les titres d'un étudiant TODO
-function chercherTitres($idEtudiant){
+function chercherTitreUnlock($idBloc, $pourcentage){
 	global $bdd;
 
-	$reponse = $bdd->query('SELECT * FROM titre
-						INNER JOIN etudianttitre ON etudianttitre.idtitre = titre.idtitre
-						WHERE etudianttitre.idetudiant = '.$idEtudiant);
+	$reponse = $bdd->query('SELECT * FROM titre WHERE idBloc = '.$idBloc.' AND pourcent < '.$pourcentage);
 	return $reponse;
 }
 
 //Récupérer le titre actif d'un étudiant
-function chercherTitreActif($idEtudiant){
+function chercherTitre($idTitre){
 	global $bdd;
 
-	$reponse = $bdd->query('SELECT nomtitre, img FROM titre 
-						INNER JOIN etudianttitre ON etudianttitre.idtitre = titre.idtitre 
-						WHERE etudianttitre.idetudiant = '.$idEtudiant.' 
-						AND etudianttitre.estSelectionne = TRUE');
+	$reponse = $bdd->query('SELECT * FROM titre WHERE idtitre = ' . $idTitre);
 	return $reponse;
 }
 
+function updateTitre($idEtudiant, $idtitre){
+	global $bdd;
+	var_dump($idEtudiant);
+	var_dump($idtitre);
+	$req = $bdd->prepare('UPDATE etudiant SET idtitre=:idtitre WHERE idetudiant=:idetudiant');
+	$req->execute(array(
+		'idtitre' => $idtitre,
+		'idetudiant' => $idEtudiant
+	));
+}
 
 //maj de la date de validation
 function updateDateValide($date,$idcomp,$idetu){
