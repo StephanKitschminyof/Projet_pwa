@@ -2,8 +2,6 @@
 
 include '../../Model/script_bdd.php';
 
-blocsPourUnEtudiant(1);
-
 function blocsPourUnEtudiant($idEtudiant)
 {
     $tabBlocs = array();

@@ -26,7 +26,8 @@ include ("../../Controler/profilControler.php");
                 <p><?php echo xp();?> Xp</p>
             </div>
             <div id="titre-container">
-				<a href="selectTitle.php"><p id="titre"><?php echo titre($_SESSION["idEtudiant"])?></p></a>
+                <div id="Color"></div>
+				<a id="linkTitle" href="selectTitle.php"><p id="titre"><?php echo titre();?></p></a>
             </div>
         </div>
 
@@ -40,6 +41,13 @@ include ("../../Controler/profilControler.php");
 		<script>
 			var color = <?php echo json_encode($_SESSION["couleurProfil"]);?>;
 			setColorProfil(color);
+
+            //Evenement sur la div color pour en faire un bouton qui ouvre la page qui permet de changer ca couleur
+            document.getElementById("Color").addEventListener('click', function(event){
+                //Ouvrir la nouvelle page
+                document.location.href="selectColor.php";
+
+            })
 		</script>	
     </body>
 </html>
