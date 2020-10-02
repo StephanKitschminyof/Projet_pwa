@@ -24,7 +24,10 @@ include ("../../Model/script_bdd.php");
             // Pour le pourcentage
             $listeCompetences = chercherCompetencesBloc($value1['idbloc'])->fetchAll();
             $listeCompetenceEtu = chercherCompetencesBlocEtu($value1['idbloc'],$_SESSION['idEtudiant'])->fetchAll();
-            $pourcentageBloc = count($listeCompetenceEtu)/count($listeCompetences)*100;
+            $pourcentageBloc = 0;
+            if(count($listeCompetenceEtu) != 0 && count($listeCompetences) != 0){
+                $pourcentageBloc = count($listeCompetenceEtu)/count($listeCompetences)*100;//création du pourcentage de competances finis dans le bloc
+            }
             // ------------------
             echo "".$pourcentageBloc." %";
             echo "</p></div></a></div><div id=\"collapse".$value1['idbloc']."\" class=\"collapse\" aria-labelledby=\"heading".$value1['idbloc']."\" data-parent=\"#accordion\">";
