@@ -8,8 +8,10 @@
 
     
     }elseif(isset($_POST['retour']) and !empty($_POST['retour'])){
-        header("Location: ./pageCompE.php?comp=".$idcomp);
-    
+
+        //header("Location: ./pageCompE.php?comp=".$idcomp);
+        //echo "history.go(-1)";
+
     }
 ?>
 <!DOCTYPE html>
@@ -19,6 +21,7 @@
         <title>Blocs enseignant</title>
         <link rel="stylesheet" type="text/css" href="../css/styleEtuE.css">
         <link rel="stylesheet" type="text/css" href="../css/styleBottomMenu.css">
+        <link rel = "manifest" href = "../manifest.json">
     </head>
 
     <body>
@@ -29,10 +32,11 @@
             echo "<p>".$info['description']."</p>";
             include("./bottom_menu.php");
         
+            //echo '<button onclick="window.history.back()">Retour</button>';
+        echo '<form method="post">';
+            
+            echo '<input type="button" onClick="window.history.back()" value="Retour" name="retour" />';
 
-        echo '<form method="post" >';
-
-        echo '<input type="submit" value="Retour" name="retour" />';
         if($info['valide'] == 1){//1 si le bouton valider doit apparaitre
             echo '<input class="valider" type="submit" value="Valider" name="valider" />';
         }

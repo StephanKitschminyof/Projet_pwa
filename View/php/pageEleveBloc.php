@@ -1,4 +1,4 @@
-<?php include("../../Controler/pageBlocEController.php"); ?>
+<?php include("../../Controler/pageEleveBlocControler.php"); ?>
 <!DOCTYPE html>
 <html>
     <head>
@@ -10,14 +10,6 @@
     </head>
 
     <body>
-        <div>
-            <form method="post">
-                <div>
-                    <input class="recherche" type="search" id="rechercher" name="recherche" value="" />
-                    <label for="rechercher"><img alt="icone loupe" src="" /></label>
-                </div>
-            </form>
-        </div>
 
         <div>
             <?php liste_bloc(); ?>

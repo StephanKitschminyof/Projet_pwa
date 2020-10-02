@@ -12,6 +12,7 @@ $tab_donnees = recupinfo();
 	<meta charset="UTF-8">
 	<title><?php echo "Bloc : " . $tab_donnees["nombloc"]; ?></title>
 	<link rel="stylesheet" type="text/css" href="../css/style.css" />
+	<link rel = "manifest" href = "../manifest.json">
 </head>
 <body>
 

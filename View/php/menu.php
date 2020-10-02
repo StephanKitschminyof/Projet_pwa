@@ -4,8 +4,9 @@
     <head>
         <meta charset="utf-8">
         <title>Menu d'un étudiant</title>
-        <link rel="stylesheet" type="text/css" href="../css/style.css" />
         <link rel="stylesheet" type="text/css" href="../css/styleMenu.css">
+        <link rel="stylesheet" type="text/css" href="../css/styleBottomMenu.css" />
+        <link rel = "manifest" href = "../manifest.json">
     </head>
 
     <body>

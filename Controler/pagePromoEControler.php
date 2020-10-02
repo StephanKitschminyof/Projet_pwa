@@ -7,7 +7,7 @@ function liste_promo(){
     for($i=0;$i<count($liste_promo);$i++)
     {
         echo "<li class='li'>";
-        echo "<a href='#'>".$liste_promo[$i]['nom']."</a>";
+        echo "<a href='./pageElevePromo.php?idpromo=".$liste_promo[$i]['idpromo']."'>".$liste_promo[$i]['nom']."</a>";
         echo "</li>";
 
     }
