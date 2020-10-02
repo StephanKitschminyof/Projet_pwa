@@ -145,14 +145,8 @@ function chercherCompetencesBloc($idbloc)
 function chercherCompetencesBlocEtu($idbloc,$idetu)
 {
 	global $bdd;
-	$comp = $bdd->query('SELECT idcompetance FROM competanceetu WHERE idetu = \'' . $idetu . '\'');
-	$compstr = "(";
-	while($d = $comp->fetch()){
-		$compstr = $compstr . $d['idcompetance'] . ",";
-	}
-	$compstr = substr($compstr,0,-1) . ")";			
-				
-	$resultat = $bdd->query('SELECT * FROM competances WHERE idcompetances IN ' . $compstr . ' AND idbloc = \'' . $idbloc . '\'');
+	
+	$resultat = $bdd->query('SELECT c.idcompetances,c.nomcomp,c.description,c.expraporte,c.idbloc FROM competanceetu INNER JOIN competances c ON competanceetu.idcompetance = c.idcompetances WHERE competanceetu.idetu = \'' . $idetu . '\' AND c.idbloc = \'' . $idbloc . '\'');
 				
 	return $resultat;
 }
@@ -161,6 +155,7 @@ function chercherCompetencesBlocEtu($idbloc,$idetu)
 function chercherCompetenceEtu($idcomp,$idetu)
 {
 	global $bdd;
+
 	$resultat = $bdd->query('SELECT * FROM competanceetu WHERE idetu = \'' . $idetu . '\' AND idcompetance =\'' . $idcomp . '\'');
 	
 	return $resultat;
@@ -170,6 +165,7 @@ function chercherCompetenceEtu($idcomp,$idetu)
 function chercherCompetence($idcomp)
 {
 	global $bdd;
+
 	$resultat = $bdd->query('SELECT * FROM competances WHERE idcompetances = \'' . $idcomp . '\'');
 	
 	return $resultat;
@@ -179,6 +175,7 @@ function chercherCompetence($idcomp)
 function chercherBlocs()
 {
 	global $bdd;
+	
 	$resultat = $bdd->query('SELECT * FROM bloc');
 	
 	return $resultat;
@@ -198,45 +195,16 @@ function chercherCompetanceNotif($idcomp)
 function chercherEtudiantParCompetence($idcomp)
 {
 	global $bdd;
-
-	$res = $bdd->query('SELECT * FROM competanceetu WHERE idcompetance=\''.$idcomp.'\' AND date=\'NULL\' AND valide=1');
-	
-	$r = $bdd->query('SELECT * FROM competanceetu WHERE idcompetance=\''.$idcomp.'\' AND date=\'NULL\' AND valide=1')->fetch();
-	$compstr = "(";
-	if($r == false){
-		$compstr = $compstr .  "'null',";
-
-	}
-	while($d = $res->fetch()){
-		$compstr = $compstr . $d['idetu'] . ",";
-	}
-	$compstr = substr($compstr,0,-1) . ")";			
-				
-	$resultat = $bdd->query('SELECT * FROM etudiant WHERE idetudiant IN ' . $compstr);
+			
+	$resultat = $bdd->query('SELECT e.idetudiant,e.nom,e.prenom,e.exp,e.idpromo,e.compte FROM competanceetu INNER JOIN etudiant e ON competanceetu.idetu = e.idetudiant WHERE idcompetance='.$idcomp.' AND date=\'NULL\' AND valide=1');
 				
 	return $resultat;
 }
 
 function chercherEtudiantComp($idcomp){
 	global $bdd;
-
-	$res = $bdd->query('SELECT idetu FROM competanceetu WHERE idcompetance=\''.$idcomp.'\' AND (valide=0 OR date!=\'NULL\')' );
 	
-	$compstr = "(";
-	$r = $bdd->query('SELECT idetu FROM competanceetu WHERE idcompetance=\''.$idcomp.'\' AND (valide=0 OR date!=\'NULL\')' )->fetch();
-	$compstr = "(";
-	if($r == false){
-		$compstr = $compstr .  "'null',";
-
-	}
-	while($d = $res->fetch()){
-		$compstr = $compstr . $d['idetu'] . ",";
-	}
-	$compstr = substr($compstr,0,-1) . ")";	
-
-	
-	
-	$resultat = $bdd->query('SELECT * FROM etudiant WHERE idetudiant IN ' . $compstr);
+	$resultat = $bdd->query('SELECT e.idetudiant,e.nom,e.prenom,e.exp,e.idpromo,e.compte FROM competanceetu INNER JOIN etudiant e ON competanceetu.idetu = e.idetudiant WHERE idcompetance=\''.$idcomp.'\' AND (valide=0 OR date!=\'NULL\')' );
 	
 	return $resultat;
 }
