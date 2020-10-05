@@ -45,7 +45,7 @@ function liste_bloc(){
 
     echo "</ul>";
 
-    echo '<form method="post"><input type="submit" class="ajout" value="+" name="ajout" /></form>';
+    echo '<form method="post" action="modifierBloc.php"><input type="submit" class="ajout" value="+" name="ajout" /></form>';
 }
 
 

@@ -325,6 +325,8 @@ function ajouterBloc($nombloc)
 	$req->execute(array(
 		'nombloc' => $nombloc
 	));
+
+	return $bdd->lastInsertId();
 }
 
 //Ajouter une compétance a un bloc
@@ -473,4 +475,33 @@ function updateMdp($idcompte, $mdp){
 		'pass' => $mdp,
 		'idcompte' => $idcompte
 	));
+}
+
+
+/*
+* PARTIE Supprimer (DELETE)
+*/
+function supprimerBloc($idbloc){
+	global $bdd;
+
+	$req = $bdd->prepare('DELETE competanceetu FROM competanceetu INNER JOIN competances ON competanceetu.idcompetance=competances.idcompetances WHERE competances.idbloc =:idbloc');
+	$req->execute(array(
+		'idbloc' => $idbloc
+	));
+
+	$req = $bdd->prepare('DELETE FROM competances WHERE idbloc =:idbloc');
+	$req->execute(array(
+		'idbloc' => $idbloc
+	));
+
+	$req = $bdd->prepare('DELETE FROM etudiantbloc WHERE idbloc =:idbloc');
+	$req->execute(array(
+		'idbloc' => $idbloc
+	));
+
+	$req = $bdd->prepare('DELETE FROM bloc WHERE idbloc =:idbloc');
+	$req->execute(array(
+		'idbloc' => $idbloc
+	));
+
 }
