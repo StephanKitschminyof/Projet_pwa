@@ -3,7 +3,7 @@ include("../../Model/script_bdd.php");
 
 function liste_bloc(){
     $liste_bloc = chercherBlocs()->fetchAll();
-    echo "<ul class='accordeon'>";
+    echo "<ul class='accordeon' id='trier'>";
     for($i=0;$i<count($liste_bloc);$i++)
     {
         echo "<li class='ac-menu'>";
@@ -25,10 +25,10 @@ function liste_bloc(){
                 
                 
                 if(count($notif) != 0){
-                    echo "<label><a href='./pageCompE.php?comp=".$liste_competance[$j]['idcompetances']."'>".$liste_competance[$j]['nomcomp']."</a></label>";
+                    echo "<p><a href='./pageCompE.php?comp=".$liste_competance[$j]['idcompetances']."'>".$liste_competance[$j]['nomcomp']."</a></p>";
                     echo "<div class='notifdiv'><button class='notif'></button></div>";
                 }else{
-                    echo "<label class='labeld'><a href='./pageCompE.php?comp=".$liste_competance[$j]['idcompetances']."'>".$liste_competance[$j]['nomcomp']."</a></label>";
+                    echo "<p class='labeld'><a href='./pageCompE.php?comp=".$liste_competance[$j]['idcompetances']."'>".$liste_competance[$j]['nomcomp']."</a></p>";
                 }
 
                 echo "</li>";

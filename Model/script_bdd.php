@@ -31,6 +31,14 @@ function chercherBloc($nombloc)
 	return $reponse;
 }
 
+//Rechercher un bloc par id
+function chercherBlocId($idbloc)
+{
+	global $bdd;
+	$reponse = $bdd->query('SELECT * FROM bloc WHERE idbloc = \'' . $idbloc . '\'');
+	return $reponse;
+}
+
 //Rechercher une promo par nom
 function chercherPromoParNom($nom)
 {

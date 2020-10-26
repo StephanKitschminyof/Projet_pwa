@@ -5,7 +5,7 @@ function liste_eleve(){
     $idPromo = $_GET['idpromo'];
 
     $liste_eleve = chercherPromoEleve($idPromo)->fetchAll();
-    echo "<ul class='ul'>";
+    echo "<ul class='ul' id='trier'>";
     for($i=0;$i<count($liste_eleve);$i++)
     {
         echo "<li class='li'>";

@@ -3,7 +3,7 @@ include("../../Model/script_bdd.php");
 
 function liste_promo(){
     $liste_promo = chercherPromo()->fetchAll();
-    echo "<ul class='ul'>";
+    echo "<ul class='ul' id='trier'>";
     for($i=0;$i<count($liste_promo);$i++)
     {
         echo "<li class='li'>";

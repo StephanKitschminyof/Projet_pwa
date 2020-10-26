@@ -26,5 +26,7 @@
         <?php
             include("./bottom_menu.php");
         ?>
+        <script src="../js/jquery-3.5.1.min.js"></script>
+        <script src="../js/filtreTest2.js"></script>
     </body>
 </html>
