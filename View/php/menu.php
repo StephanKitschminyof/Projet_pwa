@@ -55,6 +55,24 @@
                         nbBlocs++;
                     }
 
+                    //Afficher le bouton pour ajouter plus de blocs au menu de l'étudiant
+                    if(nbBlocs < 8){
+                        //Récupération du dernier bloc a afficher
+                        idCourant = "block-" + nbBlocs;
+                        srcCourant = "../img/logo/plus-logo.png";
+
+                        //Modification de l'image :
+                        bloc = document.getElementById(idCourant);
+                        bloc.src = srcCourant;
+                        bloc.style.display = "block";
+
+                        //Modification du lien
+                        link = document.getElementById("block-" + nbBlocs +"-a");
+                        link.href= "../php/addBlocs.php";
+
+                        nbBlocs++;
+                    }
+
                     //Si moins de 8 blocs sont a afficher alors on cache les autres
                     while(nbBlocs < 8)
                     {
