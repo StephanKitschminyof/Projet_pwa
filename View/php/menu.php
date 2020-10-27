@@ -137,6 +137,7 @@
                     }else if( dif > 0 && Math.abs(dif)>(w/3)){
                         console.log("gauche");
                         spinnerSuiv();
+                    }
                 });
             
             </script>
