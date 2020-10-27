@@ -129,10 +129,6 @@ function chercherBlocEtudiant($idEtudiant)
 }
 
 
-//Chercher les compétences d'un bloc d'un étudiant TODO
-
-
-
 //Chercher competences d'un bloc
 function chercherCompetencesBloc($idbloc)
 {
@@ -200,6 +196,13 @@ function chercherEtudiantParCompetence($idcomp)
 	$resultat = $bdd->query('SELECT e.idetudiant,e.nom,e.prenom,e.exp,e.idpromo,e.compte FROM competanceetu INNER JOIN etudiant e ON competanceetu.idetu = e.idetudiant WHERE idcompetance='.$idcomp.' AND date=\'NULL\' AND valide=1');
 				
 	return $resultat;
+}
+
+//Chercher l'id d'un titre a partir de son nom
+function chercherIdTitre($nomTitre){
+	global $bdd;
+	$res = $bdd->query('SELECT idtitre FROM titre WHERE nomtitre = \'' .$nomTitre.'\'');
+	return $res;
 }
 
 function chercherEtudiantComp($idcomp){
@@ -409,16 +412,29 @@ function updateCouleurProfil($idetudiant, $color)
 }
 
 //Récupérer les titres d'un étudiant TODO
-
-//Récupérer le titre actif d'un étudiant
-function chercherTitreActif($idEtudiant){
+function chercherTitreUnlock($idBloc, $pourcentage){
 	global $bdd;
 
-	$reponse = $bdd->query('SELECT nomtitre, img FROM titre 
-						INNER JOIN etudianttitre ON etudianttitre.idtitre = titre.idtitre 
-						WHERE etudianttitre.idetudiant = '.$idEtudiant.' 
-						AND etudianttitre.estSelectionne = 0');
+	$reponse = $bdd->query('SELECT * FROM titre WHERE idBloc = '.$idBloc.' AND pourcent < '.$pourcentage);
 	return $reponse;
+}
+
+//Récupérer le titre actif d'un étudiant
+function chercherTitre($idTitre){
+	global $bdd;
+
+	$reponse = $bdd->query('SELECT * FROM titre WHERE idtitre = \'' .$idTitre.'\'');
+	return $reponse;
+}
+
+function updateTitre($idEtudiant, $idtitre){
+	global $bdd;
+	
+	$req = $bdd->prepare('UPDATE etudiant SET idtitre=:idtitre WHERE idetudiant=:idetudiant');
+	$req->execute(array(
+		'idtitre' => $idtitre,
+		'idetudiant' => $idEtudiant
+	));
 }
 
 //maj de la date de validation
@@ -443,5 +459,25 @@ function updateXpEtu($idetu,$xp){
 		'xp' => $xp,
 		'idetu' => $idetu
 	));
+}
 
+//Rendre un nouveau titre actif
+function updateTitreActif($idetudiant, $idtitre){
+	global $bdd;
+
+	$req = $bdd->prepare('UPDATE etudianttitre SET estSelectionne = TRUE WHERE idetudiant=:idetudiant AND idtitre=:idtitre');
+	$req->execute(array(
+		'idetudiant' => $idetudiant,
+		'idtitre' => $idtitre
+	));
+}
+
+//Enlever le fait que le titre soit actif
+function updateTitreDesactif($idetudiant){
+	global $bdd;
+
+	$req = $bdd->prepare('UPDATE etudianttitre SET estSelectionne = FALSE WHERE idetudiant=:idetudiant AND estSelectionne = TRUE');
+	$req->execute(array(
+		'idetudiant' => $idetudiant
+	));
 }
