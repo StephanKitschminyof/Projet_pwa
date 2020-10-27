@@ -34,6 +34,7 @@
             <a id="block-7-a" href=""><img class="block" id="block-7" src="../img/bloc/NonDef-logo.png" alt="Logo d'un bloc"></a>
 
             <script>
+                
                 function spinner(){
                     //Objectif modifier les 8 div pour leur donner les bonnes infos
                     nbBlocs = 0;
@@ -113,6 +114,30 @@
                 var imgProfil = "url(\"../img/profil/"+prenom+"-"+nom+".jpg\")";
                 console.log(imgProfil);
                 document.getElementById("dot").style.backgroundImage = imgProfil; //TODO voir comment gérer jpg / png / ... (pour montrer au prof osef non ?)
+
+                // SWIPE
+                var w = window.screen.width;
+
+                var firstMove;
+                var lastMove;
+
+                document.querySelector('html').addEventListener('touchstart', function (ev){
+                    firstMove = ev;
+                });
+
+                document.querySelector('html').addEventListener('touchmove', function(ev) {
+                    lastMove = ev;
+                });
+
+                document.querySelector('html').addEventListener('touchend', function (ev){
+                    var dif = firstMove.targetTouches[0].clientX - lastMove.targetTouches[0].clientX;
+                    if( dif < 0 && Math.abs(dif)>(w/3)){
+                        console.log("droite");
+                        spinnerPrec();
+                    }else if( dif > 0 && Math.abs(dif)>(w/3)){
+                        console.log("gauche");
+                        spinnerSuiv();
+                });
             
             </script>
         </div>
