@@ -143,9 +143,6 @@
             </script>
         </div>
 
-        <button id="prec" onClick="spinnerPrec()">Précedent</button>
-        <button id="suiv" onClick="spinnerSuiv()">Suivant</button>
-
         <?php
             include("./bottom_menu.php");
         ?>
