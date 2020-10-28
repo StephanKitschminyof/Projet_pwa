@@ -1,7 +1,10 @@
 <?php
 
 session_start();
-include '../Model/script_bdd.php';
+
+if((include_once '../../Model/script_bdd.php') === FALSE){
+    include '../../Model/script_bdd.php';
+}
 
 //var_dump($_POST);
 

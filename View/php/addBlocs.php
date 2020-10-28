@@ -1,5 +1,6 @@
 <?php session_start(); 
 include ("../../Controler/profilControler.php");
+include ("../../Controler/pageCompEController.php");
 ?>
 <!DOCTYPE html>
 <html>

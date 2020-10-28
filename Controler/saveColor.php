@@ -1,6 +1,9 @@
 <?php 
 session_start();
-include '../Model/script_bdd.php';
+
+if((include_once '../../Model/script_bdd.php') === FALSE){
+    include '../../Model/script_bdd.php';
+}
 
 //Sauvegarder la nouvelle couleur 
 if(isset($_POST['color']) and !empty($_POST['color'])){
