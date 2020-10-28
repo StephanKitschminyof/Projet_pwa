@@ -6,47 +6,45 @@ function liste_bloc(){
 
     $liste_bloc = chercherBlocEtu($idetu)->fetchAll();
 
-    echo "<ul class='accordeon'>";
+    
     for($i=0;$i<count($liste_bloc);$i++)
     {
-        echo "<li class='ac-menu'>";
+        echo '<div class="ac-menu" id="'.$liste_bloc[$i]["idbloc"].'">';
 
-        echo "<label for=".$liste_bloc[$i]['nombloc'].">".$liste_bloc[$i]['nombloc']."</label>";
-        echo "<input id=".$liste_bloc[$i]['nombloc']." type='checkbox' name='menu' />";
+        echo "<h2>".$liste_bloc[$i]['nombloc']."</h2>";
+        //echo "<input id=".$liste_bloc[$i]['nombloc']." type='checkbox' name='menu' />";
 
     
         
         $liste_competance = chercherCompetencesBlocEtu($liste_bloc[$i]['idbloc'],$idetu)->fetchAll();
         if(count($liste_competance)!=0){
-            echo "<ul class='sous-menu'>";
             
+            echo '<div class="liste" id="'.$liste_bloc[$i]["idbloc"].'">';
             for($j=0;$j<count($liste_competance);$j++)
             {
                 $notif = chercherCompetanceNotif($liste_competance[$j]['idcompetances'])->fetchAll();
 
-                echo "<li class='sous-menu-li'>";
+                
                 
                 
                 if(count($notif) != 0){
-                    echo "<label><a href='./pageEtuE.php?idetu=".$idetu."&idcomp=".$liste_competance[$j]['idcompetances']."&valide=1'>".$liste_competance[$j]['nomcomp']."</a></label>";
-                    echo "<div class='notifdiv'><button class='notif'></button></div>";
+                    echo "<div class='afficher'><a href='./pageEtuE.php?idetu=".$idetu."&idcomp=".$liste_competance[$j]['idcompetances']."&valide=1'>".$liste_competance[$j]['nomcomp']."</a>";
+                    echo "<button class='notif'></button></div>";
                 }else{
-                    echo "<label class='labeld'><a href='./pageEtuE.php?idetu=".$idetu."&idcomp=".$liste_competance[$j]['idcompetances']."&valide=0'>".$liste_competance[$j]['nomcomp']."</a></label>";
+                    echo "<div class='afficher'><a href='./pageEtuE.php?idetu=".$idetu."&idcomp=".$liste_competance[$j]['idcompetances']."&valide=0'>".$liste_competance[$j]['nomcomp']."</a></div>";
                 }
 
-                echo "</li>";
+                
             }
-
-            echo "</ul>";
+            echo '</div>';
         }
 
-        echo "</li>";
+        echo "</div>";
     }
 
 
 
 
-    echo "</ul>";
 }
 
 ?>

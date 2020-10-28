@@ -13,7 +13,7 @@
 
     <body>
        
-        <div>
+        <div class="d">
             <?php liste_bloc() ?>
         </div>
 

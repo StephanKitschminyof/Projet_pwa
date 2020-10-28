@@ -3,49 +3,41 @@ include("../../Model/script_bdd.php");
 
 function liste_bloc(){
     $liste_bloc = chercherBlocs()->fetchAll();
-    echo "<ul class='accordeon' id='trier'>";
     for($i=0;$i<count($liste_bloc);$i++)
     {
-        echo "<li class='ac-menu'>";
+        echo "<div class='ac-menu' id='".$liste_bloc[$i]['nombloc']."'>";
 
-        echo "<label for=".$liste_bloc[$i]['nombloc'].">".$liste_bloc[$i]['nombloc']."</label>";
-        echo "<input id=".$liste_bloc[$i]['nombloc']." type='checkbox' name='menu' />";
+        echo "<h2>".$liste_bloc[$i]['nombloc']."</h2>";
 
     
         
         $liste_competance = chercherCompetencesBloc($liste_bloc[$i]['idbloc'])->fetchAll();
         if(count($liste_competance)!=0){
-            echo "<ul class='sous-menu'>";
+            echo "<div class='liste' id='".$liste_bloc[$i]['nombloc']."'>";
             
             for($j=0;$j<count($liste_competance);$j++)
             {
                 $notif = chercherCompetanceNotif($liste_competance[$j]['idcompetances'])->fetchAll();
 
-                echo "<li class='sous-menu-li'>";
                 
                 
                 if(count($notif) != 0){
-                    echo "<p><a href='./pageCompE.php?comp=".$liste_competance[$j]['idcompetances']."'>".$liste_competance[$j]['nomcomp']."</a></p>";
-                    echo "<div class='notifdiv'><button class='notif'></button></div>";
+                    echo "<div class='afficher'><a href='./pageCompE.php?comp=".$liste_competance[$j]['idcompetances']."'>".$liste_competance[$j]['nomcomp']."</a>";
+                    echo "<button class='notif'></button></div>";
                 }else{
-                    echo "<p class='labeld'><a href='./pageCompE.php?comp=".$liste_competance[$j]['idcompetances']."'>".$liste_competance[$j]['nomcomp']."</a></p>";
+                    echo "<div class='afficher'><a href='./pageCompE.php?comp=".$liste_competance[$j]['idcompetances']."'>".$liste_competance[$j]['nomcomp']."</a></div>";
                 }
 
-                echo "</li>";
             }
 
-            echo "</ul>";
+            echo "</div>";
         }
 
-        echo "</li>";
+        echo "</div>";
     }
 
 
-
-
-    echo "</ul>";
-
-    echo '<form method="post" action="modifierBloc.php"><input type="submit" class="ajout" value="+" name="ajout" /></form>';
+    echo '<div class="aj"><form method="post" action="modifierBloc.php"><input type="submit" class="ajout" value="+" name="ajout" /></form></div>';
 }
 
 

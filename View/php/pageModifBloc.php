@@ -12,9 +12,9 @@
     </head>
 
     <body>
-       
-        <?php page() ?>
-
+        <div class="d">
+            <?php page() ?>
+        </div>
         <?php
             include("./bottom_menu.php");
         ?>
