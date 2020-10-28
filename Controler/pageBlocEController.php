@@ -50,15 +50,37 @@ function liste_bloc(){
 function liste_bloc_simple(){
     $liste_bloc = chercherBlocs()->fetchAll();
     for($i=0;$i<count($liste_bloc);$i++){
-        echo "<form action=\"../../Controler/addBlocToMenu.php\" method=\"post\">";
-            echo "<input type=\"hidden\" value=\"".$liste_bloc[$i]['idbloc']."\" id=\"idbloc\" name=\"idbloc\">";
-            echo "<input type=\"submit\" value=\"".$liste_bloc[$i]['nombloc']."\">";
+        //Si est déja assigné a l'étudiant on lui met un style plus clair
+        if(estDansMenu($liste_bloc[$i]['idbloc'], $_SESSION["idEtudiant"])){
+            echo "<form class=\"actif\" action=\"../../Controler/addBlocToMenu.php\" method=\"post\">";
+        }
+        //Sinon on met un style plus foncé
+        else{
+            echo "<form action=\"../../Controler/addBlocToMenu.php\" method=\"post\">";
+        }
+        
+        echo "<input type=\"hidden\" value=\"".$liste_bloc[$i]['idbloc']."\" id=\"idbloc\" name=\"idbloc\">";
+        if(estDansMenu($liste_bloc[$i]['idbloc'], $_SESSION["idEtudiant"])){
+            echo "<input class=\"actif\" type=\"submit\" value=\"".$liste_bloc[$i]['nombloc']."\">";
+        }
+        else{
+            echo "<input class=\"unactif\"  type=\"submit\" value=\"".$liste_bloc[$i]['nombloc']."\">";
+        }
         echo "</form>";
     }
 }
 
 
 
+function estDansMenu($idbloc, $idEtudiant){
+    $reponse = chercherBlocEtudiant($idEtudiant);
+    while($donnees = $reponse->fetch()){
+        if($donnees["idbloc"] == $idbloc){
+            return true;
+        }
+    }
+    return false;
+}
 
 
 ?>
