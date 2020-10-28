@@ -1,8 +1,7 @@
 (function($){
 
     $('#rechercher').keyup(function(event){
-        var input = $(this);
-        var val = input.val();
+        var val = $(this).val();
         var regex = '\\b';
         for(var i in val){
             regex += val[i];

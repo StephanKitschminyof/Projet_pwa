@@ -486,6 +486,18 @@ function updateMdp($idcompte, $mdp){
 }
 
 
+//maj comp
+function updateComp($idcomp,$titrec,$descr){
+	global $bdd;
+
+	$req = $bdd->prepare('UPDATE competances SET nomcomp=:titrec, description=:descr WHERE idcompetances=:idcomp');
+	$req->execute(array(
+		'titrec' => $titrec,
+		'descr' => $descr,
+		'idcomp' => $idcomp
+	));
+}
+
 /*
 * PARTIE Supprimer (DELETE)
 */
@@ -508,6 +520,27 @@ function supprimerBloc($idbloc){
 	));
 
 	$req = $bdd->prepare('DELETE FROM bloc WHERE idbloc =:idbloc');
+	$req->execute(array(
+		'idbloc' => $idbloc
+	));
+
+}
+
+function supprimerCompetance($idcomp,$idbloc){
+	global $bdd;
+
+	//supression de competance etu
+	$req = $bdd->prepare('DELETE FROM competanceetu WHERE idcompetance =:idcomp');
+	$req->execute(array(
+		'idcomp' => $idcomp
+	));
+
+	$req = $bdd->prepare('DELETE FROM competances WHERE idcompetances =:idcomp');
+	$req->execute(array(
+		'idcomp' => $idcomp
+	));
+
+	$req = $bdd->prepare('UPDATE bloc SET nombrecomp=nombrecomp-1 WHERE idbloc =:idbloc');
 	$req->execute(array(
 		'idbloc' => $idbloc
 	));

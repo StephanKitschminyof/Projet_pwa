@@ -1,0 +1,86 @@
+html{
+    height: 100%;
+    width: 100%;
+}
+
+body{
+    background-color: #2F3136;
+    color:#A3A3A3;
+    font-size: 2vw;
+}
+
+input[type="submit"]{
+    border: 2px solid #CACACA;
+    background-color: #4A4C50;
+    
+    height: 5vw;
+    width: 40vw;
+    
+    color: #CACACA;
+    border-radius: 20px;
+    font-size: 3vw;
+    margin-top: 5vw;
+    margin-left: 3vw;
+}
+
+.t{
+    font-size: 3vw;
+}
+
+.c{
+    font-size: 5vw;
+}
+
+label{
+    font-size: 4.4vw;
+}
+h1{
+    font-size: 6vw;
+}
+
+textarea{
+    background-color: #4A4C50;
+    color: #CACACA;
+    font-size: 3vw;
+    margin-left: 3vw;
+
+}
+
+input[type="text"], input[type="number"]{
+    border: 2px solid #CACACA;
+    background-color: #4A4C50; 
+    color: #CACACA;
+    font-size: 3vw;
+    margin-top: 5vw;
+    margin-bottom: 2vw;
+    margin-left: 3vw;
+    text-align: center;
+
+
+}
+/*{
+    border: 2px solid #CACACA;
+    background-color: #4A4C50; 
+    color: #CACACA;
+    font-size: 3vw;
+    margin-top: 5vw;
+    margin-bottom: 2vw;
+    margin-left: 3vw;
+    text-align: center;
+}
+*/
+
+#f{
+    margin-bottom: 15vw;;
+}
+
+input[type="textarea"]{
+    border: 2px solid #CACACA;
+    background-color: #4A4C50; 
+    color: #CACACA;
+    font-size: 3vw;
+    margin-left: 3vw;
+    height: 20vw;
+    width: 50vw;
+    
+}
