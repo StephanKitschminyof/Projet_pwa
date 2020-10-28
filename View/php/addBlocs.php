@@ -18,7 +18,7 @@ include ("../../Controler/pageBlocEController.php");
         </header>
 
         <div>
-            <?php liste_bloc(); ?>
+            <?php liste_bloc_simple(); ?>
         </div>
 
 

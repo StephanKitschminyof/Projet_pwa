@@ -47,6 +47,15 @@ function liste_bloc(){
 }
 
 
+function liste_bloc_simple(){
+    $liste_bloc = chercherBlocs()->fetchAll();
+    for($i=0;$i<count($liste_bloc);$i++){
+        echo "<form action=\"../../Controler/addBlocToMenu.php\" method=\"post\">";
+            echo "<input type=\"hidden\" value=\"".$liste_bloc[$i]['idbloc']."\" id=\"idbloc\" name=\"idbloc\">";
+            echo "<input type=\"submit\" value=\"".$liste_bloc[$i]['nombloc']."\">";
+        echo "</form>";
+    }
+}
 
 
 

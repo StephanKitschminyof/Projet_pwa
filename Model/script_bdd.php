@@ -481,3 +481,26 @@ function updateTitreDesactif($idetudiant){
 		'idetudiant' => $idetudiant
 	));
 }
+
+
+//Ajouter un bloc pour un étudiant
+function ajouterBlocEtudiant($idbloc, $idEtudiant){
+	global $bdd;
+
+	$req = $bdd->prepare('INSERT INTO `etudiantbloc` (`idEtudiant`, `idBloc`) VALUES (:idEtudiant, :idbloc)');
+	$req->execute(array(
+		'idEtudiant' => $idEtudiant,
+		'idbloc' => $idbloc
+	));
+}
+
+//Retirer un bloc d'un étudiant
+function retirerBlocEtudiant($idbloc, $idEtudiant){
+	global $bdd;
+
+	$req = $bdd->prepare('DELETE FROM etudiantbloc WHERE idbloc = :idbloc AND idEtudiant = :idEtudiant');
+	$req->execute(array(
+		'idEtudiant' => $idEtudiant,
+		'idbloc' => $idbloc
+	));
+}
