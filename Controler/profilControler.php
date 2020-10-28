@@ -1,8 +1,6 @@
 <?php
 
-if((include_once '../../Model/script_bdd.php') === FALSE){
-    include '../../Model/script_bdd.php';
-}
+include_once("../../Model/script_bdd.php");
 
 function nomPromo()
 {

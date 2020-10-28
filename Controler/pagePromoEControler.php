@@ -1,8 +1,6 @@
 <?php session_start();
 
-if((include_once '../../Model/script_bdd.php') === FALSE){
-    include '../../Model/script_bdd.php';
-}
+include_once("../../Model/script_bdd.php");
 
 function liste_promo(){
     $liste_promo = chercherPromo()->fetchAll();

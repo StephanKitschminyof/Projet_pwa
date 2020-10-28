@@ -1,9 +1,7 @@
 <?php
 session_start();
 
-if((include_once '../../Model/script_bdd.php') === FALSE){
-    include '../../Model/script_bdd.php';
-}
+include_once("../../Model/script_bdd.php");
 
 $idetu = $_GET['idetu'];//id de l'étu
 $idcomp = $_GET['idcomp'];//id de la competence

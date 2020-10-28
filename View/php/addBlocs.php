@@ -1,13 +1,15 @@
-<?php session_start(); 
+<?php
 include ("../../Controler/profilControler.php");
-include ("../../Controler/pageCompEController.php");
+include ("../../Controler/pageBlocEController.php");
 ?>
+
 <!DOCTYPE html>
 <html>
     <head>
         <meta charset="utf-8">
         <title>Ajout de bloc pour étudiant</title>
         <link rel="stylesheet" type="text/css" href="../css/style.css" />
+        <link rel="stylesheet" type="text/css" href="../css/styleBlocE.css">
     </head>
     <body>
         <header>
@@ -15,6 +17,9 @@ include ("../../Controler/pageCompEController.php");
             <p id="profil-header-right"><?php echo nomPromo(); ?></p>
         </header>
 
+        <div>
+            <?php liste_bloc(); ?>
+        </div>
 
 
         <?php
