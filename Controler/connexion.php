@@ -1,6 +1,6 @@
 <?php
 session_start();
-include_once("../../Model/script_bdd.php");
+include_once("../Model/script_bdd.php");
 
 $erreur = false;
 
