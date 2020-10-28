@@ -7,8 +7,8 @@ include ("../../Controler/profilControler.php");
     <head>
         <meta charset="utf-8">
         <title>Profil Etudiant</title>	
+        <link rel="stylesheet" type="text/css" href="../css/style.css" />
         <link rel="stylesheet" type="text/css" href="../css/styleProfil.css">
-        <link rel="stylesheet" type="text/css" href="../css/styleBottomMenu.css" />
         <link rel = "manifest" href = "../manifest.json">
     </head>
     <body>

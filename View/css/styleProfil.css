@@ -1,32 +1,3 @@
-*{
-    margin: 0;
-    padding: 0;
-}
-
-body{
-    color:white;
-    background-color: #2F3136;
-    margin: 0;
-}
-
-header{
-    font-size: 4em;
-}
-
-header p{
-    display: inline;
-    position: fixed;
-}
-
-#profil-header-left{
-    top: 1%;
-    left: 1%;
-}
-
-#profil-header-right{
-    top: 1%;
-    right: 1%;
-}
 
 #profil-content-centre{
     position: absolute;
