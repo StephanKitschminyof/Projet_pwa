@@ -9,7 +9,7 @@ include ("../../Controler/pageBlocEController.php");
         <meta charset="utf-8">
         <title>Ajout de bloc pour étudiant</title>
         <link rel="stylesheet" type="text/css" href="../css/style.css" />
-        <link rel="stylesheet" type="text/css" href="../css/styleBlocE.css">
+        <link rel="stylesheet" type="text/css" href="../css/styleBloc.css">
     </head>
     <body>
         <header>
@@ -17,7 +17,7 @@ include ("../../Controler/pageBlocEController.php");
             <p id="profil-header-right"><?php echo nomPromo(); ?></p>
         </header>
 
-        <div>
+        <div class="listeBlocs">
             <?php liste_bloc_simple(); ?>
         </div>
 
