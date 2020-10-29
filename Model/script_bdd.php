@@ -262,6 +262,24 @@ function chercherDate($idetu,$idcomp){
 	return $resultat;
 }
 
+//chercher les etudiant d'un bloc
+function chercherEtuBloc($idbloc){
+	global $bdd;
+
+	$resultat = $bdd->query('SELECT DISTINCT etudiant.idetudiant,bloc.nombrecomp FROM etudiant INNER JOIN competanceetu ON etudiant.idetudiant=competanceetu.idetu  INNER JOIN competances ON competanceetu.idcompetance=competances.idcompetances INNER JOIN bloc ON competances.idbloc=bloc.idbloc WHERE bloc.idbloc='.$idbloc.' AND competanceetu.date!="NULL"');
+	
+	return $resultat;
+}
+
+//recherche d'un etudiant pour un bloc -> pour faire le classement
+function chercherClEtu($idetu,$idbloc){
+	global $bdd;
+
+	$resultat = $bdd->query('SELECT idetu,nom,prenom,COUNT(idetu),idpromo FROM competanceetu INNER JOIN etudiant ON competanceetu.idetu=etudiant.idetudiant INNER JOIN competances ON competanceetu.idcompetance=competances.idcompetances INNER JOIN bloc ON competances.idbloc=bloc.idbloc WHERE competanceetu.idetu='.$idetu.' AND date!="NULL" AND bloc.idbloc='.$idbloc);
+	
+	return $resultat;
+}
+
 /*
 * PARTIE AJOUTER (INSERT)
 */
