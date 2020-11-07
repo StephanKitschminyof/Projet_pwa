@@ -5,7 +5,7 @@ $idcomp = $_GET['comp'];
 function liste_etu(){
     global $idcomp;
 
-    echo "<ul class='ul'>";
+    echo "<ul class='ul' id='trier'>";
     $liste_notif = chercherEtudiantParCompetence($idcomp);
     $liste = chercherEtudiantComp($idcomp);
 

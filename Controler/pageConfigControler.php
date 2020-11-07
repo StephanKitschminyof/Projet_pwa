@@ -1,6 +1,9 @@
 <?php
 session_start();
 include ("../../Model/script_bdd.php");
+
+
+
 function recupinfo(){
     $idetu = $_SESSION['idEtudiant'];//id de l'étu
     $etu = chercherEtudiantParId($idetu)->fetch();

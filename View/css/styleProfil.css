@@ -36,6 +36,10 @@ header p{
     text-align: center;
 }
 
+#profil-content-centre a{
+    text-decoration: none;
+}
+
 #profil-content-centre img {
     border-radius: 100%;
     border: 6px solid;

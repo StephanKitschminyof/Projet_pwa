@@ -31,6 +31,14 @@ function chercherBloc($nombloc)
 	return $reponse;
 }
 
+//Rechercher un bloc par id
+function chercherBlocId($idbloc)
+{
+	global $bdd;
+	$reponse = $bdd->query('SELECT * FROM bloc WHERE idbloc = \'' . $idbloc . '\'');
+	return $reponse;
+}
+
 //Rechercher une promo par nom
 function chercherPromoParNom($nom)
 {
@@ -239,6 +247,41 @@ function chercherBlocEtu($idEtudiant)
 	return $reponse;
 }
 
+//chercher le mot de passe d'un etu
+function chercherMdp($idetu){
+	global $bdd;
+
+	$resultat = $bdd->query('SELECT compte.idcompte,compte.password FROM compte INNER JOIN etudiant ON etudiant.compte = compte.idcompte WHERE etudiant.idetudiant='.$idetu);
+
+	return $resultat;
+}
+
+//chercher une date pour une comp d'un etu
+function chercherDate($idetu,$idcomp){
+	global $bdd;
+
+	$resultat = $bdd->query('SELECT date FROM competanceetu WHERE idetu='.$idetu.' AND idcompetance='.$idcomp);
+
+	return $resultat;
+}
+
+//chercher les etudiant d'un bloc
+function chercherEtuBloc($idbloc){
+	global $bdd;
+
+	$resultat = $bdd->query('SELECT DISTINCT etudiant.idetudiant,bloc.nombrecomp FROM etudiant INNER JOIN competanceetu ON etudiant.idetudiant=competanceetu.idetu  INNER JOIN competances ON competanceetu.idcompetance=competances.idcompetances INNER JOIN bloc ON competances.idbloc=bloc.idbloc WHERE bloc.idbloc='.$idbloc.' AND competanceetu.date!="NULL"');
+	
+	return $resultat;
+}
+
+//recherche d'un etudiant pour un bloc -> pour faire le classement
+function chercherClEtu($idetu,$idbloc){
+	global $bdd;
+
+	$resultat = $bdd->query('SELECT idetu,nom,prenom,COUNT(idetu),idpromo FROM competanceetu INNER JOIN etudiant ON competanceetu.idetu=etudiant.idetudiant INNER JOIN competances ON competanceetu.idcompetance=competances.idcompetances INNER JOIN bloc ON competances.idbloc=bloc.idbloc WHERE competanceetu.idetu='.$idetu.' AND date!="NULL" AND bloc.idbloc='.$idbloc);
+	
+	return $resultat;
+}
 
 /*
 * PARTIE AJOUTER (INSERT)
@@ -311,6 +354,8 @@ function ajouterBloc($nombloc)
 	$req->execute(array(
 		'nombloc' => $nombloc
 	));
+
+	return $bdd->lastInsertId();
 }
 
 //Ajouter une compétance a un bloc
@@ -480,4 +525,78 @@ function updateTitreDesactif($idetudiant){
 	$req->execute(array(
 		'idetudiant' => $idetudiant
 	));
+}
+
+
+//maj du mdp d'un etu
+function updateMdp($idcompte, $mdp){
+	global $bdd;
+
+	$req = $bdd->prepare('UPDATE compte SET password=:pass WHERE idcompte=:idcompte');
+	$req->execute(array(
+		'pass' => $mdp,
+		'idcompte' => $idcompte
+	));
+}
+
+
+//maj comp
+function updateComp($idcomp,$titrec,$descr){
+	global $bdd;
+
+	$req = $bdd->prepare('UPDATE competances SET nomcomp=:titrec, description=:descr WHERE idcompetances=:idcomp');
+	$req->execute(array(
+		'titrec' => $titrec,
+		'descr' => $descr,
+		'idcomp' => $idcomp
+	));
+}
+
+/*
+* PARTIE Supprimer (DELETE)
+*/
+function supprimerBloc($idbloc){
+	global $bdd;
+
+	$req = $bdd->prepare('DELETE competanceetu FROM competanceetu INNER JOIN competances ON competanceetu.idcompetance=competances.idcompetances WHERE competances.idbloc =:idbloc');
+	$req->execute(array(
+		'idbloc' => $idbloc
+	));
+
+	$req = $bdd->prepare('DELETE FROM competances WHERE idbloc =:idbloc');
+	$req->execute(array(
+		'idbloc' => $idbloc
+	));
+
+	$req = $bdd->prepare('DELETE FROM etudiantbloc WHERE idbloc =:idbloc');
+	$req->execute(array(
+		'idbloc' => $idbloc
+	));
+
+	$req = $bdd->prepare('DELETE FROM bloc WHERE idbloc =:idbloc');
+	$req->execute(array(
+		'idbloc' => $idbloc
+	));
+
+}
+
+function supprimerCompetance($idcomp,$idbloc){
+	global $bdd;
+
+	//supression de competance etu
+	$req = $bdd->prepare('DELETE FROM competanceetu WHERE idcompetance =:idcomp');
+	$req->execute(array(
+		'idcomp' => $idcomp
+	));
+
+	$req = $bdd->prepare('DELETE FROM competances WHERE idcompetances =:idcomp');
+	$req->execute(array(
+		'idcomp' => $idcomp
+	));
+
+	$req = $bdd->prepare('UPDATE bloc SET nombrecomp=nombrecomp-1 WHERE idbloc =:idbloc');
+	$req->execute(array(
+		'idbloc' => $idbloc
+	));
+
 }
