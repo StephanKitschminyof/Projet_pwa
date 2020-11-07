@@ -1,9 +1,4 @@
 
-body{
-    margin: 0;
-    padding: 0;
-}
-
 .photo-profil {
     display: none;
     border-radius: 100%;
@@ -73,6 +68,7 @@ h1{
     margin-right: 4vw;
 }
 
-header{
-    display: flex;
+/* Pour ne pas être sous le header */
+#debut{
+    margin-top: 20%;
 }

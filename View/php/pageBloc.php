@@ -11,24 +11,28 @@ $tab_donnees = recupinfo();
 <head>
 	<meta charset="UTF-8">
 	<title><?php echo "Bloc : " . $tab_donnees["nombloc"]; ?></title>
+	<link rel="stylesheet" type="text/css" href="../css/style.css" />
 	<link rel="stylesheet" type="text/css" href="../css/styleBloc.css" />
 	<link rel = "manifest" href = "../manifest.json">
 </head>
 <body>
 
-	<header>
+	<div id="entete">
 		<ul class="liste-bloc">
 			<li class="liste-li-b">
 				<div class="icone-bloc"><img src="../img/menu/icone_java.png" alt="icone du bloc"></div>
 			</li>
-			<?php	
-				echo "<li class=\"liste-li-b\"><h1 class='titre'>" . $tab_donnees["infoBloc"]['nombloc'] . "</h1></li>";
-				echo "<li class=\"liste-li-b\"><h1 class='pourcent'>" . $tab_donnees["pourcentageBloc"] . "%</h1></li>";
+			<div id="nom-pourcent">
+				<?php	
+					echo "<li class=\"liste-li-b2\"><h1 class='titre'>" . $tab_donnees["infoBloc"]['nombloc'] . "</h1></li>";
+					echo "<li class=\"liste-li-b2\"><h1 class='pourcent'>" . $tab_donnees["pourcentageBloc"] . "%</h1></li>";
 
-			?>
+				?>
+			</div>
+			
 			
 		</ul>
-	</header>
+	</div>
 
 
 	<?php

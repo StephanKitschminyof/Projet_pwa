@@ -1,26 +1,4 @@
-body{
-    color:white;
-    background-color: #2F3136;
-}
 
-header{
-    font-size: 4em;
-}
-
-header p{
-    display: inline;
-    position: fixed;
-}
-
-#profil-header-left{
-    top: 1%;
-    left: 1%;
-}
-
-#profil-header-right{
-    top: 1%;
-    right: 1%;
-}
 
 #searchbox {
     position: absolute;

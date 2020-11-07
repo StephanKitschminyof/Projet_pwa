@@ -78,14 +78,25 @@ img{
     border-radius: 20px;
     font-size: 4vw;
     z-index: 0;
+}
 
+#entete .titre{
+    margin-top: 10%;
 }
 
 .liste-li-b{
     list-style: none;
     text-align: center;
     display: block;
-    padding-left: 10%;
+    width: 75%;
+}
+
+.liste-li-b2{
+    list-style: none;
+    text-align: center;
+    display: block;
+    width: 100%;
+    
 }
 
 h2{
