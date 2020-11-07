@@ -1,15 +1,21 @@
-<?php session_start(); ?>
+<?php session_start();
+include ("../../Controler/profilControler.php");?>
 <!DOCTYPE html>
 <html>
     <head>
         <meta charset="utf-8">
         <title>Menu d'un étudiant</title>
+        <link rel="stylesheet" type="text/css" href="../css/style.css">
         <link rel="stylesheet" type="text/css" href="../css/styleMenu.css">
-        <link rel="stylesheet" type="text/css" href="../css/styleBottomMenu.css" />
         <link rel = "manifest" href = "../manifest.json">
     </head>
 
     <body>
+        <header>
+            <p id="profil-header-left"><?php echo substr($_SESSION['prenom'], 0, 1) . "." . $_SESSION['nom']; ?></p>
+            <p id="profil-header-right"><?php echo nomPromo(); ?></p>
+        </header>
+
         <form id= "searchbox" method= "get" action= "search" autocomplete= "off">
             <input name= "q" type= "text" size= "15" placeholder= "search…"  />
             <div id="conteneur-img-recherche"><img id="button-recherche" src="../img/search-button.png" alt="test"></div>
@@ -149,4 +155,13 @@
 
         <script type="text/javascript" src="../js/spinnerWheel.js"></script>
     </body>
+	<script>
+        var color = <?php echo json_encode($_SESSION["couleurProfil"]);?>;
+        //Changement couleur pour les paragraphes
+        var Para = document.getElementsByTagName("p");
+        for (var i= 0; i < Para.length; i++)
+        {
+        Para[i].style.color = color;
+        }
+    </script>
 </html>

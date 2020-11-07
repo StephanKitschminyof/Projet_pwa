@@ -10,8 +10,8 @@ $tab_titres = listeTitres($_SESSION["idEtudiant"]);
     <head>
         <meta charset="utf-8">
         <title>Page titre</title>
+        <link rel="stylesheet" type="text/css" href="../css/style.css">
         <link rel="stylesheet" type="text/css" href="../css/styleProfil.css">
-        <link rel="stylesheet" type="text/css" href="../css/styleBottomMenu.css" />
         
     </head>
     <body>

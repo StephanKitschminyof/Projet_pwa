@@ -10,6 +10,11 @@ body{
     padding: 0;
     color: #CACACA;
     text-align: center;
+    list-style-type: none;
+    width: 90%;
+    margin: auto;
+    padding: 0;
+    margin-bottom: 12vw;
 }
 
 .ac-menu{
@@ -23,6 +28,37 @@ body{
     width: 90vw;
     margin-left: auto;
     margin-right: auto;
+
+}
+
+.ac-menu > label{
+    margin: 0;
+    
+}
+
+
+
+.sous-menu > li {
+    height: 0;
+    overflow: hidden;
+    transition: all 0.5s ease-in-out;
+}
+
+input:checked + .sous-menu > li {
+    height: 2em;
+    border: 2px solid #CACACA;
+    width: 70%;
+    margin: auto;
+    border-radius: 20px;
+    margin-top: 5vw;
+    padding-top: 3%;
+    padding-bottom: 3%;
+
+}
+
+
+input[type="checkbox"]{
+    display: none
 }
 
 .notif{

@@ -1,5 +1,6 @@
 <?php session_start();
-include("../../Model/script_bdd.php");
+
+include_once("../../Model/script_bdd.php");
 
 function liste_bloc(){
     $idetu = $_GET['idetu'];

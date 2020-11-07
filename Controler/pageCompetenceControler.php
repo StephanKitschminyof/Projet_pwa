@@ -1,6 +1,10 @@
 <?php
 session_start();
-include ("../../Model/script_bdd.php");
+
+if((include_once '../../Model/script_bdd.php') === FALSE){
+    include("../../Model/script_bdd.php");
+}
+
 function recupinfo(){
     $idetu = $_SESSION['idEtudiant'];//id de l'étu
     $nombloc = $_GET['nombloc'];//nom du bloc recuperé de la page précédante

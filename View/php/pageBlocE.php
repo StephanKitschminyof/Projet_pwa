@@ -4,8 +4,8 @@
     <head>
         <meta charset="utf-8">
         <title>Blocs enseignant</title>
+        <link rel="stylesheet" type="text/css" href="../css/style.css">
         <link rel="stylesheet" type="text/css" href="../css/styleBlocE.css">
-        <link rel="stylesheet" type="text/css" href="../css/styleBottomMenu.css">
         <link rel = "manifest" href = "../manifest.json">
         <script src="../js/jquery-3.5.1.min.js"></script>
 
