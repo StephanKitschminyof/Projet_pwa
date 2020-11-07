@@ -16,12 +16,16 @@ body{
     margin: 0;
 }
 
-/* Header d'un étudiant */
+/* Header d'un étudiant 
 header{
+    width: 100%;
+    height: 10%;
     font-size: 4em;
+    background-color: red;
 }
 
 header p{
+    background-color: yellow;
     display: inline;
     position: fixed;
 }
@@ -34,6 +38,29 @@ header p{
 #profil-header-right{
     top: 1%;
     right: 1%;
+}
+*/
+
+header{
+    background-color: #2F3136;
+    display: inline;
+    position: fixed;
+    top: 0%;
+    left: 0%;
+    width: 100%;
+    font-size: 4em;
+    padding-top: 2%;
+    padding-bottom: 1%;
+}
+
+#profil-header-left{
+    padding-left: 2%;
+    float: left;
+}
+
+#profil-header-right{
+    padding-right: 2%;
+    float: right;
 }
 
 /* je sais pas */
