@@ -27,23 +27,23 @@ if ($_POST) {
 <head>
 	<meta charset="UTF-8">
 	<title><?php echo "Competances :" . $tab_info['infocomp']['nomcomp']; ?> </title>
+	<link rel="stylesheet" type="text/css" href="../css/style.css" />
 	<link rel="stylesheet" type="text/css" href="../css/styleCompetence.css" />
-	<link rel="stylesheet" type="text/css" href="../css/styleBottomMenu.css" />
 	<link rel = "manifest" href = "../manifest.json">
 </head>
 <body>
 
-	<header>
+	<div id="entete">
 		<ul class="liste-bloc">
 			<li class="liste-li-b">
 				<div class="icone-bloc"><img src="../img/menu/icone_java.png" alt="icone du bloc"></div>
 			</li>
 			<?php
-				echo "<li class=\"liste-li-b\"><h1 class='titre'>" . $tab_info['infoBloc']['nombloc'] . "</h1></li>";
+				echo "<li class=\"liste-li-b2\"><h1 class='titre'>" . $tab_info['infoBloc']['nombloc'] . "</h1></li>";
 			?>
 			
 		</ul>
-	</header>
+	</div>
 
 
     <?php

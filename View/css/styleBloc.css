@@ -5,9 +5,8 @@
 }
 
 .titre{
-    display: block;
     color:#A3A3A3;
-    margin-top: 40%;
+    margin: auto;
 }
 
 img{
@@ -31,6 +30,20 @@ img{
     list-style: none;
     text-align: center;
     display: block;
+    width: 40%;
+}
+
+#nom-pourcent{
+    display: inline;
+    width: 40%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+.liste-li-b2{
+    list-style: none;
+    text-align: center;
 }
 
 .comp{
@@ -86,13 +99,12 @@ img{
 
 
 .pourcent{
-    display: block;
     border: 1px solid #A3A3A3;
     border-radius: 10px;
-    padding: 10%;
+    margin: auto;
+    font-size: 1.5em;
     color:#A3A3A3;
-    width: 100%;
-    margin-top: 40%;
+    width: 50%;
 }
 
 .liste-menu{
