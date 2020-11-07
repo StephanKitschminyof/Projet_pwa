@@ -16,31 +16,7 @@ body{
     margin: 0;
 }
 
-/* Header d'un étudiant 
-header{
-    width: 100%;
-    height: 10%;
-    font-size: 4em;
-    background-color: red;
-}
-
-header p{
-    background-color: yellow;
-    display: inline;
-    position: fixed;
-}
-
-#profil-header-left{
-    top: 1%;
-    left: 1%;
-}
-
-#profil-header-right{
-    top: 1%;
-    right: 1%;
-}
-*/
-
+/* Header d'un étudiant */
 header{
     background-color: #2F3136;
     display: inline;
@@ -63,16 +39,6 @@ header{
     float: right;
 }
 
-/* je sais pas */
-.comp{
-    display: inline-block;
-    padding: 0 5vw;
-    font-size: 5vw;
-    border-right: 2px solid gray;
-}
-
-
-
 
 .comp-val{
     display: inline-block;
@@ -84,11 +50,6 @@ header{
 .comp-val:last-child{
     border-right: none;
 }
-
-
-
-
-
 
 .icone-bloc{
     display: block;
@@ -169,6 +130,7 @@ img{
 
     color:#CA841B;
 }
+
 .liste-comp-li-val{
     list-style: none;
     text-align: center;
@@ -277,10 +239,7 @@ img{
     border-right: 1px solid gray;
 
 }
-/*
-ul li:last-child{
-    border-right: none;
-}*/
+
 
 .liste-a{
     text-decoration: none;
