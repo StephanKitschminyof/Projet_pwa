@@ -1,6 +1,7 @@
 <!DOCTYPE html> 
 <?php
 include ("../../Controler/pageConfigControler.php");
+include ("../../Controler/profilControler.php");
 
 $tab_info = recupinfo();
 
@@ -38,20 +39,11 @@ if ($_POST) {
 		}
 	?>
 	<header>
-        <?php
-        echo "
-        <div class=\"gauche\">
-            <h1>" . $tab_info['infoEtu']['nom'] . " " . $tab_info['infoEtu']['prenom'] . "</h1>
-        </div>";
-        
-        echo "
-        <div class=\"droite\">
-            <h1>" . $tab_info['promo'] . "</h1>
-        </div>";
-		?>
-	</header>
+        <p id="profil-header-left"><?php echo substr($_SESSION['prenom'], 0, 1) . "." . $_SESSION['nom']; ?></p>
+        <p id="profil-header-right"><?php echo nomPromo(); ?></p>
+    </header>
 
-    <div>
+    <div id="debut">
         <form method="POST" action="<?php echo "../../Controler/changementImageProfil.php?nom=".$tab_info['infoEtu']['nom']."&prenom=".$tab_info['infoEtu']['prenom'];?>" enctype="multipart/form-data">
             <label class="label-file" for="photo-profil"><?php echo '<img class="img-profil" src="../img/profil/'.$tab_info['infoEtu']['prenom']."-".$tab_info['infoEtu']['nom'].'.jpg" alt="photo de profil" />'; ?></label>
             <input type="file" name="profil" id="photo-profil" class="photo-profil">
@@ -82,7 +74,12 @@ if ($_POST) {
 
 	<?php include("./bottom_menu.php");?>
 
-
+    <script type="text/javascript" src="../js/colorSelector.js"></script>
+    <script>
+			var color = <?php echo json_encode($_SESSION["couleurProfil"]);?>;
+			setColorProfil(color);
+	</script>	
 
 </body>
+
 </html>
