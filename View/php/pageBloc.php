@@ -1,12 +1,10 @@
 <!DOCTYPE html> 
 <?php
 include ("../../Controler/pageBlocControler.php");
+include ("../../Controler/profilControler.php");
 
-$tab_donnees = recupinfo();
+$tab_donnees = recupinfo();?>
 
-
-
-?>
 <html>
 <head>
 	<meta charset="UTF-8">
@@ -16,6 +14,10 @@ $tab_donnees = recupinfo();
 	<link rel = "manifest" href = "../manifest.json">
 </head>
 <body>
+	<header>
+        <p id="profil-header-left"><?php echo substr($_SESSION['prenom'], 0, 1) . "." . $_SESSION['nom']; ?></p>
+        <p id="profil-header-right"><?php echo nomPromo(); ?></p>
+    </header>
 
 	<div id="entete">
 		<ul class="liste-bloc">
@@ -72,7 +74,17 @@ $tab_donnees = recupinfo();
 	}
 	echo "</ul>"
     ?>
+	
 
 	<?php include("./bottom_menu.php");?>
 	</body>
+	<script>
+        var color = <?php echo json_encode($_SESSION["couleurProfil"]);?>;
+        //Changement couleur pour les paragraphes
+        var Para = document.getElementsByTagName("p");
+        for (var i= 0; i < Para.length; i++)
+        {
+        Para[i].style.color = color;
+        }
+    </script>
 </html>
