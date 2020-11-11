@@ -12,22 +12,27 @@ $tab_donnees = recupinfo();
 	<meta charset="UTF-8">
 	<title><?php echo "Bloc : " . $tab_donnees["nombloc"]; ?></title>
 	<link rel="stylesheet" type="text/css" href="../css/style.css" />
+	<link rel="stylesheet" type="text/css" href="../css/styleBloc.css" />
+	<link rel = "manifest" href = "../manifest.json">
 </head>
 <body>
 
-	<header>
+	<div id="entete">
 		<ul class="liste-bloc">
 			<li class="liste-li-b">
 				<div class="icone-bloc"><img src="../img/menu/icone_java.png" alt="icone du bloc"></div>
 			</li>
-			<?php	
-				echo "<li class=\"liste-li-b\"><h1 class='titre'>" . $tab_donnees["infoBloc"]['nombloc'] . "</h1></li>";
-				echo "<li class=\"liste-li-b\"><h1 class='pourcent'>" . $tab_donnees["pourcentageBloc"] . "%</h1></li>";
+			<div id="nom-pourcent">
+				<?php	
+					echo "<li class=\"liste-li-b2\"><h1 class='titre'>" . $tab_donnees["infoBloc"]['nombloc'] . "</h1></li>";
+					echo "<li class=\"liste-li-b2\"><h1 class='pourcent'>" . $tab_donnees["pourcentageBloc"] . "%</h1></li>";
 
-			?>
+				?>
+			</div>
+			
 			
 		</ul>
-	</header>
+	</div>
 
 
 	<?php
@@ -68,39 +73,6 @@ $tab_donnees = recupinfo();
 	echo "</ul>"
     ?>
 
-	<footer>
-		<div class="menu-bar">
-			<ul class="liste-menu">
-				<li class="liste-li">
-					<a href="#" class="liste-a">
-						<div class="icone-menu"><img src="../img/menu/icone_podium.jpg" alt="icone classement"></div>
-					</a>
-				</li>
-				<li class="liste-li">
-					<a href="#" class="liste-a">
-						<div class="icone-menu"><img src="../img/menu/icone_trophes.png" alt="icone trophés"></div>
-					</a>
-				</li>
-				<li class="liste-li">
-					<a href="menu.php" class="liste-a">
-						<div class="icone-menu"><img src="../img/menu/icone_accueil.png" alt="icone accueil"></div>
-					</a>
-				</li>
-				<li class="liste-li">
-					<a href="profil.php" class="liste-a">
-						<div class="icone-menu"><img src="../img/menu/icone_profil.png" alt="icone profil"></div>
-					</a>
-				</li>
-				<li class="liste-li">
-					<a href="pageConfig.php" class="liste-a">
-						<div class="icone-menu"><img src="../img/menu/icone_param.jpg" alt="icone réglage"></div>
-					</a>
-				</li>
-			</ul>
-		</div>
-	</footer>
-
-
-
-</body>
+	<?php include("./bottom_menu.php");?>
+	</body>
 </html>

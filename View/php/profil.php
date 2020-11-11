@@ -6,11 +6,10 @@ include ("../../Controler/profilControler.php");
 <html>
     <head>
         <meta charset="utf-8">
-        <title>Profil Etudiant</title>
-        <link rel="stylesheet" href="View/css/bootstrap.min.css">
-        <link rel="stylesheet" type="text/css" href="../css/styleProfil.css">
+        <title>Profil Etudiant</title>	
         <link rel="stylesheet" type="text/css" href="../css/style.css" />
-        
+        <link rel="stylesheet" type="text/css" href="../css/styleProfil.css">
+        <link rel = "manifest" href = "../manifest.json">
     </head>
     <body>
         <header>
@@ -22,48 +21,33 @@ include ("../../Controler/profilControler.php");
             <div id="profil-content-centre">
                 <?php 
                 $impProfilLink = "../img/profil/". $_SESSION['prenom'] . "-" . $_SESSION["nom"] . ".jpg";
-                echo ("<img src=".$impProfilLink." alt=\"image profil\">");?>
+                echo ("<a href='pageConfig.php'><img id=\"imgProfil\" src=".$impProfilLink." alt=\"image profil\"></a>");?>
                 <p>NIV : <?php echo niv();?></p>
                 <p><?php echo xp();?> Xp</p>
             </div>
             <div id="titre-container">
-                <p id="titre"><?php echo titre($_SESSION["idEtudiant"])?></p>
+                <div id="Color"></div>
+				<a id="linkTitle" href="selectTitle.php"><p id="titre"><?php echo titre();?></p></a>
             </div>
         </div>
 
 
 
-        <footer>
-		<div class="menu-bar">
-			<ul class="liste-menu">
-				<li class="liste-li">
-					<a href="#" class="liste-a">
-						<div class="icone-menu"><img src="../img/menu/icone_podium.jpg" alt="icone classement"></div>
-					</a>
-				</li>
-				<li class="liste-li">
-					<a href="#" class="liste-a">
-						<div class="icone-menu"><img src="../img/menu/icone_trophes.png" alt="icone trophés"></div>
-					</a>
-				</li>
-				<li class="liste-li">
-					<a href="menu.php" class="liste-a">
-						<div class="icone-menu"><img src="../img/menu/icone_accueil.png" alt="icone accueil"></div>
-					</a>
-				</li>
-				<li class="liste-li">
-					<a href="#" class="liste-a">
-						<div class="icone-menu"><img src="../img/menu/icone_profil.png" alt="icone profil"></div>
-					</a>
-				</li>
-				<li class="liste-li">
-					<a href="pageConfig.php" class="liste-a">
-						<div class="icone-menu"><img src="../img/menu/icone_param.jpg" alt="icone réglage"></div>
-					</a>
-				</li>
-			</ul>
-		</div>
-	</footer>
 
+        <?php include("./bottom_menu.php");?>
+
+
+		<script type="text/javascript" src="../js/colorSelector.js"></script>
+		<script>
+			var color = <?php echo json_encode($_SESSION["couleurProfil"]);?>;
+			setColorProfil(color);
+
+            //Evenement sur la div color pour en faire un bouton qui ouvre la page qui permet de changer ca couleur
+            document.getElementById("Color").addEventListener('click', function(event){
+                //Ouvrir la nouvelle page
+                document.location.href="selectColor.php";
+
+            })
+		</script>	
     </body>
 </html>

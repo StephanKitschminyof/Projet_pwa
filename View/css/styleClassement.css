@@ -1,0 +1,45 @@
+html{
+    height: 100%;
+    width: 100%;
+}
+
+body{
+    background-color: #2F3136;
+    min-height: 100%;
+    margin: 0;
+    padding: 0;
+    color: #CACACA;
+    text-align: center;
+    
+}
+
+.ac-menu{
+        border: 2px solid #CACACA;
+        background-color: #36393F;
+        border-radius: 20px;
+        margin-top: 4vw;
+        font-size: 4vw;
+        padding-top: 3%;
+        padding-bottom: 3%;
+        width: 90vw;
+        margin-left: auto;
+        margin-right: auto;
+}
+
+.afficher{
+    border: 2px solid #CACACA;
+    background-color: #36393F;
+    border-radius: 20px;
+    margin-top: 4vw;
+    font-size: 4vw;
+    padding-top: 3%;
+    padding-bottom: 3%;
+    width: 60vw;
+    margin-left: auto;
+    margin-right: auto;
+    
+}
+
+.d{
+    margin-bottom: 12vw;
+}

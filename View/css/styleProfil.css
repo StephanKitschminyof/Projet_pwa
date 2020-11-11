@@ -1,32 +1,3 @@
-*{
-    margin: 0;
-    padding: 0;
-}
-
-body{
-    color:white;
-    background-color: #2F3136;
-    margin: 0;
-}
-
-header{
-    font-size: 4em;
-}
-
-header p{
-    display: inline;
-    position: fixed;
-}
-
-#profil-header-left{
-    top: 1%;
-    left: 1%;
-}
-
-#profil-header-right{
-    top: 1%;
-    right: 1%;
-}
 
 #profil-content-centre{
     position: absolute;
@@ -36,15 +7,109 @@ header p{
     text-align: center;
 }
 
+#profil-content-centre a{
+    text-decoration: none;
+}
+
 #profil-content-centre img {
     border-radius: 100%;
-    border: 6px solid yellow;
+    border: 6px solid;
     width: 400px;
     height: 400px;
 }
 
 #titre-container {
+    display: flex;
+    position: absolute;
+    top: 80%; left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 5em;
+    width: 75%;
+    border: 1px solid;
+    background-color: #4A4C50;
+    border-radius: 25px;
     text-align: center;
+}
+
+#titre-container #Color{
+    border-radius: 50%;
+    height: 1.5em;
+    width: 1.5em;
+    position: relative;
+    top: 50%; left: 10%;
+    transform: translate(0%, 25%);
+}
+
+#titre-container #linkTitle{
+    text-decoration: none;
+    position: relative;
+    top: 50%; left: 50%;
+    transform: translate(-50%, 0%);
+    padding: 0.5em 0.8em;
+}
+
+#choix{
+    position: absolute;
+    top: 20%; left: 50%;
+    transform: translate(-50%,-50%);
+    text-align: center;
+    font-size: 5em;
+}
+
+#paletteColor {
+    position: absolute;
+    left: 50%; top: 60%;
+    transform: translate(-50%, -50%);
+}
+
+
+
+#paletteColor button{
+    width: 8em;
+    height: 8em;
+    border-radius: 50%;
+    position: relative;
+    top: 80%; left: 25%;
+    transform: translate(-50%, -50%);
+}
+
+
+#paletteColor input{
+    width: 8em;
+    height: 8em;
+    border-radius: 50%;
+}
+
+#colorPick{
+    position: absolute;
+    left: 50%; top: 80%;
+    transform: translate(-50%, -50%);
+    width: 12em;
+    height: 8em;
+}
+
+#listeTitresDispo{
+    position: absolute;
+    top: 30%; left: 50%;
+    display: flex;
+    flex-direction: column;
+    transform: translate(-50%,0);
+}
+
+#listeTitresDispo h1{
+    font-size: 3em;
+}
+
+
+#listeTitresDispo input{
+    margin-bottom: 0.5em;
+    font-size: 4em;
+    padding: 5px;
+    border-radius: 25px;
+}
+
+
+#boutonNext {
     position: absolute;
     top: 70%; left: 50%;
     transform: translate(-50%, -50%);
@@ -54,8 +119,7 @@ header p{
     border: 1px solid;
     background-color: #4A4C50;
     border-radius: 25px;
-}
-
-#titre{
-
+    text-align: center;
+    text-decoration: none; 
+    color: white;
 }

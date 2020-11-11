@@ -7,7 +7,18 @@
         <title>Page de connexion</title>
         <link rel="stylesheet" href="View/css/bootstrap.min.css">
         <link rel="stylesheet" href="View/css/styleConnexion.css">
-        
+        <link rel = "manifest" href = "./manifest.json">
+        <script type="text/javascript">if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('./sw.js', { scope: './' }).then(function(reg) {
+      // registration worked
+      console.log('Registration succeeded. Scope is ' + reg.scope);
+    }).catch(function(error) {
+      // registration failed
+      console.log('Registration failed with ' + error);
+    });
+    
+  };</script>
+        <script type="text/javascript" src="./sw.js"></script>
     </head>
     <body>
         <h1>NOM DE L'APP</h1>

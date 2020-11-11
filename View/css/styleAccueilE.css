@@ -1,0 +1,46 @@
+html{
+    height: 100%;
+    width: 100%;
+}
+
+
+
+body{
+    background-color: #2F3136;
+    min-height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+div{
+    margin: auto;
+    width: 100%;
+    text-align: center;
+    color: #CACACA;
+}
+
+.button{
+    border: 2px solid #CACACA;
+    background-color: #4A4C50;
+    height: 20vw;
+    width: 70vw;
+    color: #CACACA;
+    border-radius: 20px;
+    font-size: 5vw;
+    margin-top: 5vw;
+
+}
+
+.deco{
+    height: 15vw;
+    width: 15vw;
+    border-radius: 100%;
+    font-size: 8vw;
+    margin-top: 10vw;
+}
+
+.label{
+    text-decoration: none;
+    font-size: 4vw;
+    margin-bottom: 10vw;
+}

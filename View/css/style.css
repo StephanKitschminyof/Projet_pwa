@@ -1,29 +1,44 @@
+
+/* Mise en forme globale des pages */
+*{
+    margin: 0;
+    padding: 0;
+}
+
 html{
     height: 100%;
     width: 100%;
 }
 
-.comp{
-    display: inline-block;
-    padding: 0 5vw;
-    font-size: 5vw;
-    border-right: 2px solid gray;
+body{
+    color:white;
+    background-color: #2F3136;
+    margin: 0;
 }
 
-.comp:last-child{
-    border-right: none;
+/* Header d'un étudiant */
+header{
+    background-color: #2F3136;
+    display: inline;
+    position: fixed;
+    top: 0%;
+    left: 0%;
+    width: 100%;
+    font-size: 4em;
+    padding-top: 2%;
+    padding-bottom: 1%;
 }
 
-.comp-att{
-    display: inline-block;
-    padding: 0 5vw;
-    font-size: 5vw;
-    border-right: 2px solid #CA841B;
+#profil-header-left{
+    padding-left: 2%;
+    float: left;
 }
 
-.comp-att:last-child{
-    border-right: none;
+#profil-header-right{
+    padding-right: 2%;
+    float: right;
 }
+
 
 .comp-val{
     display: inline-block;
@@ -34,32 +49,6 @@ html{
 
 .comp-val:last-child{
     border-right: none;
-}
-
-.menu-bar{
-    display: block;
-    background-color: white;
-    width:100%;
-    margin-bottom: 0%;
-    position: fixed;
-    bottom: 0;
-    height:10vw;
-    z-index: 1;
-}
-
-
-.icone-menu{
-    display: inline-block;
-    height: 50px;
-    width: 50px;
-}
-
-
-body{
-    background-color: #2F3136;
-    min-height: 100%;
-    margin: 0;
-    padding: 0;
 }
 
 .icone-bloc{
@@ -88,29 +77,6 @@ img{
     max-height: 100%;
 }
 
-.liste-menu{
-    padding: 15px;
-    display: flex;
-}
-
-.liste-li{
-    list-style: none;
-    text-align: center;
-    display: block;
-    border-right: 1px solid gray;
-
-}
-
-ul li:last-child{
-    border-right: none;
-}
-
-.liste-a{
-    text-decoration: none;
-    padding: 0 7.5vw;
-    display: block;
-}
-
 .liste-bloc{
     padding: 15px;
     display: flex;
@@ -123,6 +89,7 @@ ul li:last-child{
 
 }
 
+/*
 .liste-li-b{
     list-style: none;
     text-align: center;
@@ -164,6 +131,7 @@ ul li:last-child{
 
     color:#CA841B;
 }
+
 .liste-comp-li-val{
     list-style: none;
     text-align: center;
@@ -235,7 +203,47 @@ ul li:last-child{
     margin-left: 5vw;
     margin-right: 5vw;
 
+}
+*/
+/* Menu du bas */
+.menu-bar img{
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.menu-bar{
+    display: block;
+    background-color: white;
+    width:100%;
+    margin-bottom: 0%;
+    position: fixed;
+    bottom: 0;
+    height:10vw;
+    z-index: 1;
+}
+
+.icone-menu{
+    display: inline-block;
+    height: 50px;
+    width: 50px;
+}
+
+.liste-menu{
+    padding: 15px;
+    display: flex;
+}
+
+.liste-li{
+    list-style: none;
+    text-align: center;
+    display: block;
+    border-right: 1px solid gray;
+
+}
 
 
-
+.liste-a{
+    text-decoration: none;
+    padding: 0 7.5vw;
+    display: block;
 }

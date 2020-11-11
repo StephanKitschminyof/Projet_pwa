@@ -1,5 +1,6 @@
 <?php
-include ("../../Model/script_bdd.php");
+
+include_once("../../Model/script_bdd.php");
 
 function nomPromo()
 {
@@ -41,15 +42,53 @@ function xp()
     }
 }
 
-function titre($idEtudiant){
-    //Récupérer le titre de l'étudiant a afficher
-    $reponse = chercherTitreActif($idEtudiant);
-    if($reponse)
+//Récupérer le titre de l'étudiant a afficher
+function titre(){
+    $reponse = chercherTitre($_SESSION["idTitre"]);
+    if($result= $reponse->fetch())
     {
-        $result = $reponse->fetch();
         return $result["nomtitre"];
     }
     else{
-        return "noob tu n'as pas de titre";
+        return "Nooby";
     }
+}
+
+ //Récupère la liste des blocs d'un étudiant
+function blocsDunEtudiant($idEtudiant)
+{
+    $tabBlocs = array();
+    $reponse = chercherBlocEtudiant($idEtudiant);
+    while($donnees = $reponse->fetch())
+    {
+        $tabBlocs[] = $donnees['idbloc'];
+    }
+    return $tabBlocs;
+}
+
+//Afficher tous les titres que l'étudiant peut utiliser
+function listeTitres($idEtudiant)
+{    
+    $listeTitres = array();
+
+
+    //Selection des blocs de l'étudiants
+    $tabIdBloc = blocsDunEtudiant($idEtudiant);
+
+    //Sélectionne les % des blocs
+    for($i = 0; $i<sizeof($tabIdBloc); $i++){
+        $listeCompetences = chercherCompetencesBloc($tabIdBloc[$i])->fetchAll();//liste des competance
+        $listeCompetenceEtu = chercherCompetencesBlocEtu($tabIdBloc[$i],$idEtudiant)->fetchAll();//listes des compétances de l'etudiant dans le bloc courant
+    
+        $pourcentageBloc = 0;
+        if(count($listeCompetenceEtu) != 0 && count($listeCompetences) != 0){
+            $pourcentageBloc = count($listeCompetenceEtu)/count($listeCompetences)*100;//création du pourcentage de competances finis dans le bloc
+        }
+        //Pour chaque bloc selectionne les titres utilisables
+        $reponse = chercherTitreUnlock($tabIdBloc[$i], $pourcentageBloc);
+        while ($donnees = $reponse->fetch()){
+            array_push($listeTitres, $donnees["nomtitre"]);
+        }
+    }
+    return $listeTitres;
 }

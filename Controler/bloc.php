@@ -1,8 +1,5 @@
 <?php
-
-include '../../Model/script_bdd.php';
-
-blocsPourUnEtudiant(1);
+include_once("../../Model/script_bdd.php");
 
 function blocsPourUnEtudiant($idEtudiant)
 {
