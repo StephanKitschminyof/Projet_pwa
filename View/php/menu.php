@@ -93,7 +93,7 @@ include ("../../Controler/profilControler.php");?>
 
                 //Permet d'afficher les 8 blocs suivant
                 function spinnerSuiv(){
-                    if((indiceMenu+1)*8 < tabBlocs.length)
+                    if((indiceMenu+1)*8-1 < tabBlocs.length)
                     {
                         indiceMenu = indiceMenu + 1;
                         spinner();
