@@ -1,4 +1,9 @@
-<?php include("../../Controler/classementControler.php"); ?>
+<?php 
+session_start();
+//Redirection vers la page de connexion si pas de compte connecté
+include ("../../Controler/testSession.php");
+
+include("../../Controler/classementControler.php"); ?>
 <!DOCTYPE html>
 <html>
     <head>

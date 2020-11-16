@@ -1,4 +1,8 @@
-<?php session_start();
+<?php
+if(empty($_SESSION))
+{
+    session_start();
+}
 
 include_once("../../Model/script_bdd.php");
 

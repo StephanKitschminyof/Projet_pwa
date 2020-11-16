@@ -1,5 +1,4 @@
 <?php
-include("../Model/script_bdd.php");
 
 
 $idbloc = $_GET['idbloc'];

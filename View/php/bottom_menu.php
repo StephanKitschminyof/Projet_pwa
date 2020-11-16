@@ -4,12 +4,12 @@
 			<ul class="liste-menu">
 				<li class="liste-li">
 					<a href="pageResume.php" class="liste-a">
-						<div class="icone-menu"><img src="../img/menu/icone_resume.jpg" alt="icone classement"></div>
+						<div class="icone-menu"><img src="../img/menu/resume.png" alt="icone classement"></div>
 					</a>
 				</li>
 				<li class="liste-li">
 					<a href="pagePodium.php" class="liste-a">
-						<div class="icone-menu"><img src="../img/menu/icone_podium.png" alt="icone trophés"></div>
+						<div class="icone-menu"><img src="../img/menu/icone_podium.jpg" alt="icone trophés"></div>
 					</a>
 				</li>
 				<li class="liste-li">

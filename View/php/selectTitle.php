@@ -1,4 +1,8 @@
-<?php session_start(); 
+<?php 
+session_start();
+//Redirection vers la page de connexion si pas de compte connecté
+include ("../../Controler/testSession.php");
+
 include ("../../Controler/profilControler.php");
 
 //récupérations des titres a afficher

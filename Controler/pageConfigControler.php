@@ -1,5 +1,8 @@
 <?php
-session_start();
+if(empty($_SESSION))
+{
+    session_start();
+}
 
 if((include_once '../../Model/script_bdd.php') === FALSE){
     include("../../Model/script_bdd.php");
