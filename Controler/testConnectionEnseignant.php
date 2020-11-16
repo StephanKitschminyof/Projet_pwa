@@ -1,4 +1,4 @@
 <?php
-if(!isset($_SESSION['nom'] )){
+if(!isset($_SESSION['idEnseignant'] )){
     header('Location: ../../index.php');
 }

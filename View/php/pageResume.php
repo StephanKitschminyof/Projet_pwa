@@ -2,7 +2,7 @@
 <?php
 session_start();
 //Redirection vers la page de connexion si pas de compte connecté
-include ("../../Controler/testSession.php");
+include ("../../Controler/testConnectionEtudiant.php");
 
     include ("../../Controler/pageResumeControler.php");
     include ("../../Controler/profilControler.php");
