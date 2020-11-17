@@ -1,5 +1,8 @@
 <?php
-session_start();
+if(empty($_SESSION))
+{
+    session_start();
+}
 include_once("../Model/script_bdd.php");
 
 if(isset($_POST['idbloc']) and !empty($_POST['idbloc'])){

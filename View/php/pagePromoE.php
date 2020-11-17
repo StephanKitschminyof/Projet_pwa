@@ -1,4 +1,9 @@
-<?php include("../../Controler/pagePromoEControler.php"); ?>
+<?php
+session_start();
+//Redirection vers la page de connexion si pas de compte connecté
+include ("../../Controler/testConnectionEnseignant.php");
+
+include("../../Controler/pagePromoEControler.php"); ?>
 <!DOCTYPE html>
 <html>
     <head>

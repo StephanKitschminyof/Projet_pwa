@@ -19,6 +19,7 @@ img{
     display: flex;
     border: 5px solid #A3A3A3;
     margin: 5%;
+    margin-top: 13%;
     background-color: #4A4C50;
     border-radius: 20px;
     font-size: 4vw;
@@ -202,6 +203,7 @@ ul li:last-child{
     margin: auto;
     padding: 0;
     margin-top: 7em;
+    margin-bottom: 10em;
 }
 
 form{

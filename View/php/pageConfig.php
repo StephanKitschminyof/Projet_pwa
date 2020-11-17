@@ -1,5 +1,9 @@
 <!DOCTYPE html> 
 <?php
+session_start();
+//Redirection vers la page de connexion si pas de compte connecté
+include ("../../Controler/testConnectionEtudiant.php");
+
 include ("../../Controler/pageConfigControler.php");
 include ("../../Controler/profilControler.php");
 
@@ -35,6 +39,7 @@ if ($_POST) {
 <body>
 	<?php 
 		if(isset($_POST['deconnexion'])){
+            session_destroy();
 			header("Location: ../../index.php");
 		}
 	?>
