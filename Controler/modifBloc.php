@@ -13,7 +13,7 @@ function page(){
     $bloc = chercherBlocId($idbloc)->fetch();
     $liste_comp = chercherCompetencesBloc($idbloc)->fetchAll();
     
-    echo "<h1>".$bloc['nombloc']."</h1>";
+    echo "<h1>Bloc : ".$bloc['nombloc']."</h1>";
     echo '<br>';
     echo '<h1>Ajouter une Compétances</h1>';
     
@@ -29,7 +29,7 @@ function page(){
     echo '</div></div>';
 
     
-    echo '<h1>Modification des Compétances</h1>';
+    echo '<h1>Modification d\'une Compétance</h1>';
 
         for($i=0;$i<count($liste_comp);$i++){
             echo '<div class="comp">';

@@ -13,10 +13,7 @@ body{
 
 }
 
-.ul{
-    margin-bottom: 12vw;
-    margin-left: 0;
-}
+
 
 .notif{
     border-radius: 100%;
@@ -31,20 +28,31 @@ body{
 
 }
 
+.ul{
+    margin-bottom: 15vw;
+}
+
+.dtitre{
+    
+    margin-top: 4vw;
+    margin-right: auto;
+    margin-left: auto;
+    width: 90vw;    
+    text-align: center;
+    font-size: 6vw;
+}
 .li{
+    margin-top: 4vw;
+    margin-right: auto;
+    margin-left: auto;
+    width: 90vw;    
+    text-align: center;
     font-size: 4vw;
     border: 2px solid #CACACA;
     background-color: #36393F;
     border-radius: 20px;
-    margin-top: 4vw;
-    font-size: 4vw;
-    padding-top: 3%;
-    padding-bottom: 3%;
-    margin-right: 4vw;
-    margin-left: auto;
-    list-style: none;
-    text-align: center;
-
+    height: 8vw;
+    padding-top: 4vw;
 }
 
 a{
@@ -52,6 +60,3 @@ a{
     color: #CACACA; 
 }
 
-.n{
-    margin-right: 8vw;
-}

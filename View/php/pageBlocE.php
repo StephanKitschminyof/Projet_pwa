@@ -1,7 +1,7 @@
 <?php 
 session_start();
 //Redirection vers la page de connexion si pas de compte connecté
-include ("../../Controler/testSession.php");
+include ("../../Controler/testConnectionEnseignant.php");
 
 include("../../Controler/pageBlocEController.php"); ?>
 <!DOCTYPE html>
@@ -17,22 +17,17 @@ include("../../Controler/pageBlocEController.php"); ?>
     </head>
 
     <body>
-        <div>
-            <form method="post">
-                <div>
-                    <input class="recherche" type="search" id="rechercher" name="recherche" value="" />
-                    <label for="rechercher"><img alt="icone loupe" src="" /></label>
-                </div>
-            </form>
+        <div class="rechercher">
+                    <input class="recherche" type="search" id="rechercher" name="recherche" value="" placeholder="Rechercher"/>
         </div>
 
-        <div class="d">
+        
             <?php liste_bloc(); ?>
             <script src="../js/listeDeroulante.js"></script>
-        </div>
+        
 
         <?php
-            include("./bottom_menu.php");
+            include("./bottom_menu_enseignant.php");
         ?>
         <script src="../js/filtreTest2.js"></script>
     </body>

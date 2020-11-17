@@ -8,21 +8,22 @@ include_once("../../Model/script_bdd.php");
 
 function liste_eleve(){
     $idPromo = $_GET['idpromo'];
+    $promo = $_GET['nompromo'];
 
     $liste_eleve = chercherPromoEleve($idPromo)->fetchAll();
-    echo "<ul class='ul' id='trier'>";
+    echo "<div class='ul'><div class='dtitre'><p>Liste des élèves <br> Filière : ".$promo."</p></div>";
     for($i=0;$i<count($liste_eleve);$i++)
     {
-        echo "<li class='li'>";
+        echo "<div class='li'>";
         echo "<a href='./pageEleveBloc.php?idetu=".$liste_eleve[$i]['idetudiant']."'>".$liste_eleve[$i]['nom']." ".$liste_eleve[$i]['prenom']."</a>";
-        echo "</li>";
+        echo "</div>";
 
     }
 
 
 
 
-    echo "</ul>";
+    echo "</div>";
 
 }
 ?>

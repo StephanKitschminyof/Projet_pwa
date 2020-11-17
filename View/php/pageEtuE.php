@@ -30,14 +30,14 @@ include ("../../Controler/testConnectionEnseignant.php");
 
     <body>
         <?php
-            echo "<header><h1>".$info['nom']." ".$info['prenom']."</h1></header>";
+            echo "<div class='all'><div class='header'><h1>".$info['nom']." ".$info['prenom']."</h1></div>";
             
-            echo "<h1>".$info['titre']."</h1>";
-            echo "<p>".$info['description']."</p>";
-            include("./bottom_menu.php");
+            echo "<div class='corp'><h1>".$info['titre']."</h1>";
+            echo "<p>".$info['description']."</p></div>";
+            
         
-            //echo '<button onclick="window.history.back()">Retour</button>';
-        echo '<form method="post">';
+            
+        echo '<div class="form"><form method="post">';
             
             echo '<input type="button" onClick="window.history.back()" value="Retour" name="retour" />';
 
@@ -45,7 +45,9 @@ include ("../../Controler/testConnectionEnseignant.php");
             echo '<input class="valider" type="submit" value="Valider" name="valider" />';
         }
         
-        echo '</form>';
+        echo '</form></div></div>';
+
+        include("./bottom_menu_enseignant.php");
         ?>
     </body>
 </html>
