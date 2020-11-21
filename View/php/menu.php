@@ -26,7 +26,9 @@ include ("../../Controler/profilControler.php");?>
         </form>
 
         <div id="box">
-            <div id="dot"></div>
+            <a href="profil.php">
+                <div id="dot"></div>
+            </a>
             <?php
                 include '../../Controler/bloc.php';
                 //Récupération des blocs d'un étudiant

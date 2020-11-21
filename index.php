@@ -8,20 +8,13 @@
         <link rel="stylesheet" href="View/css/bootstrap.min.css">
         <link rel="stylesheet" href="View/css/styleConnexion.css">
         <link rel = "manifest" href = "./manifest.json">
-        <script type="text/javascript">if ('serviceWorker' in navigator) {
-    navigator.serviceWorker.register('./sw.js', { scope: './' }).then(function(reg) {
-      // registration worked
-      console.log('Registration succeeded. Scope is ' + reg.scope);
-    }).catch(function(error) {
-      // registration failed
-      console.log('Registration failed with ' + error);
-    });
-    
-  };</script>
+        <script type="text/javascript"></script>
         <script type="text/javascript" src="./sw.js"></script>
     </head>
     <body>
+        <?php if(isset($_GET['nvx'])){echo '<script>alert("Le compte à été créé avec succès")</script>';} ?>
         <h1>NOM DE L'APP</h1>
+
         <form action="Controler/connexion.php" method="post">
             <div class="champ">
                 <label for="identifiant">Identifiant</label>
@@ -31,9 +24,14 @@
                 <label for="mdp">Mot de passe</label>
                 <input type="text" name="mdp" id="mdp" required>
             </div>
+            
             <div class="champ">
                 <input type="submit" value="Valider">
             </div>
+            <br>
+            <h2>Vous n'avez pas de compte : <a href="./View/php/creationCompte.php">cliquez ici</a></h2>
+
         </form>
+
     </body>
 </html>

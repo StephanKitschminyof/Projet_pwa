@@ -1,7 +1,7 @@
 <?php 
 session_start();
 //Redirection vers la page de connexion si pas de compte connecté
-include ("../../Controler/testConnectionEnseignant.php");
+include ("../../Controler/testConnectionEtudiant.php");
 
 include("../../Controler/classementControler.php"); ?>
 <!DOCTYPE html>
@@ -23,10 +23,10 @@ include("../../Controler/classementControler.php"); ?>
 
         </div>
         <div class="d">
-        <?php  affiche_bloc()?>
+        <?php  affiche_bloc_etu()?>
         </div>
         <?php
-            include("./bottom_menu_enseignant.php");
+            include("./bottom_menu.php");
         ?>
 
         <script src="../js/jquery-3.5.1.min.js"></script>
