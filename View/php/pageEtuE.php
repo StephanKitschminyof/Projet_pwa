@@ -5,9 +5,11 @@ include ("../../Controler/testConnectionEnseignant.php");
 
     include("../../Controler/pageEtuEController.php");
     $info = recupinfo();
+
+    $page = $_GET['page'];
     
     if(isset($_POST['valider']) and !empty($_POST['valider'])){
-        $date = valideCompEtu();
+        $date = valideCompEtu($page);
         var_dump($date);
 
     
@@ -39,7 +41,7 @@ include ("../../Controler/testConnectionEnseignant.php");
             
         echo '<div class="form"><form method="post">';
             
-            echo '<input type="button" onClick="window.history.back()" value="Retour" name="retour" />';
+            echo '<input type="button" onClick="document.location.href=\'./'.$page.'\'" value="Retour" name="retour" />';
 
         if($info['valide'] == 1){//1 si le bouton valider doit apparaitre
             echo '<input class="valider" type="submit" value="Valider" name="valider" />';

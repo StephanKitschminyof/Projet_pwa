@@ -31,12 +31,13 @@ function liste_bloc(){
                 $notif = chercherCompetanceNotif($liste_competance[$j]['idcompetances'])->fetchAll();
 
                 
-                
-                
+                $url = "pageEtuE.php?idetu=".$idetu."&idcomp=".$liste_competance[$j]['idcompetances']."&valide=1";
+                $urln = "pageEtuE.php?idetu=".$idetu."&idcomp=".$liste_competance[$j]['idcompetances']."&valide=0";
+                $back = "&page=pageEleveBloc.php?idetu=".$idetu."'>".$liste_competance[$j]['nomcomp'];
                 if(count($notif) != 0){
-                    echo "<div class='afficher' id='notif'><a href='./pageEtuE.php?idetu=".$idetu."&idcomp=".$liste_competance[$j]['idcompetances']."&valide=1'>".$liste_competance[$j]['nomcomp']."</a></div>";
+                    echo "<div class='afficher' id='notif'><a href='./".$url.$back."</a></div>";
                 }else{
-                    echo "<div class='afficher'><a href='./pageEtuE.php?idetu=".$idetu."&idcomp=".$liste_competance[$j]['idcompetances']."&valide=0'>".$liste_competance[$j]['nomcomp']."</a></div>";
+                    echo "<div class='afficher'><a href='./".$urln.$back."</a></div>";
                 }
 
                 

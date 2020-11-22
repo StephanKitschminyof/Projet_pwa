@@ -14,8 +14,9 @@ function recupinfo(){
     $listeCompetenceEtu = chercherCompetencesBlocEtu($infoBloc['idbloc'],$idetu)->fetchAll();//listes des compétances de l'etudiant dans le bloc courant
     
     $pourcentageBloc = 0;
-    if(count($listeCompetenceEtu) != 0 && count($listeCompetences) != 0){
-        $pourcentageBloc = count($listeCompetenceEtu)/count($listeCompetences)*100;//création du pourcentage de competances finis dans le bloc
+    $CompetenceEtuVal = (chercherCompetencesValideBlocEtu($infoBloc['idbloc'],$idetu)->fetch())["COUNT(ce.idetu)"];
+    if(count($listeCompetences) != 0){
+        $pourcentageBloc = round($CompetenceEtuVal/count($listeCompetences)*100);//création du pourcentage de competances finis dans le bloc
     }
     
     return $tab_info =  array(

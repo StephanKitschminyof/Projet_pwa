@@ -26,7 +26,7 @@ $tab_donnees = recupinfo();?>
 	<div id="entete">
 		<ul class="liste-bloc">
 			<li class="liste-li-b">
-				<div class="icone-bloc"><img src="../img/menu/icone_java.png" alt="icone du bloc"></div>
+				<div class="icone-bloc"><img src="<?php echo '../img/bloc/'. $tab_donnees["nombloc"] .'-logo.png'; ?>" alt="icone du bloc"></div>
 			</li>
 			<div id="nom-pourcent">
 				<?php	
