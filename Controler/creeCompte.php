@@ -35,7 +35,8 @@ if(isset($_POST["nom"])){
         $cpt = chercherIdCompte();
         ajouterEnseignant($nom,$prenom,$cpt);
     }
-
+    mkdir("oh");
+    copy("../View/img/profil/default.png",$prenom."-".$nom.".png");
     header("Location: ../index.php?nvx=1");
     
     
@@ -67,7 +68,7 @@ if(isset($_POST["nom"])){
             echo '<option value="'.$liste_promo[$i]["idpromo"].'">'.$liste_promo[$i]["nom"].'</option>';
         }
 
-        echo '</select>';
+        echo '</select></div>';
     }
     echo'<div class="champ2">
             <input type="submit" value="Valider">

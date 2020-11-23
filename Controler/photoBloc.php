@@ -1,8 +1,9 @@
 <?php
 include("../Model/script_bdd.php");
 $nombloc = (chercherBlocId($_GET['idbloc'])->fetch())['nombloc'];
-
-
+if($nombloc != $_POST['ntitre']){
+    updateTitreBloc($_GET['idbloc'],$_POST['ntitre']);
+}
 if(isset($_FILES['photo']) AND !empty($_FILES['photo']['name'])) {
     //test pour trouver si le fichier upload a bien une extension d'image
     $extensionsValides = array('jpg','png','jpeg');
@@ -20,5 +21,8 @@ if(isset($_FILES['photo']) AND !empty($_FILES['photo']['name'])) {
        } else {
             echo "Erreur extension";
        }
+ }else{
+    
+    header('Location: ../View/php/pageModifBloc.php?idbloc='.$_GET['idbloc']);   
  }
  ?>

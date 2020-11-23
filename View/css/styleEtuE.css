@@ -17,12 +17,21 @@ h1{
     margin-left: 5vw;
 }
 
+h2{
+    color: #CACACA;
+    height: 15vw;
+    font-size: 7.5vw;
+    margin-left: 5vw;
+    margin-top: 5vw;
+}
+
 p{
     color: #CACACA;
     height: 55vw;
     font-size: 5vw;
     margin-left: 5vw;
     margin-right: 5vw;
+    
 
 }
 
@@ -54,4 +63,5 @@ button,input{
 .all{
     margin-bottom: 15vw;
 }
+
 

@@ -36,13 +36,13 @@ function valideCompEtu($page){
     global $idetu;
 
     //recup la date 
-    $date = date("d/m/Y");;
-
+    $date = date("d/m/Y");
+ 
     //inserer la date dans competenceetu
-    updateDateValide($date,$idcomp,$idetu);
+    updateDateValide($date,intval($idcomp),intval($idetu));
 
     //inserer l'xp dans l'étudiant
-    updateXpEtu($idetu,$infocomp['expraporte']+$infoetu['exp']);
+    updateXpEtu(intval($idetu),intval($infocomp['expraporte']+$infoetu['exp']));
 
     header("Location: ./pageEtuE.php?idetu=". $idetu ."&idcomp=". $idcomp."&valide=0&page=".$page);
 

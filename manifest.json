@@ -1,6 +1,6 @@
 {
-    "name": "Test PWA",
-    "short_name": "Test_PWA",
+    "name": "WikiSkills",
+    "short_name": "WikiSkills",
     "start_url": "index.php",
     "icons": [
         {

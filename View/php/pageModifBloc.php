@@ -21,7 +21,7 @@ include("../../Controler/modifBloc.php"); ?>
             <?php page() ?>
         </div>
         <?php
-            include("./bottom_menu.php");
+            include("./bottom_menu_enseignant.php");
         ?>
     </body>
 </html>

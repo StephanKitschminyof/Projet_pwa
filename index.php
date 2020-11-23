@@ -18,11 +18,11 @@
         <form action="Controler/connexion.php" method="post">
             <div class="champ">
                 <label for="identifiant">Identifiant</label>
-                <input type="text" name="identifiant" id="identifiant" required>
+                <input type="text" autocomplete="off" name="identifiant" id="identifiant" required>
             </div>
             <div class="champ">
                 <label for="mdp">Mot de passe</label>
-                <input type="text" name="mdp" id="mdp" required>
+                <input type="text" autocomplete="off" name="mdp" id="mdp" required>
             </div>
             
             <div class="champ">
