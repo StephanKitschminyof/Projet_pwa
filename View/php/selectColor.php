@@ -48,7 +48,8 @@ include ("../../Controler/profilControler.php");?>
                                     echo "<input style=\"background-color:".$matriceColor[$i][$j]."\" type=\"submit\" value=\"\" >"; 
                                 }
                                 else{
-                                    echo "<input type=\"submit\" value=\"\" disabled=\"disabled\">"; 
+                                   //echo "<input type=\"submit\" value=\"\" disabled=\"disabled\">"; 
+                                   echo "<input type=\"button\" onClick=\"Message(".($numCase*5).")\">";
                                 }
                             echo "</form>" ;
                         echo "</td>";
@@ -73,6 +74,11 @@ include ("../../Controler/profilControler.php");?>
     <script>
 		var color = <?php echo json_encode($_SESSION["couleurProfil"]);?>;
 		setColorSelectColor(color);
+
+        function Message(lvl){
+            var msg = "Le niveau requis pour débloquer cette couleur est : " + lvl;
+            alert(msg);
+        }
 	</script>
     </body>
 </html>
