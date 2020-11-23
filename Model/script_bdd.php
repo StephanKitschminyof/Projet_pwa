@@ -156,6 +156,17 @@ function chercherCompetencesBlocEtu($idbloc,$idetu)
 	return $resultat;
 }
 
+//Chercher les compétences valide d'un bloc d'un étudiant
+ 
+function chercherCompetencesValideBlocEtu($idbloc,$idetu)
+{
+	global $bdd;
+	
+	$resultat = $bdd->query('SELECT COUNT(ce.idetu) FROM competanceetu ce INNER JOIN competances c ON ce.idcompetance = c.idcompetances WHERE ce.idetu = \'' . $idetu . '\' AND c.idbloc = \'' . $idbloc . '\' AND ce.date != \'NULL\'');
+				
+	return $resultat;
+}
+
 //Chercher les competances de l'etudiant
 function chercherCompetenceEtu($idcomp,$idetu)
 {

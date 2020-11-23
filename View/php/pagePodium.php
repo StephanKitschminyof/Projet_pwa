@@ -30,6 +30,6 @@ include("../../Controler/classementControler.php"); ?>
         ?>
 
         <script src="../js/jquery-3.5.1.min.js"></script>
-        <script src="../js/filtreClassement.js"></script>
+        <script src="../js/filtrePodium.js"></script>
     </body>
 </html>

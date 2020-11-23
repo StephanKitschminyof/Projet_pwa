@@ -1,7 +1,14 @@
 /* Mise en forme globale des pages */
+@font-face {
+	font-family: "maven";
+	src: url(./police/MavenPro-Regular.ttf);
+}
+	
+
 *{
     margin: 0;
     padding: 0;
+    font-family: "maven";
 }
 
 html{

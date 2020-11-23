@@ -16,13 +16,13 @@ function liste_etu(){
 
     while($d = $liste_notif->fetch()){
         echo "<div class='li' id='notif'>";
-        echo "<a href='./pageEtuE.php?idetu=" . $d['idetudiant'] . "&idcomp=". $idcomp ."&valide=1'>". $d['nom'] . " " . $d['prenom'] ."</a>";
+        echo "<a href='./pageEtuE.php?idetu=" . $d['idetudiant'] . "&idcomp=". $idcomp ."&valide=1&page=pageCompE.php?comp=".$idcomp."'>". $d['nom'] . " " . $d['prenom'] ."</a>";
         echo "</div>";
     }
 
     while($d = $liste->fetch()){
         echo "<div class='li'>";
-        echo "<a href='./pageEtuE.php?idetu=" . $d['idetudiant'] . "&idcomp=". $idcomp ."&valide=0'>". $d['nom'] . " " . $d['prenom'] ."</a>";
+        echo "<a href='./pageEtuE.php?idetu=" . $d['idetudiant'] . "&idcomp=". $idcomp ."&valide=0&page=pageCompE.php?comp=".$idcomp."'>". $d['nom'] . " " . $d['prenom'] ."</a>";
         echo "</div>";
     }
     

@@ -29,7 +29,7 @@ function recupinfo(){
         );
 }
 
-function valideCompEtu(){
+function valideCompEtu($page){
     global $idcomp;
     global $infocomp;
     global $infoetu;
@@ -44,7 +44,7 @@ function valideCompEtu(){
     //inserer l'xp dans l'étudiant
     updateXpEtu($idetu,$infocomp['expraporte']+$infoetu['exp']);
 
-    header("Location: ./pageEtuE.php?idetu=". $idetu ."&idcomp=". $idcomp."&valide=0");
+    header("Location: ./pageEtuE.php?idetu=". $idetu ."&idcomp=". $idcomp."&valide=0&page=".$page);
 
 
 }

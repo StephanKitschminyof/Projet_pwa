@@ -92,11 +92,7 @@ img{
 }
 
 
-.icone-menu{
-    display: inline-block;
-    height: 50px;
-    width: 50px;
-}
+
 
 
 .pourcent{
@@ -108,28 +104,6 @@ img{
     width: 50%;
 }
 
-.liste-menu{
-    padding: 15px;
-    display: flex;
-}
-
-.liste-li{
-    list-style: none;
-    text-align: center;
-    display: block;
-    border-right: 1px solid gray;
-
-}
-
-ul li:last-child{
-    border-right: none;
-}
-
-.liste-a{
-    text-decoration: none;
-    padding: 0 7.5vw;
-    display: block;
-}
 
 
 
