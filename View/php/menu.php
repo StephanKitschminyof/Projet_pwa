@@ -20,8 +20,8 @@ include ("../../Controler/profilControler.php");?>
             <p id="profil-header-right"><?php echo nomPromo(); ?></p>
         </header>
 
-        <form id= "searchbox" method= "get" action= "search" autocomplete= "off">
-            <input name= "q" type= "text" size= "15" placeholder= "search…"  />
+        <form id= "searchbox" method= "get" autocomplete= "off">
+            <input name= "q" type= "text" size= "15" placeholder= "search…" onchange="recherche(this.value)" />
             <div id="conteneur-img-recherche"><img id="button-recherche" src="../img/search-button.png" alt="test"></div>
         </form>
 
@@ -112,6 +112,28 @@ include ("../../Controler/profilControler.php");?>
                         indiceMenu = indiceMenu - 1;
                         spinner();
                     }
+                }
+
+                //Permet de changer les blocs a afficher suivant une recherche
+                function recherche(val){
+                    console.log(val);
+                    //1 Réinitialise la recherche
+                    tabBlocs = <?php echo json_encode($tabBlocs)?>;
+
+                    //2 Construction de la regex
+                    var regex = new RegExp(".*"+val+".*", "i");
+
+                    //3 Enlever les éléments ne correspondant pas a la recherche
+                    for(i=tabBlocs.length-1; i>=0; i--)
+                    {
+                        if(!tabBlocs[i].match(regex))
+                        {
+                            tabBlocs.splice(i,1);
+                        }
+                    }
+
+                    //4 pour afficher
+                    spinner();
                 }
 
                 //Affichage des blocs 8 par 8
