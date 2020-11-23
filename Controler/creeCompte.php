@@ -28,7 +28,7 @@ if(isset($_POST["nom"])){
         $filiaire = intval($_POST['filiere']);
         ajouterCompte($log,$pass,$fct);
         $cpt = chercherIdCompte();
-        ajouterEtudiant($nom,$prenom,0,$filiaire,$cpt,NULL);
+        ajouterEtudiant($nom,$prenom,0,$filiaire,$cpt,"#FFFFFF");
     }else{
         $fct = 1;
         ajouterCompte($log,$pass,$fct);

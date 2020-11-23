@@ -44,7 +44,7 @@ if ($_POST) {
 	<div id="entete">
 		<ul class="liste-bloc">
 			<li class="liste-li-b">
-				<div class="icone-bloc"><img src="../img/menu/icone_java.png" alt="icone du bloc"></div>
+				<div class="icone-bloc"><img src="../img/bloc/<?php echo $tab_info['infoBloc']['nombloc']?>-logo.png" alt="icone du bloc"></div>
 			</li>
 			<?php
 				echo "<li class=\"liste-li-b2\"><h1 class='titre'>" . $tab_info['infoBloc']['nombloc'] . "</h1></li>";

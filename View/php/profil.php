@@ -4,6 +4,7 @@ session_start();
 include ("../../Controler/testConnectionEtudiant.php");
  
 include ("../../Controler/profilControler.php");
+$style = $_SESSION["couleurProfil"];
 ?>
 
 <!DOCTYPE html>
