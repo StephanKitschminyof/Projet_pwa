@@ -40,3 +40,18 @@ button,input{
 
 }
 
+
+.header{
+    height: 15vw;
+    padding-top: 5vw;
+}
+
+.corp{
+    height: 80vw;
+    
+}
+
+.all{
+    margin-bottom: 15vw;
+}
+

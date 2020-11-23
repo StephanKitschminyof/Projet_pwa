@@ -1,4 +1,9 @@
-<?php include("../../Controler/pageEleveBlocControler.php"); ?>
+<?php 
+session_start();
+//Redirection vers la page de connexion si pas de compte connecté
+include ("../../Controler/testConnectionEnseignant.php");
+
+include("../../Controler/pageEleveBlocControler.php"); ?>
 <!DOCTYPE html>
 <html>
     <head>
@@ -12,13 +17,11 @@
     </head>
 
     <body>
-
-        <div class="d">
             <?php liste_bloc(); ?>
             <script src="../js/listeDeroulante.js"></script>
-        </div>
+        
         <?php
-            include("./bottom_menu.php");
+            include("./bottom_menu_enseignant.php");
         ?>
 
         

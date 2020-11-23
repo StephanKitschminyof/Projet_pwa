@@ -156,6 +156,17 @@ function chercherCompetencesBlocEtu($idbloc,$idetu)
 	return $resultat;
 }
 
+//Chercher les compétences valide d'un bloc d'un étudiant
+ 
+function chercherCompetencesValideBlocEtu($idbloc,$idetu)
+{
+	global $bdd;
+	
+	$resultat = $bdd->query('SELECT COUNT(ce.idetu) FROM competanceetu ce INNER JOIN competances c ON ce.idcompetance = c.idcompetances WHERE ce.idetu = \'' . $idetu . '\' AND c.idbloc = \'' . $idbloc . '\' AND ce.date != \'NULL\'');
+				
+	return $resultat;
+}
+
 //Chercher les competances de l'etudiant
 function chercherCompetenceEtu($idcomp,$idetu)
 {
@@ -181,7 +192,7 @@ function chercherBlocs()
 {
 	global $bdd;
 	
-	$resultat = $bdd->query('SELECT * FROM bloc');
+	$resultat = $bdd->query('SELECT * FROM bloc ORDER BY nombloc');
 	
 	return $resultat;
 }
@@ -230,7 +241,7 @@ function chercherPromo(){
 	return $resultat;
 }
 
-//rechercher toutes les promos
+//rechercher la promo d'un eleve
 function chercherPromoEleve($idpromo){
 	global $bdd;
 	
@@ -279,6 +290,33 @@ function chercherClEtu($idetu,$idbloc){
 	global $bdd;
 
 	$resultat = $bdd->query('SELECT idetu,nom,prenom,COUNT(idetu),idpromo FROM competanceetu INNER JOIN etudiant ON competanceetu.idetu=etudiant.idetudiant INNER JOIN competances ON competanceetu.idcompetance=competances.idcompetances INNER JOIN bloc ON competances.idbloc=bloc.idbloc WHERE competanceetu.idetu='.$idetu.' AND date!="NULL" AND bloc.idbloc='.$idbloc);
+	
+	return $resultat;
+}
+
+//recherche d'un id de compte
+function chercherIdCompte(){
+	global $bdd;
+
+	$resultat = $bdd->lastInsertId();
+	
+	return $resultat;
+}
+
+//recherche du nombre d'etudiant qui ont une compétence
+function chercherNbEtuComp($idcomp){
+	global $bdd;
+
+	$resultat = $bdd->query('SELECT DISTINCT COUNT(idetu) FROM competanceetu WHERE idcompetance='.$idcomp);
+	
+	return $resultat;
+}
+
+//recherche du nombre d'etudiant qui ont validé une compétence
+function chercherNbEtuCompValide($idcomp){
+	global $bdd;
+
+	$resultat = $bdd->query('SELECT DISTINCT COUNT(idetu) FROM competanceetu WHERE idcompetance='.$idcomp.' AND date!="NULL"');
 	
 	return $resultat;
 }

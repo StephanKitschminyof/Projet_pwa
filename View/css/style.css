@@ -1,8 +1,14 @@
-
 /* Mise en forme globale des pages */
+@font-face {
+	font-family: "maven";
+	src: url(./police/MavenPro-Regular.ttf);
+}
+	
+
 *{
     margin: 0;
     padding: 0;
+    font-family: "maven";
 }
 
 html{
@@ -27,6 +33,7 @@ header{
     font-size: 4em;
     padding-top: 2%;
     padding-bottom: 1%;
+    z-index: 5;
 }
 
 #profil-header-left{
@@ -76,7 +83,7 @@ img{
     max-width: 100%;
     max-height: 100%;
 }
-
+/*
 .liste-bloc{
     padding: 15px;
     display: flex;
@@ -86,8 +93,7 @@ img{
     border-radius: 20px;
     font-size: 4vw;
     z-index: 0;
-
-}
+}*/
 
 /*
 .liste-li-b{
@@ -96,11 +102,9 @@ img{
     display: block;
     padding-left: 10%;
 }
-
 .liste-comp{
     margin-bottom: 12vw;
     z-index: 0;
-
 }
 .liste-comp-li{
     list-style: none;
@@ -108,60 +112,48 @@ img{
     padding: 5%;
     margin-left:10%;
     margin-right: 15%;
-
     margin-top: 5vw;
     border: 5px solid #CACACA;
     border-radius: 100px;
     background-color: #36393F;
-
     color:#A3A3A3;
 }
-
 .liste-comp-li-att{
     list-style: none;
     text-align: center;
     padding: 5%;
     margin-left:10%;
     margin-right: 15%;
-
     margin-top: 5vw;
     border: 5px solid #CA841B;
     border-radius: 100px;
     background-color: #36393F;
-
     color:#CA841B;
 }
-
 .liste-comp-li-val{
     list-style: none;
     text-align: center;
     padding: 5%;
     margin-left:10%;
     margin-right: 15%;
-
     margin-top: 5vw;
     border: 5px solid #CBBE45;
     border-radius: 100px;
     background-color: #36393F;
-
     color:#CBBE45;
 }
-
 .liste-comp-li-non-debloque{
     list-style: none;
     text-align: center;
     padding: 5%;
     margin-left:10%;
     margin-right: 15%;
-
     margin-top: 5%;
     border: 5px solid #CACACA;
     border-radius: 100px;
     background-color: #797979;
-
     color:#A3A3A3;
 }
-
 .val{
     color: #CA841B;
     background-color: #36393F;
@@ -172,9 +164,7 @@ img{
     margin-left: 11vw;
     margin-bottom: 12vw;
     font-size: 5vw;
-
 }
-
 .nonval{
     color: #CACACA;
     background-color: #36393F;
@@ -186,23 +176,19 @@ img{
     margin-left: 11vw;
     margin-bottom: 12vw;
     font-size: 5vw;
-
 }
-
 .titre-comp{
     color: #CACACA;
     height: 15vw;
     font-size: 10vw;
     margin-left: 5vw;
 }
-
 .description{
     color: #CACACA;
     height: 60vw;
     font-size: 5vw;
     margin-left: 5vw;
     margin-right: 5vw;
-
 }
 */
 /* Menu du bas */
@@ -229,7 +215,7 @@ img{
 }
 
 .liste-menu{
-    padding: 15px;
+    
     display: flex;
 }
 
@@ -244,6 +230,39 @@ img{
 
 .liste-a{
     text-decoration: none;
-    padding: 0 7.5vw;
+    width: 20vw;
+    padding-top: 2.5vw;
+    padding-bottom: 2.5vw;
     display: block;
+}
+
+.rechercher{
+    width: 50vw;
+    height: 6vw;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 4vw;
+    border: 1px solid #A3A3A3;
+    border-radius: 40px;
+}
+
+.recherche{
+    width: 50vw;
+    height: 6vw;
+    font-size: 4vw;
+    border: 1px solid #A3A3A3;
+    border-radius: 15px;
+}
+
+#notif{
+    border: 2px solid  #EA4E4E;
+    
+}
+
+#notif>a{
+    color: #EA4E4E;
+}
+
+.ul{
+    margin-bottom: 15vw;
 }

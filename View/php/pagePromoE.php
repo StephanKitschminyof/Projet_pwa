@@ -1,4 +1,9 @@
-<?php include("../../Controler/pagePromoEControler.php"); ?>
+<?php
+session_start();
+//Redirection vers la page de connexion si pas de compte connecté
+include ("../../Controler/testConnectionEnseignant.php");
+
+include("../../Controler/pagePromoEControler.php"); ?>
 <!DOCTYPE html>
 <html>
     <head>
@@ -11,13 +16,8 @@
 
     <body>
         
-        <div>
-            <form method="post">
-                <div>
-                    <input class="recherche" type="search" id="rechercher" name="recherche" value="" />
-                    <label for="rechercher"><img alt="icone loupe" src="" /></label>
-                </div>
-            </form>
+        <div class="rechercher">
+            <input class="recherche" type="search" id="rechercher" name="recherche" value="" placeholder=" Rechercher" />
         </div>
 
         <div>
@@ -25,7 +25,7 @@
         </div>
 
         <?php
-            include("./bottom_menu.php");
+            include("./bottom_menu_enseignant.php");
         ?>
         <script src="../js/jquery-3.5.1.min.js"></script>
         <script src="../js/filtreTest.js"></script>

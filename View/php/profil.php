@@ -1,5 +1,10 @@
-<?php session_start(); 
+<?php 
+session_start();
+//Redirection vers la page de connexion si pas de compte connecté
+include ("../../Controler/testConnectionEtudiant.php");
+ 
 include ("../../Controler/profilControler.php");
+$style = $_SESSION["couleurProfil"];
 ?>
 
 <!DOCTYPE html>

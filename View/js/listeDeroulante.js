@@ -18,7 +18,14 @@
                         $(this).toggleClass("afficher cacher");
                         $(".afficher").show(700);
                         $(".cacher").hide();
-                });
+                        
+                });/*
+                $(this).find(".affichern").each(function(){
+                    $(this).toggleClass("affichern cachern");
+                    $(".affichern").show(700);
+                    $(".cachern").hide();
+                    
+            });*/
             }
             
         });

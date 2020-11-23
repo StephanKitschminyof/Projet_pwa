@@ -11,17 +11,23 @@ var val = "all";
     $('#rechercher').keyup(function(event){
         var val = $(this).val();
         var regex = '\\b';
+        var regex = '\\b';
+        var special = ["+","*","/","$","^","?"];
         for(var i in val){
+         
+            if((special.indexOf(val[i]) > -1)){
+                regex += "\\";
+                
+            }
             regex += val[i];
+            
+            
         }
-        regex += '.*\\b';
-        //console.log(regex);
-        $('div').show();
-        $('div').find("h2").each(function(){//recup de tous les a de la page
+        regex += '.*';
+        $('.ac-menu').show();
+        $('.ac-menu').find("h2").each(function(){
             var elt = $(this);
-            //console.log(elt.text());//affichage de la valeur du champ a
             var res = elt.text().match(new RegExp(regex,'i'));
-            //console.log(res);
             
             if (!res){
                 elt.parent().hide();
@@ -35,10 +41,10 @@ var val = "all";
     $(".ac-menu").click(function(){
         var valeur = $(this).attr('id');
 
-        $(".ac-menu").find(".liste").each(function(){//recup de tous les a de la page
+        $(".ac-menu").find(".liste").each(function(){
             if($(this).attr('id')==valeur){
                 $(this).find("p").each(function(){
-                    console.log(val);
+                    //console.log(val);
                     if((val == "all")){
                         $(this).toggleClass("afficher cacher");
                         $(".afficher").show(700);
@@ -54,8 +60,7 @@ var val = "all";
                 });
             }
             
-        });/*
-        */
+        });
     });
 
 })(jQuery);
@@ -63,12 +68,11 @@ var val = "all";
 function updated(element){
     var idx=element.selectedIndex;
     val=element.options[idx].value;
-    /*$(".ac-menu").find(".liste").each(function(){//recup de tous les a de la page
-            $(this).find("p").each(function(){
-                    $(".afficher").hide();
-                    $(".cacher").hide(); 
-            });        
-    });*/
+    $(".ac-menu").find("p").each(function(){
+        $(this).attr("class","cacher");
+        $(".cacher").hide();
+    });
+
 };
         
     

@@ -25,6 +25,10 @@ h1 {
     font-size: 500%;
 }
 
+h2 {
+    text-align: center;
+}
+
 form{
     margin-left: auto;
     margin-right: auto;

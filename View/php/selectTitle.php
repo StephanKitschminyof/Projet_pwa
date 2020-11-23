@@ -1,4 +1,8 @@
-<?php session_start(); 
+<?php 
+session_start();
+//Redirection vers la page de connexion si pas de compte connecté
+include ("../../Controler/testConnectionEtudiant.php");
+
 include ("../../Controler/profilControler.php");
 
 //récupérations des titres a afficher
@@ -25,9 +29,9 @@ $tab_titres = listeTitres($_SESSION["idEtudiant"]);
             <?php
                 for($i = 0; $i < count($tab_titres); $i++)
                 {
-                    echo "<form action=\"../../Controler/saveTitre.php\" method=\"post\">";
+                    echo "<form class=\"formSub\" action=\"../../Controler/saveTitre.php\" method=\"post\">";
                         echo "<input name=\"nomtitre\" type=\"hidden\" value=\"".$tab_titres[$i]."\">";
-                        echo "<input type=\"submit\" value=\"".$tab_titres[$i]."\" >"; 
+                        echo "<input class=\buSub\" type=\"submit\" value=\"".$tab_titres[$i]."\" >"; 
                     echo "</form>";
                 }
             ?>

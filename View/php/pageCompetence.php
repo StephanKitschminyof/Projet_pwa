@@ -1,7 +1,11 @@
 <!DOCTYPE html> 
 <?php
-include ("../../Controler/pageCompetenceControler.php");
+session_start();
+//Redirection vers la page de connexion si pas de compte connecté
+include ("../../Controler/testConnectionEtudiant.php");
 
+include ("../../Controler/pageCompetenceControler.php");
+include ("../../Controler/profilControler.php");
 $tab_info = recupinfo();
 
 if ($_POST) {
@@ -32,11 +36,15 @@ if ($_POST) {
 	<link rel = "manifest" href = "../manifest.json">
 </head>
 <body>
+	<header>
+        <p id="profil-header-left"><?php echo substr($_SESSION['prenom'], 0, 1) . "." . $_SESSION['nom']; ?></p>
+        <p id="profil-header-right"><?php echo nomPromo(); ?></p>
+    </header>
 
 	<div id="entete">
 		<ul class="liste-bloc">
 			<li class="liste-li-b">
-				<div class="icone-bloc"><img src="../img/menu/icone_java.png" alt="icone du bloc"></div>
+				<div class="icone-bloc"><img src="../img/bloc/<?php echo $tab_info['infoBloc']['nombloc']?>-logo.png" alt="icone du bloc"></div>
 			</li>
 			<?php
 				echo "<li class=\"liste-li-b2\"><h1 class='titre'>" . $tab_info['infoBloc']['nombloc'] . "</h1></li>";
@@ -51,7 +59,7 @@ if ($_POST) {
 
         echo "<div class=\"description\">" . $tab_info['infocomp']['description'] . "</div>";
     
-	echo '<form method="post">';
+	echo '<form id="skillsButton" method="post">';
 	if($tab_info['dejaConnue']){
 		$comp = chercherCompetenceEtu($tab_info['infocomp']['idcompetances'],$tab_info['idetu'])->fetch();
 		if($comp['valide']){
@@ -84,4 +92,13 @@ if ($_POST) {
 
 
 </body>
+<script>
+        var color = <?php echo json_encode($_SESSION["couleurProfil"]);?>;
+        //Changement couleur pour les paragraphes
+        var Para = document.getElementsByTagName("p");
+        for (var i= 0; i < Para.length; i++)
+        {
+        Para[i].style.color = color;
+        }
+    </script>
 </html>
