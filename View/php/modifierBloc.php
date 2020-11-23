@@ -1,7 +1,7 @@
 <?php 
 session_start();
 //Redirection vers la page de connexion si pas de compte connecté
-include ("../../Controler/testConnectionEtudiant.php");
+include ("../../Controler/testConnectionEnseignant.php");
 
 include("../../Controler/modifierBlocControler.php"); ?>
 <!DOCTYPE html>
