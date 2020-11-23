@@ -1,5 +1,6 @@
 <?php
 
+include("../Model/script_bdd.php");
 
 $idbloc = $_GET['idbloc'];
 $bloc = chercherBlocId($idbloc)->fetch();

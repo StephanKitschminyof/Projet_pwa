@@ -1,7 +1,7 @@
 <?php 
 session_start();
 //Redirection vers la page de connexion si pas de compte connecté
-include ("../../Controler/testSession.php");
+include ("../../Controler/testConnectionEnseignant.php");
  ?>
 <!DOCTYPE html>
 <html>
@@ -30,7 +30,7 @@ include ("../../Controler/testSession.php");
         </div>
 
         <?php
-            include("./bottom_menu.php");
+            include("./bottom_menu_enseignant.php");
         ?>
     </body>
 </html>

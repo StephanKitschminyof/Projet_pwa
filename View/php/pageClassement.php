@@ -10,7 +10,7 @@ include("../../Controler/classementControler.php"); ?>
         <meta charset="utf-8">
         <title>Blocs enseignant</title>
         
-        <link rel="stylesheet" type="text/css" href="../css/styleBottomMenu.css">
+        <link rel="stylesheet" type="text/css" href="../css/style.css">
         <link rel="stylesheet" type="text/css" href="../css/styleClassement.css">
 
         <link rel = "manifest" href = "../manifest.json">
@@ -18,19 +18,15 @@ include("../../Controler/classementControler.php"); ?>
     </head>
 
     <body>
-        <div>
-            <form method="post">
-                <div>
-                    <input class="recherche" type="search" id="rechercher" name="recherche" value="" />
-                    <label for="rechercher"><img alt="icone loupe" src="" /></label>
-                </div>
-            </form>
+        <div class="rechercher">
+                    <input class="recherche" type="search" id="rechercher" name="recherche" value="" placeholder="Rechercher"/>
+
         </div>
         <div class="d">
         <?php  affiche_bloc()?>
         </div>
         <?php
-            include("./bottom_menu.php");
+            include("./bottom_menu_enseignant.php");
         ?>
 
         <script src="../js/jquery-3.5.1.min.js"></script>

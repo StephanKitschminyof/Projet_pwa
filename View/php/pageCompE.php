@@ -15,20 +15,15 @@ include("../../Controler/pageCompEController.php"); ?>
     </head>
 
     <body>
-        <div>
-            <form method="post">
-                <div>
-                    <input class="recherche" type="search" id="rechercher" name="recherche" value="" />
-                    <label for="rechercher"><img alt="icone loupe" src="" /></label>
-                </div>
-            </form>
+        <div class="rechercher">
+                    <input class="recherche" type="search" id="rechercher" name="recherche" value="" placeholder="Rechercher"/>
         </div>
 
         <div>
             <?php liste_etu(); ?>
         </div>
         <?php
-            include("./bottom_menu.php");
+            include("./bottom_menu_enseignant.php");
         ?>
         <script src="../js/jquery-3.5.1.min.js"></script>
         <script src="../js/filtreTest.js"></script>

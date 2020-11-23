@@ -10,7 +10,8 @@ function liste_bloc(){
     $idetu = $_GET['idetu'];
 
     $liste_bloc = chercherBlocEtu($idetu)->fetchAll();
-
+    $etu = chercherEtudiantParId($idetu)->fetch();
+    echo "<div class='ul'><div class='dtitre'><p>Élève : ".$etu['nom']." ".$etu['prenom']."<br><br>Liste des blocs</p></div>";
     
     for($i=0;$i<count($liste_bloc);$i++)
     {
@@ -33,8 +34,7 @@ function liste_bloc(){
                 
                 
                 if(count($notif) != 0){
-                    echo "<div class='afficher'><a href='./pageEtuE.php?idetu=".$idetu."&idcomp=".$liste_competance[$j]['idcompetances']."&valide=1'>".$liste_competance[$j]['nomcomp']."</a>";
-                    echo "<button class='notif'></button></div>";
+                    echo "<div class='afficher' id='notif'><a href='./pageEtuE.php?idetu=".$idetu."&idcomp=".$liste_competance[$j]['idcompetances']."&valide=1'>".$liste_competance[$j]['nomcomp']."</a></div>";
                 }else{
                     echo "<div class='afficher'><a href='./pageEtuE.php?idetu=".$idetu."&idcomp=".$liste_competance[$j]['idcompetances']."&valide=0'>".$liste_competance[$j]['nomcomp']."</a></div>";
                 }
@@ -42,6 +42,7 @@ function liste_bloc(){
                 
             }
             echo '</div>';
+            echo "</div>";
         }
 
         echo "</div>";

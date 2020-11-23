@@ -7,7 +7,17 @@ include("../../Model/script_bdd.php");
 
 function liste_bloc(){
     $liste_bloc = chercherBlocs()->fetchAll();
-    echo '<h1>Action sur les blocs</h1>';
+
+    echo '<div class="div">';
+    echo '<form method="post" action="../../Controler/ajouterBloc.php" enctype="multipart/form-data">
+    <h1 for="ajouter">Ajout d\'un bloc (fichier.json)</h2>
+    <input type=file id="ajouter" name="ajouter" />
+    <input type="submit" name="envoyer" value="Ajouter le bloc"> 
+    </form>';
+    echo '</div>';
+
+    echo '<br><h1>Liste des blocs</h1>';
+
     for($i=0;$i<count($liste_bloc);$i++){
         echo '<div class="div">';
 
@@ -22,13 +32,7 @@ function liste_bloc(){
    
 
 
-    echo '<div class="div">';
-    echo '<form method="post" action="../../Controler/ajouterBloc.php" enctype="multipart/form-data">
-    <h2 for="ajouter">Ajout d\'un bloc (fichier.json)</h2>
-    <input type=file id="ajouter" name="ajouter" />
-    <input type="submit" name="envoyer" value="Ajouter le bloc"> 
-    </form>';
-    echo '</div>';
+    
     
 }
 
