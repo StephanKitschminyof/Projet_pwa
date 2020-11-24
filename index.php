@@ -22,7 +22,7 @@
             </div>
             <div class="champ">
                 <label for="mdp">Mot de passe</label>
-                <input type="text" autocomplete="off" name="mdp" id="mdp" required>
+                <input type="password" autocomplete="off" name="mdp" id="mdp" required>
             </div>
             
             <div class="champ">
