@@ -48,9 +48,7 @@ $tab_donnees = recupinfo();?>
 	while ($donnees = $listeCompetences->fetch())
 	*/
 	$p = $tab_donnees["nbpaliers"];
-	if($p==0){
-		$p = 1;
-	}
+
 	//var_dump($p);
 	for($i=0;$i<$p*4;$i++)
 	{

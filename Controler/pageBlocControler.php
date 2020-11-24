@@ -21,11 +21,15 @@ function recupinfo(){
         $pourcentageBloc = round($CompetenceEtuVal/count($listeCompetences)*100);//création du pourcentage de competances finis dans le bloc
     }
 
-    $nbpaliers = ceil($pourcentageBloc / (100/$paliers)+0.2);
+    if($paliers != 0){
+        $nbpaliers = ceil($pourcentageBloc / (100/$paliers)+0.2);
+    }
+    else{
+        $nbpaliers = 0;
+    }
     if($nbpaliers > $paliers){
         $nbpaliers = $paliers;
     } 
-    var_dump($pourcentageBloc / (100/$paliers));
     return $tab_info =  array(
         "idetu" => $idetu,
         "nombloc" => $nombloc,
