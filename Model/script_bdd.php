@@ -198,11 +198,11 @@ function chercherBlocs()
 }
 
 //chercher les competances qui doivent êtres validé
-function chercherCompetanceNotif($idcomp)
+function chercherCompetanceNotif($idcomp,$idetu)
 {
 	global $bdd;
 
-	$resultat = $bdd->query('SELECT * FROM competanceetu WHERE idcompetance=\''.$idcomp.'\' AND date=\'NULL\' AND valide=1');
+	$resultat = $bdd->query('SELECT * FROM competanceetu WHERE idetu='.$idetu.' AND idcompetance=\''.$idcomp.'\' AND date=\'NULL\' AND valide=1');
 	
 	return $resultat;
 }
@@ -407,6 +407,11 @@ function ajouterCompetance($nomcomp, $description, $expraporte, $idbloc)
 		'expraporte' => $expraporte,
 		'idbloc' => $idbloc
 	));
+
+	$req = $bdd->prepare('UPDATE bloc SET nombrecomp=nombrecomp+1 WHERE idbloc =:idbloc');
+	$req->execute(array(
+		'idbloc' => $idbloc
+	));
 }
 
 
@@ -587,6 +592,17 @@ function updateComp($idcomp,$titrec,$descr){
 		'titrec' => $titrec,
 		'descr' => $descr,
 		'idcomp' => $idcomp
+	));
+}
+
+//maj comp
+function updateTitreBloc($idbloc,$titre){
+	global $bdd;
+
+	$req = $bdd->prepare('UPDATE bloc SET nombloc=:titreb WHERE idbloc=:idbloc');
+	$req->execute(array(
+		'idbloc' => $idbloc,
+		'titreb' => $titre
 	));
 }
 

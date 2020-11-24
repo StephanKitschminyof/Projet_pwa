@@ -38,13 +38,17 @@ function createaccordion($blocs){
         // Pour chaque compétence du bloc : création d'une div de compétence dans le .collapse
         foreach ($competence as &$value2) {
             $prog = chercherCompetenceEtu($value2['idcompetances'],$_SESSION['idEtudiant'])->fetch();
-            if($prog['valide'] == 1 && $prog['date']=="NULL")
+            if(($prog['valide'] == 0 && $prog['date']=="NULL" && $prog['connue']==1))
             {
-                echo "<div class=\"bloc_resume_competence\"><p class=\"nom_competence\">".$value2['nomcomp']."</p><p class=\"date_acqu\">—</p></div>"; // Si la compétence n'est pas encore validée
+                echo "<div class=\"bloc_resume_competence connue\"><p class=\"nom_competence\">".$value2['nomcomp']."</p><p class=\"date_acqu\">—</p></div>"; // Si la compétence n'est pas encore validée
+            }
+            else if($prog['valide'] == 1 && $prog['date']!="NULL")
+            {
+                echo "<div class=\"bloc_resume_competence debloque\"><p class=\"nom_competence\">".$value2['nomcomp']."</p><p class=\"date_acqu\">".$prog['date']."</p></div>"; // Si la compétence est validée
             }
             else
             {
-                echo "<div class=\"bloc_resume_competence debloque\"><p class=\"nom_competence\">".$value2['nomcomp']."</p><p class=\"date_acqu\">".$prog['date']."</p></div>"; // Si la compétence est validée
+                echo "<div class=\"bloc_resume_competence\"><p class=\"nom_competence\">".$value2['nomcomp']."</p><p class=\"date_acqu\">—</p></div>"; // Si la compétence n'est pas encore validée ni connue
             }
         }
         echo "</div>";    

@@ -47,7 +47,12 @@ $tab_donnees = recupinfo();?>
 	/*
 	while ($donnees = $listeCompetences->fetch())
 	*/
-	for($i=0;$i<count($tab_donnees["listeCompetences"]);$i++)
+	$p = $tab_donnees["nbpaliers"];
+	if($p==0){
+		$p = 1;
+	}
+	//var_dump($p);
+	for($i=0;$i<$p*4;$i++)
 	{
 		if(in_array($tab_donnees["listeCompetences"][$i],$tab_donnees["listeCompetencesEtu"]))
 		{
@@ -55,24 +60,24 @@ $tab_donnees = recupinfo();?>
 			$comp = chercherCompetenceEtu($tab_donnees["listeCompetences"][$i]['idcompetances'],$tab_donnees["idetu"])->fetch();
 			if($comp['valide'] == "NULL" || $comp['valide'] == 0){
 				//si non validé
-				echo "<li onclick=\"location.href='pageCompetence.php?idcomp=". $comp['idcompetance'] ."&nombloc=". $tab_donnees["nombloc"] ."'\" class=\"liste-comp-li\"><div class=\"comp\">" . intdiv($palier,4) . "</div><div class=\"comp\">" . $tab_donnees["listeCompetences"][$i]['nomcomp'] . "</div><div class=\"comp\">" . $tab_donnees["listeCompetences"][$i]['expraporte'] . " XP</div</li>";
+				echo "<li onclick=\"location.href='pageCompetence.php?idcomp=". $comp['idcompetance'] ."&nombloc=". $tab_donnees["nombloc"] ."'\" class=\"liste-comp-li\">" . intdiv($palier,4) . "<br>" . $tab_donnees["listeCompetences"][$i]['nomcomp'] . "<br>" . $tab_donnees["listeCompetences"][$i]['expraporte'] . " XP</li>";
 			}
 			elseif($comp['valide'] == 1 && $comp['date']=="NULL")
 			{
 				//si en attente
-				echo "<li onclick=\"location.href='pageCompetence.php?idcomp=". $comp['idcompetance'] ."&nombloc=". $tab_donnees["nombloc"] ."'\" class=\"liste-comp-li-att\"><div class=\"comp-att\">" . intdiv($palier,4) . "</div><div class=\"comp-att\">" . $tab_donnees["listeCompetences"][$i]['nomcomp'] . "</div><div class=\"comp-att\">" . $tab_donnees["listeCompetences"][$i]['expraporte'] . " XP</div</li>";
+				echo "<li onclick=\"location.href='pageCompetence.php?idcomp=". $comp['idcompetance'] ."&nombloc=". $tab_donnees["nombloc"] ."'\" class=\"liste-comp-li-att\">" . intdiv($palier,4) . "<br>" . $tab_donnees["listeCompetences"][$i]['nomcomp'] . "<br>" . $tab_donnees["listeCompetences"][$i]['expraporte'] . " XP</li>";
 			
 			}
 			else
 			{
 				//si validé
-				echo "<li onclick=\"location.href='pageCompetence.php?idcomp=". $comp['idcompetance'] ."&nombloc=". $tab_donnees["nombloc"] ."'\" class=\"liste-comp-li-val\"><div class=\"comp-val\">" . intdiv($palier,4) . "</div><div class=\"comp-val\">" . $tab_donnees["listeCompetences"][$i]['nomcomp'] . "</div><div class=\"comp-val\">" . $tab_donnees["listeCompetences"][$i]['expraporte'] . " XP</div</li>";
+				echo "<li onclick=\"location.href='pageCompetence.php?idcomp=". $comp['idcompetance'] ."&nombloc=". $tab_donnees["nombloc"] ."'\" class=\"liste-comp-li-val\">" . intdiv($palier,4) . "<br>" . $tab_donnees["listeCompetences"][$i]['nomcomp'] . "<br>" . $tab_donnees["listeCompetences"][$i]['expraporte'] . " XP</li>";
 			}
 		}
 		else
 		{
 			//si non validé
-			echo "<li onclick=\"location.href='pageCompetence.php?idcomp=". $tab_donnees["listeCompetences"][$i]['idcompetances'] ."&nombloc=". $tab_donnees["nombloc"] ."'\" class=\"liste-comp-li\"><div class=\"comp\">" . intdiv($palier,4) . "</div><div class=\"comp\">" . $tab_donnees["listeCompetences"][$i]['nomcomp'] . "</div><div class=\"comp\">" . $tab_donnees["listeCompetences"][$i]['expraporte'] . " XP</div</li>";
+			echo "<li onclick=\"location.href='pageCompetence.php?idcomp=". $tab_donnees["listeCompetences"][$i]['idcompetances'] ."&nombloc=". $tab_donnees["nombloc"] ."'\" class=\"liste-comp-li\">" . intdiv($palier,4) . "<br>" . $tab_donnees["listeCompetences"][$i]['nomcomp'] . "<br>" . $tab_donnees["listeCompetences"][$i]['expraporte'] . " XP</li>";
 		}
 		$palier++;
 	}

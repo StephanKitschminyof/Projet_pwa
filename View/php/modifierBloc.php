@@ -18,6 +18,7 @@ include("../../Controler/modifierBlocControler.php"); ?>
 
     <body>
         <div class="ul">
+        <input type="button" onClick="document.location.href='./pageBlocE.php'" value="Retour" name="retour" class="retour" />
             <?php liste_bloc() ?>
         </div>
         
