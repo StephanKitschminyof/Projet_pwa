@@ -15,7 +15,9 @@ include("../../Controler/pageElevePromoControler.php"); ?>
     </head>
 
     <body>
+    <input type="button" onClick="document.location.href='./pagePromoE.php'" value="Retour" name="retour" class="retour" />
         <div class="rechercher">
+                    
                     <input class="recherche" type="search" id="rechercher" name="recherche" value="" placeholder="Rechercher"/>
         </div>
 

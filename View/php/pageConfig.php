@@ -63,13 +63,13 @@ if ($_POST) {
     <div  class="form">
     <form method="post">
         <label for="mdpa">Mot de passe actuel</label>
-        <input class="champ" type="text" id="mdpa" name="mdpa" />
+        <input class="champ" autocomplete="off" type="text" id="mdpa" name="mdpa" />
 
         <label for="nmdp">Nouveau mot de passe</label>
-        <input class="champ" type="text" id="nmdp" name="nmdp"/>
+        <input class="champ" autocomplete="off" type="text" id="nmdp" name="nmdp"/>
 
         <label for="cmdp">Confirmation du nouveau mot de passe</label>
-        <input class="champ" type="text" id="cmdp" name="cmdp"/>
+        <input class="champ" autocomplete="off" type="text" id="cmdp" name="cmdp"/>
 
         <input type="submit" name="valider" value="Valider" />
 

@@ -237,13 +237,26 @@ img{
 }
 
 .rechercher{
+    
     width: 50vw;
     height: 6vw;
     margin-left: auto;
     margin-right: auto;
     margin-top: 4vw;
-    border: 1px solid #A3A3A3;
-    border-radius: 40px;
+
+}
+
+.retour{
+    color: #CACACA;
+    background-color: #36393F;
+    border-radius: 15px;
+    height: 6vw;
+    width: 25%;
+    border: 1px solid #CACACA;
+    margin-left: 5vw;
+    
+    font-size: 4vw;
+    margin-top: 5vw;
 }
 
 .recherche{
@@ -252,6 +265,8 @@ img{
     font-size: 4vw;
     border: 1px solid #A3A3A3;
     border-radius: 15px;
+    
+
 }
 
 #notif{

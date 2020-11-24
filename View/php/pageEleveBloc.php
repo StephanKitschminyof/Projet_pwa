@@ -3,7 +3,8 @@ session_start();
 //Redirection vers la page de connexion si pas de compte connecté
 include ("../../Controler/testConnectionEnseignant.php");
 
-include("../../Controler/pageEleveBlocControler.php"); ?>
+include("../../Controler/pageEleveBlocControler.php"); 
+$url = "./pageElevePromo.php?idpromo=".$_GET['idpromo']."&nompromo=".$_GET['nompromo'];?>
 <!DOCTYPE html>
 <html>
     <head>
@@ -17,6 +18,7 @@ include("../../Controler/pageEleveBlocControler.php"); ?>
     </head>
 
     <body>
+            <input type="button" onClick="document.location.href='<?php echo $url; ?>'" value="Retour" name="retour" class="retour" />
             <?php liste_bloc(); ?>
             <script src="../js/listeDeroulante.js"></script>
         

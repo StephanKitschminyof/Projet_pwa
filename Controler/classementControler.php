@@ -77,7 +77,7 @@ echo '<h2>(Position - Nom - Pourcentage validé)</h2>';
 
         $liste_etu_bloc = chercherEtuBloc($liste_bloc[$i]['idbloc'])->fetchAll();
             for($j=0;$j<count($liste_etu_bloc);$j++){
-                if((chercherEtudiantParId($liste_etu_bloc[$j]['idetudiant'])->fetch())['idpromo'] == $etu['idetudiant']){
+                if((chercherEtudiantParId($liste_etu_bloc[$j]['idetudiant'])->fetch())['idpromo'] == $etu['idpromo']){
                     $resultat = chercherClEtu($liste_etu_bloc[$j]["idetudiant"],$liste_bloc[$i]['idbloc'])->fetch();
                     $pourcent = $resultat["COUNT(idetu)"]/$liste_etu_bloc[$j]["nombrecomp"]*100;
                     $tab[$j+1] = array("nom" => $resultat["nom"],"prenom" => $resultat["prenom"],"pourcent" => intval($pourcent),"promo" => $resultat["idpromo"]);

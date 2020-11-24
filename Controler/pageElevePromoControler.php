@@ -15,7 +15,7 @@ function liste_eleve(){
     for($i=0;$i<count($liste_eleve);$i++)
     {
         echo "<div class='li'>";
-        echo "<a href='./pageEleveBloc.php?idetu=".$liste_eleve[$i]['idetudiant']."'>".$liste_eleve[$i]['nom']." ".$liste_eleve[$i]['prenom']."</a>";
+        echo "<a href='./pageEleveBloc.php?idetu=".$liste_eleve[$i]['idetudiant']."&idpromo=".$idPromo."&nompromo=".$promo."'>".$liste_eleve[$i]['nom']." ".$liste_eleve[$i]['prenom']."</a>";
         echo "</div>";
 
     }

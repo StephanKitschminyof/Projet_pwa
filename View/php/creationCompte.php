@@ -18,7 +18,7 @@
             </div>
             <div class="champ1">
                 <label for="mdp">Mot de passe</label>
-                <input type="text" name="mdp" id="mdp" required>
+                <input type="password" name="mdp" id="mdp" required>
             </div>
             
             <div class="champ2">
