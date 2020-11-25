@@ -13,7 +13,7 @@
     </head>
     <body>
         <?php if(isset($_GET['nvx'])){echo '<script>alert("Le compte à été créé avec succès")</script>';} ?>
-        <h1>NOM DE L'APP</h1>
+        <h1>WikiSkills</h1>
 
         <form action="Controler/connexion.php" method="post">
             <div class="champ">
