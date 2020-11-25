@@ -50,7 +50,16 @@ if ($_POST) {
 
     <div id="debut">
         <form method="POST" action="<?php echo "../../Controler/changementImageProfil.php?nom=".$tab_info['infoEtu']['nom']."&prenom=".$tab_info['infoEtu']['prenom'];?>" enctype="multipart/form-data">
-            <label class="label-file" for="photo-profil"><?php echo '<img class="img-profil" src="../img/profil/'.$tab_info['infoEtu']['prenom']."-".$tab_info['infoEtu']['nom'].'.jpg" alt="photo de profil" />'; ?></label>
+            <label class="label-file" for="photo-profil">
+            <?php 
+                $filename = "../img/profil/".$tab_info['infoEtu']['prenom']."-".$tab_info['infoEtu']['nom'].".jpg";
+                if(file_exists($filename)){
+                    echo '<img class="img-profil" src="../img/profil/'.$tab_info['infoEtu']['prenom']."-".$tab_info['infoEtu']['nom'].'.jpg" alt="photo de profil" />'; 
+                }
+                else{
+                    echo '<img class="img-profil" src="../img/profil/default.jpg" alt="photo de profil" />';
+                }
+               ?></label>
             <input type="file" name="profil" id="photo-profil" class="photo-profil">
             <input type="submit" name="envoyer" value="Envoyer le fichier">
         </form>

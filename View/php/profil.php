@@ -26,7 +26,13 @@ $style = $_SESSION["couleurProfil"];
             <div id="profil-content-centre">
                 <?php 
                 $impProfilLink = "../img/profil/". $_SESSION['prenom'] . "-" . $_SESSION["nom"] . ".jpg";
-                echo ("<a href='pageConfig.php'><img id=\"imgProfil\" src=".$impProfilLink." alt=\"image profil\"></a>");?>
+                if(file_exists($impProfilLink)){
+                    echo ("<a href='pageConfig.php'><img id=\"imgProfil\" src=".$impProfilLink." alt=\"image profil\"></a>");
+                }
+                else{
+                    echo ("<a href='pageConfig.php'><img id=\"imgProfil\" src=\"../img/profil/default.jpg\" alt=\"image profil\"></a>");
+                }
+                ?>
                 <p>NIV : <?php echo niv();?></p>
                 <p><?php echo xp();?> Xp</p>
             </div>

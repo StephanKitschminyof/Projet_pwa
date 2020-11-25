@@ -11,6 +11,7 @@ include ("../../Controler/profilControler.php");?>
         <title>Menu d'un étudiant</title>
         <link rel="stylesheet" type="text/css" href="../css/style.css">
         <link rel="stylesheet" type="text/css" href="../css/styleMenu.css">
+        <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
         <link rel = "manifest" href = "../manifest.json">
     </head>
 
@@ -145,9 +146,17 @@ include ("../../Controler/profilControler.php");?>
                 //Changement de l'image de profil 
                 var nom = <?php echo json_encode($_SESSION['nom'])?>;
                 var prenom = <?php echo json_encode($_SESSION['prenom'])?>;
-                var imgProfil = "url(\"../img/profil/"+prenom+"-"+nom+".jpg\")";
-                console.log(imgProfil);
-                document.getElementById("dot").style.backgroundImage = imgProfil; //TODO voir comment gérer jpg / png / ... (pour montrer au prof osef non ?)
+
+                //Chargement de l'image du profil
+                $.get("../img/profil/"+prenom+"-"+nom+".jpg")
+                    .done(function(data){
+                        imgProfil = "url(\"../img/profil/"+prenom+"-"+nom+".jpg\")";
+                        document.getElementById("dot").style.backgroundImage = imgProfil;
+                    })
+                    .fail(function(){
+                        imgProfil = "url(\"../img/profil/default.jpg\")";
+                        document.getElementById("dot").style.backgroundImage = imgProfil;   
+                    })
 
                 // SWIPE
                 var w = window.screen.width;
