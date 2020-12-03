@@ -47,7 +47,9 @@ include ("../../Controler/profilControler.php");?>
             <a id="block-7-a" href=""><img class="block" id="block-7" src="../img/bloc/NonDef-logo.png" alt="Logo d'un bloc"></a>
 
             <script>
-                
+                /**
+                 * Widget permettant d'avoir un spinnerWheelMenu
+                 */
                 function spinner(){
                     //Objectif modifier les 8 div pour leur donner les bonnes infos
                     nbBlocs = 0;
@@ -98,7 +100,9 @@ include ("../../Controler/profilControler.php");?>
                     }
                 }
 
-                //Permet d'afficher les 8 blocs suivant
+                /**
+                 * Permet d'afficher les 8 blocs suivant
+                 * */
                 function spinnerSuiv(){
                     if((indiceMenu+1)*8-1 < tabBlocs.length)
                     {
@@ -107,7 +111,9 @@ include ("../../Controler/profilControler.php");?>
                     }                    
                 }
 
-                //Permet d'afficher les 8 blocs précédent 
+                /**
+                 * Permet d'afficher les 8 blocs précédent 
+                 * */
                 function spinnerPrec(){
                     if(indiceMenu > 0){
                         indiceMenu = indiceMenu - 1;
@@ -115,9 +121,13 @@ include ("../../Controler/profilControler.php");?>
                     }
                 }
 
-                //Permet de changer les blocs a afficher suivant une recherche
+                /**
+                 * Permet de changer les blocs a afficher suivant une recherche
+                 * 
+                 * @params {string} val
+                 *      recherche d'un titre de bloc correspodant
+                 */
                 function recherche(val){
-                    console.log(val);
                     //1 Réinitialise la recherche
                     tabBlocs = <?php echo json_encode($tabBlocs)?>;
 
