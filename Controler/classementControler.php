@@ -1,6 +1,9 @@
 <?php
 include '../../Model/script_bdd.php';
 
+/**
+ * Affiche sous forme html la liste des blocs
+ */
 function affiche_bloc(){
     $liste_promo = chercherPromo()->fetchAll();
     echo '<label for="fp">Filtre :</label>
@@ -58,7 +61,9 @@ echo '<h2>(Position - Nom - Pourcentage validé)</h2>';
 }
 
 
-
+/**
+ * Affiche la liste des blocs d'un étudiant sous forme html
+ */
 function affiche_bloc_etu(){
     $etu = chercherEtudiantParId($_SESSION["idEtudiant"])->fetch();
     $promo = chercherPromoEtudiant($etu['idpromo'])->fetch();

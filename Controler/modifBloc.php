@@ -1,10 +1,9 @@
 <?php
 include("../../Model/script_bdd.php");
 
-
-
-      
-    
+/**
+ * affiche la page pour modifier un bloc
+ */
 function page(){ 
 
     $idbloc = $_GET['idbloc'];

@@ -1,6 +1,7 @@
 <?php
 include("../Model/script_bdd.php");
 
+//Dans le cas ou l'on recoit bien les données
 if(isset($_FILES['ajouter']) AND !empty($_FILES['ajouter']['name'])) {
 
     $extensionsValides = array('json');
