@@ -3,6 +3,9 @@ session_start();
 
 include_once("../../Model/script_bdd.php");
 
+/**
+ * Permet d'afficher en html les stats
+ */
 function stats(){
     $liste_bloc = chercherBlocs()->fetchAll();
 

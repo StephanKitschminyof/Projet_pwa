@@ -6,6 +6,9 @@ if(empty($_SESSION))
 
 include_once("../../Model/script_bdd.php");
 
+/**
+ * Permet d'afficher en html la liste des promos
+ */
 function liste_promo(){
     $liste_promo = chercherPromo()->fetchAll();
     echo "<div class='ul'><div class='dtitre'><p>Liste des promotions</p></div>";
