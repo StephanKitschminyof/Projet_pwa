@@ -5,8 +5,12 @@ if(empty($_SESSION))
 }
 include_once("../../Model/script_bdd.php");
 
+//Initialisation
 $idcomp = $_GET['comp'];
 
+/**
+ * Permet d'afficher la liste des étudiants
+ */
 function liste_etu(){
     global $idcomp;
     $comp = chercherCompetence($idcomp)->fetch();

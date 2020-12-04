@@ -75,6 +75,11 @@ include ("../../Controler/profilControler.php");?>
 		var color = <?php echo json_encode($_SESSION["couleurProfil"]);?>;
 		setColorSelectColor(color);
 
+        /**
+         * Permet de signaler a l'utilisateur le niveau requis pour utiliser une couleur bloqué
+         * @params {int} lvl
+         *      le niveau requis
+         */
         function Message(lvl){
             var msg = "Le niveau requis pour débloquer cette couleur est : " + lvl;
             alert(msg);

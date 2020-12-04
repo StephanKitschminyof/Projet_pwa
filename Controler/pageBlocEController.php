@@ -5,6 +5,9 @@ if(empty($_SESSION))
 }
 include_once("../../Model/script_bdd.php");
 
+/**
+ * Permet d'afficher en html la liste des blocs
+ */
 function liste_bloc(){
     $liste_bloc = chercherBlocs()->fetchAll();
     echo '<div class="ul">';
@@ -45,7 +48,9 @@ function liste_bloc(){
     echo "</div>";
 }
 
-
+/**
+ * Permet d'afficher en html une liste des blocs simplifié
+ */
 function liste_bloc_simple(){
     $liste_bloc = chercherBlocs()->fetchAll();
     for($i=0;$i<count($liste_bloc);$i++){
@@ -70,7 +75,15 @@ function liste_bloc_simple(){
 }
 
 
-
+/**
+ * Permet de vérifier si un bloc est dans le menu d'un étudiant
+ * @param int $idbloc
+ *      l'identifiant du bloc
+ * @param int $idEtudiant
+ *      l'identifiant de l'étudiant
+ * @return bool
+ *      true si le bloc est dans le menu sinon false
+ */
 function estDansMenu($idbloc, $idEtudiant){
     $reponse = chercherBlocEtudiant($idEtudiant);
     while($donnees = $reponse->fetch()){

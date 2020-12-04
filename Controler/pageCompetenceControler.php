@@ -7,6 +7,11 @@ if((include_once '../../Model/script_bdd.php') === FALSE){
     include("../../Model/script_bdd.php");
 }
 
+/**
+ * Permet de récupérer les informations sur les compétences d'un bloc d'un étudiant
+ * @return array
+ *      les inforamtions
+ */
 function recupinfo(){
     $idetu = $_SESSION['idEtudiant'];//id de l'étu
     $nombloc = $_GET['nombloc'];//nom du bloc recuperé de la page précédante

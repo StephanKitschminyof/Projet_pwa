@@ -6,13 +6,18 @@ if(empty($_SESSION))
 
 include_once("../../Model/script_bdd.php");
 
+//Initialisation
 $idetu = $_GET['idetu'];//id de l'étu
 $idcomp = $_GET['idcomp'];//id de la competence
 
 $infocomp = chercherCompetence($idcomp)->fetch();
 $infoetu = chercherEtudiantParId($idetu)->fetch();
 
-
+/**
+ * Permet de récupérer les informations sur une compétence d'un étudiant
+ * @return array
+ *      les informations
+ */
 function recupinfo(){
     global $infocomp;
     global $infoetu;
@@ -29,6 +34,11 @@ function recupinfo(){
         );
 }
 
+/**
+ * Permet de valider une compétence d'un étudiant
+ * @param string $page  
+ *      la page pour la redirection après exécution de la fonction
+ */
 function valideCompEtu($page){
     global $idcomp;
     global $infocomp;

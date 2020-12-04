@@ -5,6 +5,9 @@ if(empty($_SESSION))
 }
 include("../../Model/script_bdd.php");
 
+/**
+ * Permet d'afficher en html la liste des blocs
+ */
 function liste_bloc(){
     $liste_bloc = chercherBlocs()->fetchAll();
 
