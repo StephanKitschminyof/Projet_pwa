@@ -1,6 +1,14 @@
 <?php
 include_once("../../Model/script_bdd.php");
 
+/**
+ * Donne la liste des blocs associés a un étudiant
+ * 
+ * @param int $idEtudiant
+ *      l'identifiant de l'étudiant
+ * @return array 
+ *      la liste des blocs de l'étudiant
+ */
 function blocsPourUnEtudiant($idEtudiant)
 {
     $tabBlocs = array();

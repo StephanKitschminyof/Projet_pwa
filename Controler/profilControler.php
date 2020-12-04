@@ -5,6 +5,12 @@ if(empty($_SESSION))
 }
 include_once("../../Model/script_bdd.php");
 
+
+/**
+ * Pour récupérer le nom d'une promo d'un étudiant
+ * @return string
+ *      le nom de la promo
+ */
 function nomPromo()
 {
     $reponse = chercherPromoEtudiant($_SESSION['idEtudiant']);
@@ -18,7 +24,11 @@ function nomPromo()
     }
 }
 
-
+/**
+ * Pour récupérer le niveau d'un étudiant
+ * @return int 
+ *      le niveau de l'étudiant
+ */
 function niv()
 {
     $reponse = chercherEtudiantParNomEtPrenom($_SESSION["nom"], $_SESSION["prenom"]);
@@ -32,6 +42,11 @@ function niv()
     }
 }
 
+/**
+ * Pour récupérer l'xp d'un étudiant
+ * @return int 
+ *      l'xp de l'étudiant
+ */
 function xp()
 {
     $reponse = chercherEtudiantParNomEtPrenom($_SESSION["nom"], $_SESSION["prenom"]);
@@ -45,7 +60,11 @@ function xp()
     }
 }
 
-//Récupérer le titre de l'étudiant a afficher
+/**
+ * Récupérer le titre de l'étudiant a afficher
+ * @return string
+ *      le titre de l'étudiant
+*/
 function titre(){
     $reponse = chercherTitre($_SESSION["idTitre"]);
     if($result= $reponse->fetch())
@@ -57,7 +76,13 @@ function titre(){
     }
 }
 
- //Récupère la liste des blocs d'un étudiant
+/**
+ * Récupère la liste des blocs d'un étudiant
+ * @param int $idEtudiant
+ *      L'identifiant d'un étudiant
+ * @return array
+ *      La liste des identifiants des blocs d'un étudiant
+ */
 function blocsDunEtudiant($idEtudiant)
 {
     $tabBlocs = array();
@@ -69,11 +94,16 @@ function blocsDunEtudiant($idEtudiant)
     return $tabBlocs;
 }
 
-//Afficher tous les titres que l'étudiant peut utiliser
+/**
+ * Afficher tous les titres que l'étudiant peut utiliser
+ * @param int $idEtudiant
+ *      l'identifiant d'un étudiant
+ * @return array
+ *      la liste des titres dont disposes l'étudiant
+ */
 function listeTitres($idEtudiant)
 {    
     $listeTitres = array();
-
 
     //Selection des blocs de l'étudiants
     $tabIdBloc = blocsDunEtudiant($idEtudiant);

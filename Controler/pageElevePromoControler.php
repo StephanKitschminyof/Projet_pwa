@@ -6,6 +6,9 @@ if(empty($_SESSION))
 
 include_once("../../Model/script_bdd.php");
 
+/**
+ * Permet d'afficher en html la liste des étudiants
+ */
 function liste_eleve(){
     $idPromo = $_GET['idpromo'];
     $promo = $_GET['nompromo'];

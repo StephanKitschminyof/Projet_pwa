@@ -5,6 +5,11 @@ if(empty($_SESSION))
 }
 include_once("../../Model/script_bdd.php");
 
+/**
+ * Permet d'avoir les informations d'un bloc lié a un étudiant
+ * @return array
+ *      la liste des informations sur le bloc par rapport a l'étudiant tel que les compétences réalisé, son pourcentage de réalisation,...
+ */
 function recupinfo(){
     $idetu = $_SESSION['idEtudiant'];//id de l'étu
     $nombloc = $_GET['nomBloc'];//nom du bloc recuperé de la page précédante

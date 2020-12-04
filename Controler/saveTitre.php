@@ -2,6 +2,7 @@
 session_start();
 include_once("../Model/script_bdd.php");
 
+//Si on récupère bien les informations
 if(isset($_POST['nomtitre']) and !empty($_POST['nomtitre'])){
 
     //Trouver l'id du titre
